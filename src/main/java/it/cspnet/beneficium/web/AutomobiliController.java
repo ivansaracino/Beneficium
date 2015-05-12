@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author ivan
  */
 @Controller
-public class AutomibiliController {
+public class AutomobiliController {
 
     @Autowired
     private BenefitServices servizi;
