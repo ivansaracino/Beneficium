@@ -5,14 +5,15 @@
  */
 package it.cspnet.beneficium.data;
 
-import it.cspnet.beneficium.model.Automobile;
+import it.cspnet.beneficium.model.Cellulare;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author ivan
+ * @author corsojava
  */
-public interface AutomobiliRepository extends JpaRepository<Automobile, Integer> {
-    
+@Repository
+public interface CellulariRepository extends JpaRepository<Cellulare, Integer>{
     
 }

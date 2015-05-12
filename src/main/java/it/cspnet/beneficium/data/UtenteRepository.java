@@ -5,14 +5,17 @@
  */
 package it.cspnet.beneficium.data;
 
-import it.cspnet.beneficium.model.Automobile;
+import it.cspnet.beneficium.model.Utente;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author ivan
+ * @author dave
  */
-public interface AutomobiliRepository extends JpaRepository<Automobile, Integer> {
+@Repository
+public interface UtenteRepository extends JpaRepository<Utente,String>{
+    Utente findByUsernameAndPassword(String username, String password);
     
     
 }
