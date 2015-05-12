@@ -5,7 +5,11 @@
  */
 package it.cspnet.beneficium.services;
 
+<<<<<<< HEAD
 import it.cspnet.beneficium.model.Utente;
+=======
+import it.cspnet.beneficium.model.Automobile;
+>>>>>>> ad8a7f42012c42dad71b46aa12b55bf5ca51436c
 
 /**
  *
@@ -14,5 +18,7 @@ import it.cspnet.beneficium.model.Utente;
 public interface BenefitServices {
 
     public Utente findUtente(Utente u) throws Exception;
+    
+    public void aggiungiAutomobile(Automobile automobile);
     
 }
