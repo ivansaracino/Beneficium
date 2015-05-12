@@ -14,6 +14,8 @@ import it.cspnet.beneficium.model.Automobile;
  *
  * @author ivan
  */
+    
+
 
 public interface BenefitServices {
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception;
@@ -24,9 +26,4 @@ public interface BenefitServices {
     public Dipendente aggiungiDipendente(Dipendente dipendente);
     
     public void aggiungiAutomobile(Automobile automobile);
-
-    
-   
-    
-
 }
