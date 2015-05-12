@@ -21,30 +21,28 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class BenefitServicesImpl implements BenefitServices {
-    
+
     @Autowired
     private AutomobiliRepository repAutomobile;
-    
+
     @Autowired
     private UtenteRepository utenteRepository;
-    
-     @Autowired
+
+    @Autowired
     private CellulariRepository cellulariRepository;
 
+    public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception {
+        return cellulariRepository.save(cellulare);
+    }
 
     @Transactional
     public Utente findUtente(Utente u) throws Exception {
-        
-       return utenteRepository.findByUsernameAndPassword(u.getUsername(), u.getPassword());
-       
+         return utenteRepository.findByUsernameAndPassword(u.getUsername(), u.getPassword());
+
     }
-    
+
     public void aggiungiAutomobile(Automobile automobile) {
         repAutomobile.save(automobile);
-     
-    }
-   
-    public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception {
-       return cellulariRepository.save(cellulare);
+
     }
 }
