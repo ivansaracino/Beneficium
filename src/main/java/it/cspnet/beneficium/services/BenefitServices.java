@@ -5,14 +5,29 @@
  */
 package it.cspnet.beneficium.services;
 
+
 import it.cspnet.beneficium.model.Cellulare;
 import org.springframework.stereotype.Service;
+
+
+import it.cspnet.beneficium.model.Utente;
+
+import it.cspnet.beneficium.model.Automobile;
+
 
 /**
  *
  * @author ivan
  */
 
-public interface Servizi {
+
+    
+
+public interface BenefitServices {
+
+    public Utente findUtente(Utente u) throws Exception;
+    
+    public void aggiungiAutomobile(Automobile automobile);
+    
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception;
 }

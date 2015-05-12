@@ -6,7 +6,7 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Cellulare;
-import it.cspnet.beneficium.services.Servizi;
+import it.cspnet.beneficium.services.BenefitServices;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class CellulareController {
     @Autowired
-    private Servizi servizi;
+    private BenefitServices servizi;
     
      @ModelAttribute("cellulare")
     public Cellulare getModelCellulare() {
