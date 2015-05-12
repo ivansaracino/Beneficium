@@ -5,10 +5,14 @@
  */
 package it.cspnet.beneficium.services;
 
+import it.cspnet.beneficium.model.Cellulare;
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author ivan
  */
-public interface BenefitServices {
-    
+
+public interface Servizi {
+    public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception;
 }
