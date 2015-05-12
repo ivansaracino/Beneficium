@@ -6,9 +6,12 @@
 package it.cspnet.beneficium.services;
 
 import it.cspnet.beneficium.data.AutomobiliRepository;
+import it.cspnet.beneficium.data.UtenteRepository;
 import it.cspnet.beneficium.model.Automobile;
+import it.cspnet.beneficium.model.Utente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -19,6 +22,16 @@ public class BenefitServicesImpl implements BenefitServices {
     
     @Autowired
     private AutomobiliRepository repAutomobile;
+    
+    @Autowired
+    private UtenteRepository utenteRepository;
+
+    @Transactional
+    public Utente findUtente(Utente u) throws Exception {
+        
+       return utenteRepository.findByUsernameAndPassword(u.getUsername(), u.getPassword());
+       
+    }
     
     public void aggiungiAutomobile(Automobile automobile) {
         repAutomobile.save(automobile);
