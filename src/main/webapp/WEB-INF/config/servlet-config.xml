@@ -18,7 +18,7 @@
         <context:component-scan base-package="it.cspnet.beneficium" />
 	
         <mvc:view-controller path="start.do" view-name="start" />
-        
+        <mvc:view-controller path="inserisciautomobile.do" view-name="inserisciautomobile" />
         <!-- Nei Controller i forward sono definiti ritornando delle Stringhe
              se: return "home" verrà fatto il forward a /WEB-INF/home.jsp -->
         

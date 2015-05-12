@@ -5,10 +5,14 @@
  */
 package it.cspnet.beneficium.services;
 
+import it.cspnet.beneficium.model.Automobile;
+
 /**
  *
  * @author ivan
  */
 public interface BenefitServices {
+    
+    public void aggiungiAutomobile(Automobile automobile);
     
 }
