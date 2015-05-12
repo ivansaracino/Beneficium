@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cspnet.beneficium.web;
+package it.cspnet.beneficium.services;
+
+import it.cspnet.beneficium.model.Cellulare;
+
 
 /**
  *
  * @author ivan
  */
-public class AutomibiliController {
-    
+
+public interface Servizi {
+    public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception;
 }
