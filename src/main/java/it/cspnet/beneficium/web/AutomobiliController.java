@@ -25,25 +25,23 @@ public class AutomobiliController {
 
     @Autowired
     private BenefitServices servizi;
-    
+
     @RequestMapping(value = "inserisciautomobile", method = RequestMethod.GET)
     @ModelAttribute("automobile")
-    public Automobile creaAutomobile() throws Exception{
+    public Automobile creaAutomobile() throws Exception {
         return new Automobile();
     }
-    
-    
+
     @RequestMapping(value = "aggiungiAuto", method = RequestMethod.POST)
-    public String creaAutomobile(HttpServletRequest req,@Valid Automobile automobile, BindingResult result) throws Exception{
+    public String creaAutomobile(HttpServletRequest req, @Valid Automobile automobile, BindingResult result) throws Exception {
         if (!result.hasErrors()) {
-        
-        
-        servizi.aggiungiAutomobile(automobile);
-       
+
+            servizi.aggiungiAutomobile(automobile);
+            req.setAttribute("messaggio", "automobile inserita!");
+
         }
-       
-       return "inserisciautomobile";
+
+        return "inserisciautomobile";
     }
-    
 
 }
