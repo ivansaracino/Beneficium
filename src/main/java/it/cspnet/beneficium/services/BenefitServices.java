@@ -5,10 +5,14 @@
  */
 package it.cspnet.beneficium.services;
 
+import it.cspnet.beneficium.model.Utente;
+
 /**
  *
  * @author ivan
  */
 public interface BenefitServices {
+
+    public Utente findUtente(Utente u) throws Exception;
     
 }
