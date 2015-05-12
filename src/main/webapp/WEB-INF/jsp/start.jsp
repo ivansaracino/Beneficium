@@ -13,9 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+
         <h3>Pagina iniziale Beneficium</h3>
-        
-        
         <h1>Login</h1>
           <form:form action = "login.do" commandName="utente">
            USERNAME: <form:input path="username" /> <br>
@@ -23,6 +22,6 @@
             <input type="submit" value="Login" />
             <form:errors path="*" element="div" />
         </form:form>
-            ${messaggio}
+        ${messaggio}
     </body>
 </html>

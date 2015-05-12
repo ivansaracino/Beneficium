@@ -20,8 +20,8 @@
 
         <mvc:view-controller path="inseriscicellulare.do" view-name="inseriscicellulare" />
         <mvc:view-controller path="start.do" view-name="start" />
+
         <mvc:view-controller path="paginaDip.do" view-name="inseriscidipendente" />
-        
         <mvc:view-controller path="inserisciautomobile.do" view-name="inserisciautomobile" />
 
         <!-- Nei Controller i forward sono definiti ritornando delle Stringhe
