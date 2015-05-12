@@ -5,10 +5,14 @@
  */
 package it.cspnet.beneficium.services;
 
+import it.cspnet.beneficium.model.Dipendente;
+
 /**
  *
  * @author ivan
  */
 public interface BenefitServices {
+    
+    public Dipendente aggiungiDipendente(Dipendente dipendente);
     
 }

@@ -15,6 +15,8 @@
     </head>
     <body>
         <h3>Pagina iniziale Beneficium</h3>
-        <h3>Test modifica Anna e Ivan</h3>
+        
+        
+        
     </body>
 </html>
