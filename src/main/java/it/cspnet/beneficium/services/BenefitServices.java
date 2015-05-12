@@ -5,7 +5,14 @@
  */
 package it.cspnet.beneficium.services;
 
+
 import it.cspnet.beneficium.model.Cellulare;
+
+
+import it.cspnet.beneficium.model.Utente;
+
+import it.cspnet.beneficium.model.Automobile;
+
 
 
 /**
@@ -13,6 +20,12 @@ import it.cspnet.beneficium.model.Cellulare;
  * @author ivan
  */
 
-public interface Servizi {
+public interface BenefitServices {
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception;
+
+    public Utente findUtente(Utente u) throws Exception;
+    
+    public void aggiungiAutomobile(Automobile automobile);
+    
+
 }
