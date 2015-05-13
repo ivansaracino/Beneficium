@@ -9,6 +9,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,10 +31,22 @@ public class Contratto {
     
     private String compagniaTelefonica;
     
+    private String tipo_contratto;
+    
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date data_attivazione;
+    
+    
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date scadenza;
     
     private boolean scaduto;
+    
+    @ManyToOne
+    private Automobile automobile;
+    
+    @ManyToOne
+    private Cellulare cellulare;
     
    
 
@@ -43,6 +57,22 @@ public class Contratto {
 
     public void setId_contratto(int id_contratto) {
         this.id_contratto = id_contratto;
+    }
+
+    public Automobile getAutomobile() {
+        return automobile;
+    }
+
+    public void setAutomobile(Automobile automobile) {
+        this.automobile = automobile;
+    }
+
+    public Cellulare getCellulare() {
+        return cellulare;
+    }
+
+    public void setCellulare(Cellulare cellulare) {
+        this.cellulare = cellulare;
     }
 
     public String getCosto() {
@@ -85,6 +115,22 @@ public class Contratto {
 
     public Date getScadenza() {
         return scadenza;
+    }
+
+    public String getTipo_contratto() {
+        return tipo_contratto;
+    }
+
+    public void setTipo_contratto(String tipo_contratto) {
+        this.tipo_contratto = tipo_contratto;
+    }
+
+    public Date getData_attivazione() {
+        return data_attivazione;
+    }
+
+    public void setData_attivazione(Date data_attivazione) {
+        this.data_attivazione = data_attivazione;
     }
 
     public void setScadenza(Date scadenza) {

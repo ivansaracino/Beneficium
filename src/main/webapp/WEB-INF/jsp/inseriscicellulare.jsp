@@ -19,6 +19,7 @@
            <input type="submit" value="Salva cel"/> 
            <form:errors path="*" element="div"/>
         </form:form>
-           ${messaggio}
+        
+        ${messaggio}
     </body>
 </html>

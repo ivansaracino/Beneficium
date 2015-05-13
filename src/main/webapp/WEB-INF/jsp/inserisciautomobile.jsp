@@ -19,9 +19,7 @@
 
             TARGA: <form:input path="targa" /> <br>
             MODELLO: <form:input path="modello" /> <br>
-            tariffaMensile: <form:input path="tariffaMensile" /> <br>
-            scadenza: <form:input path="scadenza" /> <br>
-            compagniaLeasing: <form:input path="compagniaLeasing" /> <br>
+            
             <input type="submit" value="Inserisci" />
             <form:errors path="*" element="div" />
         </form:form>

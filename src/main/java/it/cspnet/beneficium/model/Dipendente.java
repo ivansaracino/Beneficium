@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.cspnet.beneficium.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -16,11 +19,10 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author corsojava
  */
-
 @Entity
 @Table(name = "DIPENDENTI")
-public class Dipendente implements Serializable{
-    
+public class Dipendente implements Serializable {
+
     @Id
     @NotEmpty
     private String codiceFiscale;
@@ -31,6 +33,12 @@ public class Dipendente implements Serializable{
     @NotEmpty
     private String indirizzo;
     private float stipendioMensile;
+
+    @OneToMany(mappedBy = "dipendente", fetch = FetchType.LAZY)
+    public Collection<Automobile> auto = new ArrayList<Automobile>();
+
+    @OneToMany(mappedBy = "dipendente", fetch = FetchType.LAZY)
+    public Collection<Cellulare> cellulari = new ArrayList<Cellulare>();
 
     public String getCodiceFiscale() {
         return codiceFiscale;
@@ -70,6 +78,22 @@ public class Dipendente implements Serializable{
 
     public void setStipendioMensile(float stipendioMensile) {
         this.stipendioMensile = stipendioMensile;
+    }
+
+    public Collection<Automobile> getAuto() {
+        return auto;
+    }
+
+    public void setAuto(Collection<Automobile> auto) {
+        this.auto = auto;
+    }
+
+    public Collection<Cellulare> getCellulari() {
+        return cellulari;
+    }
+
+    public void setCellulari(Collection<Cellulare> cellulari) {
+        this.cellulari = cellulari;
     }
 
     @Override
