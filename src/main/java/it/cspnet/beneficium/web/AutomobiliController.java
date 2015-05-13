@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,4 +54,9 @@ public class AutomobiliController {
         return servizi.listaAutomobileJSON(codiceFiscale);
     }
 
+    @RequestMapping(value = "salvaautomobile", method = RequestMethod.POST)
+    public @ResponseBody
+    Automobile salvaautomobile(@RequestBody Automobile a) {
+        return servizi.salvaautomobile(a);
+    }
 }
