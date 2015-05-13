@@ -55,8 +55,4 @@ public class CellulariController {
         
     }
     
-    @RequestMapping(value="listacontrattitelefonici", method = RequestMethod.GET)
-    public @ResponseBody List<Contratto> getListaContrattiTelefonici(){
-        return servizi.listaContratti("telefonico");
-    }
 }

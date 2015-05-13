@@ -53,7 +53,4 @@ public class BenefitServicesImpl implements BenefitServices {
        return dipendenteRepository.save(dipendente);
     }
 
-    public List<Contratto> listaContratti(String tipo) {
-      return cellulariRepository.findByTipo(tipo);
-    }
 }

@@ -29,6 +29,5 @@ public interface BenefitServices {
     
     public void aggiungiAutomobile(Automobile automobile);
 
-    public List<Contratto> listaContratti(String tipo);
     
 }

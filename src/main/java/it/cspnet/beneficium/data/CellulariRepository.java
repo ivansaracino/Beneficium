@@ -18,6 +18,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CellulariRepository extends JpaRepository<Cellulare, Integer>{
 
-    public List<Contratto> findByTipo(String tipo);
+   
     
 }
