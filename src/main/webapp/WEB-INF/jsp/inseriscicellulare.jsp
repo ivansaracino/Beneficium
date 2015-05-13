@@ -17,14 +17,8 @@
         <form:form action="inseriscicellulare.do" commandName="cellulare"> 
             Numero cel.<form:input path="numero" /> <br />
            <input type="submit" value="Salva cel"/> 
-<<<<<<< HEAD
            <form:errors path="*" element="div"/>
         </form:form>
            ${messaggio}
-=======
-           <form:errors path="*" element="div" />
-        </form:form>
-        ${messaggio}
->>>>>>> 608408c8d81ea23481397ffa01a8e01826eba326
     </body>
 </html>
