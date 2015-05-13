@@ -6,6 +6,7 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Dipendente;
+import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.services.BenefitServices;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -31,6 +32,11 @@ public class DipendentiController {
     @ModelAttribute("dip")
     public Dipendente creaDipendente() throws Exception {
         return new Dipendente();
+    }
+    
+     @ModelAttribute("utente")
+    public Utente creaUtente() throws Exception {
+        return new Utente();
     }
     
     @RequestMapping(value = "inserisciDipendente", method = RequestMethod.POST)
