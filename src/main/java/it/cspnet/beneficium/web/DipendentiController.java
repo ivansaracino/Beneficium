@@ -66,11 +66,11 @@ public class DipendentiController {
             if(d != null){
            
             j.setOggetto(d);
-            j.setMesaggio("inserimento corretto");
+            j.setMessaggio("inserimento corretto");
             j.setStatus(true);
             }
             else{
-            j.setMesaggio("inserimento sbagliato");  
+            j.setMessaggio("inserimento sbagliato");  
             j.setStatus(false);
             }
             
