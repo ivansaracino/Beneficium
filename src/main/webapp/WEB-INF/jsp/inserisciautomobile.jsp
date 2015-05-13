@@ -25,6 +25,7 @@
             <input type="submit" value="Inserisci" />
             <form:errors path="*" element="div" />
         </form:form>
+              ${messaggio}
        
     </body>
 </html>
