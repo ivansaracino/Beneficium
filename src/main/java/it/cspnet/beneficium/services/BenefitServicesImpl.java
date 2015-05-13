@@ -13,6 +13,7 @@ import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Cellulare;
 import it.cspnet.beneficium.model.Contratto;
 import it.cspnet.beneficium.model.Utente;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,10 @@ public class BenefitServicesImpl implements BenefitServices {
 
     public Dipendente aggiungiDipendente(Dipendente dipendente) {
        return dipendenteRepository.save(dipendente);
+    }
+
+    public List<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception {
+        return cellulariRepository.findBydipendente_codiceFiscale(codiceFiscale);
     }
 
 
