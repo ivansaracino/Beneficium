@@ -67,12 +67,12 @@ public class CellulariController {
                 js.setOggetto(servizi.inserisciCellulare(cellulare));
 
                 if (js.getOggetto() != null) {
-                    js.setMesaggio("cellulare inserito correttamente");
+                    js.setMessaggio("cellulare inserito correttamente");
                     js.setStatus(true);
                    
                 }
                 else{
-                    js.setMesaggio("errore nell'inserimento del cellulare");
+                    js.setMessaggio("errore nell'inserimento del cellulare");
                     js.setStatus(false);
                     
                 }
@@ -89,9 +89,9 @@ public class CellulariController {
 
     }
 
+
     @RequestMapping(value = "listaCellulareJson", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Cellulare> listaCellulariJSON(HttpServletRequest req) throws Exception {
+    public @ResponseBody List<Cellulare> listaCellulariJSON(HttpServletRequest req) throws Exception {
         String codiceFiscale = req.getParameter("codiceFiscale");
         return servizi.listaCellulareJSON(codiceFiscale);
     }

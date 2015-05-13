@@ -17,7 +17,6 @@ import java.util.List;
  *
  * @author ivan
  */
-
 public interface BenefitServices {
 
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception;
@@ -28,15 +27,13 @@ public interface BenefitServices {
 
     public void aggiungiAutomobile(Automobile automobile);
 
-
-    public List<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception;;
-
+    public List<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception;
 
     public Collection<Dipendente> listDipendentiJSON();
 
     public List<Utente> listaUtenti();
 
+    public List<Automobile> listaAutomobileJSON(String codiceFiscale);
 
-    
-    public List<Automobile> listaAutomobileJSON (String codiceFiscale); 
+    public Automobile salvaautomobile(Automobile a);
 }
