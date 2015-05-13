@@ -54,9 +54,14 @@ public class BenefitServicesImpl implements BenefitServices {
        return dipendenteRepository.save(dipendente);
     }
 
+
     public Collection<Dipendente> listDipendentiJSON() {
         
         return dipendenteRepository.findAll();
+
+    public List<Utente> listaUtenti() {
+        return utenteRepository.findAll();
+
     }
 
 

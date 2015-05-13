@@ -30,6 +30,10 @@ public interface BenefitServices {
     
     public void aggiungiAutomobile(Automobile automobile);
 
+
     public Collection<Dipendente> listDipendentiJSON();
+
+    public List<Utente> listaUtenti();
+
     
 }
