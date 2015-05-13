@@ -46,7 +46,7 @@ public class AutomobiliController {
         return "inserisciautomobile";
     }
 
-    @RequestMapping(value = "listaAutomobiliJson", method = RequestMethod.GET)
+    @RequestMapping(value = "listaAutomobili", method = RequestMethod.GET)
     public @ResponseBody
     Collection<Automobile> listaAutomobiliJSON(HttpServletRequest req) {
         String codiceFiscale = req.getParameter("codiceFiscale");

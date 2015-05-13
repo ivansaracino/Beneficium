@@ -56,7 +56,7 @@ public class CellulariController {
 
     }
 
-    @RequestMapping(value = "listaCellulareJson", method = RequestMethod.GET)
+    @RequestMapping(value = "listaCellulare", method = RequestMethod.GET)
     public @ResponseBody List<Cellulare> listaCellulariJSON(HttpServletRequest req) throws Exception {
         String codiceFiscale= req.getParameter("codiceFiscale");
         return servizi.listaCellulareJSON(codiceFiscale);
