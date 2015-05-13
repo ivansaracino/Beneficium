@@ -17,8 +17,13 @@
         <!-- package base che conterrà i componenti di tipo @Controller @Service @Repository  -->
         <context:component-scan base-package="it.cspnet.beneficium" />
 	
+
+        <mvc:view-controller path="inseriscicellulare.do" view-name="inseriscicellulare" />
         <mvc:view-controller path="start.do" view-name="start" />
+
+        <mvc:view-controller path="paginaDip.do" view-name="inseriscidipendente" />
         <mvc:view-controller path="inserisciautomobile.do" view-name="inserisciautomobile" />
+
         <!-- Nei Controller i forward sono definiti ritornando delle Stringhe
              se: return "home" verrà fatto il forward a /WEB-INF/home.jsp -->
         
