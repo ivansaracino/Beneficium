@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,15 +35,18 @@ public class Automobile {
     private String modello;
     
     @ManyToOne
+    @JsonIgnore
     private Dipendente dipendente;
     
     @OneToMany(mappedBy = "automobile")
     private Collection<Contratto> contratti;        
 
+    
     public Dipendente getDipendente() {
         return dipendente;
     }
 
+    
     public void setDipendente(Dipendente dipendente) {
         this.dipendente = dipendente;
     }

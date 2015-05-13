@@ -11,6 +11,7 @@ import it.cspnet.beneficium.model.Cellulare;
 import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Contratto;
+import java.util.Collection;
 import java.util.List;
 /**
  *
@@ -28,5 +29,7 @@ public interface BenefitServices {
     public Dipendente aggiungiDipendente(Dipendente dipendente);
     
     public void aggiungiAutomobile(Automobile automobile);
+
+    public Collection<Dipendente> listDipendentiJSON();
     
 }

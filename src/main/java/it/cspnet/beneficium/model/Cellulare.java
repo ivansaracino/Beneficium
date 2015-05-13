@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -30,6 +31,7 @@ public class Cellulare implements Serializable{
     @OneToMany(mappedBy = "cellulare")
     private List<Contratto> contratti;
     @ManyToOne
+    @JsonIgnore
     private Dipendente dipendente;
 
     public Dipendente getDipendente() {
