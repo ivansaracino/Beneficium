@@ -7,6 +7,7 @@ package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.services.BenefitServices;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -42,6 +44,13 @@ public class AutomobiliController {
         }
 
         return "inserisciautomobile";
+    }
+
+    @RequestMapping(value = "listaAutomobiliJson", method = RequestMethod.GET)
+    public @ResponseBody
+    Collection<Automobile> listaAutomobiliJSON(HttpServletRequest req) {
+        String codiceFiscale = req.getParameter("codiceFiscale");
+        return servizi.listaAutomobileJSON(codiceFiscale);
     }
 
 }

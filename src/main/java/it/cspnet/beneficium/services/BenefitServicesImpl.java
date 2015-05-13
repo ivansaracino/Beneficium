@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package it.cspnet.beneficium.services;
-import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.data.AutomobiliRepository;
+import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.data.CellulariRepository;
 import it.cspnet.beneficium.data.DipendentiRepository;
 import it.cspnet.beneficium.data.UtenteRepository;
@@ -51,6 +51,10 @@ public class BenefitServicesImpl implements BenefitServices {
 
     public Dipendente aggiungiDipendente(Dipendente dipendente) {
        return dipendenteRepository.save(dipendente);
+    }
+
+    public List<Automobile> listaAutomobileJSON(String codiceFiscale) {
+        return repAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
 

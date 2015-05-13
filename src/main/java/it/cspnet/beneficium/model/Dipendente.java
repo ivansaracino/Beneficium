@@ -13,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -33,7 +34,7 @@ public class Dipendente implements Serializable {
     @NotEmpty
     private String indirizzo;
     private float stipendioMensile;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "dipendente", fetch = FetchType.LAZY)
     public Collection<Automobile> auto = new ArrayList<Automobile>();
 
