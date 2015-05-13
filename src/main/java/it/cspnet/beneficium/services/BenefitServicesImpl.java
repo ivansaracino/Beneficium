@@ -11,7 +11,9 @@ import it.cspnet.beneficium.data.DipendentiRepository;
 import it.cspnet.beneficium.data.UtenteRepository;
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Cellulare;
+import it.cspnet.beneficium.model.Contratto;
 import it.cspnet.beneficium.model.Utente;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,5 +51,9 @@ public class BenefitServicesImpl implements BenefitServices {
 
     public Dipendente aggiungiDipendente(Dipendente dipendente) {
        return dipendenteRepository.save(dipendente);
+    }
+
+    public List<Contratto> listaContratti(String tipo) {
+      return cellulariRepository.findByTipo(tipo);
     }
 }

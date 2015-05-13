@@ -6,7 +6,9 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Cellulare;
+import it.cspnet.beneficium.model.Contratto;
 import it.cspnet.beneficium.services.BenefitServices;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -50,5 +53,10 @@ public class CellulariController {
         else
              return "inseriscicellulare";
         
+    }
+    
+    @RequestMapping(value="listacontrattitelefonici", method = RequestMethod.GET)
+    public @ResponseBody List<Contratto> getListaContrattiTelefonici(){
+        return servizi.listaContratti("telefonico");
     }
 }

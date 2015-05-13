@@ -5,11 +5,13 @@
  */
 package it.cspnet.beneficium.model;
 
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,15 +32,35 @@ public class Automobile {
     private String targa;
     @NotEmpty
     private String modello;
-    @NotNull
-    private Float tariffaMensile;
-    private boolean scaduto;
     
-    @NotNull
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date scadenza;
-    @NotEmpty
-    private String compagniaLeasing;
+    @ManyToOne
+    private Dipendente dipendente;
+    
+    @OneToMany(mappedBy = "automobile")
+    private Collection<Contratto> contratti;        
+
+    public Dipendente getDipendente() {
+        return dipendente;
+    }
+
+    public void setDipendente(Dipendente dipendente) {
+        this.dipendente = dipendente;
+    }
+
+    public Collection<Contratto> getContratti() {
+        return contratti;
+    }
+
+    public void setContratti(Collection<Contratto> contratti) {
+        this.contratti = contratti;
+    }
+    
+    
+    
+    
+    
+   
+  
 
     public int getIdAuto() {
         return idAuto;
@@ -64,37 +86,8 @@ public class Automobile {
         this.modello = modello;
     }
 
-    public Float getTariffaMensile() {
-        return tariffaMensile;
-    }
+    
 
-    public void setTariffaMensile(Float tariffaMensile) {
-        this.tariffaMensile = tariffaMensile;
-    }
-
-    public boolean isScaduto() {
-        return scaduto;
-    }
-
-    public void setScaduto(boolean scaduto) {
-        this.scaduto = scaduto;
-    }
-
-    public Date getScadenza() {
-        return scadenza;
-    }
-
-    public void setScadenza(Date scadenza) {
-        this.scadenza = scadenza;
-    }
-
-    public String getCompagniaLeasing() {
-        return compagniaLeasing;
-    }
-
-    public void setCompagniaLeasing(String compagniaLeasing) {
-        this.compagniaLeasing = compagniaLeasing;
-    }
 
     @Override
     public int hashCode() {
