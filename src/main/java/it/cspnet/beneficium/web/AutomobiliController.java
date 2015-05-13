@@ -6,6 +6,7 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
+import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.services.BenefitServices;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
@@ -25,38 +26,49 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class AutomobiliController {
-
+    
     @Autowired
     private BenefitServices servizi;
-
+    
     @RequestMapping(value = "inserisciautomobile", method = RequestMethod.GET)
     @ModelAttribute("automobile")
     public Automobile creaAutomobile() throws Exception {
         return new Automobile();
     }
-
-    @RequestMapping(value = "aggiungiAuto", method = RequestMethod.POST)
-    public String creaAutomobile(HttpServletRequest req, @Valid Automobile automobile, BindingResult result) throws Exception {
-        if (!result.hasErrors()) {
-
-            servizi.aggiungiAutomobile(automobile);
-            req.setAttribute("messaggio", "automobile inserita!");
-
-        }
-
-        return "inserisciautomobile";
-    }
-
+    
+//    @RequestMapping(value = "aggiungiAuto", method = RequestMethod.POST)
+//    public String creaAutomobile(HttpServletRequest req, @Valid Automobile automobile, BindingResult result) throws Exception {
+//        if (!result.hasErrors()) {
+//            
+//            servizi.aggiungiAutomobile(automobile);
+//            req.setAttribute("messaggio", "automobile inserita!");
+//            
+//        }
+//        
+//        return "inserisciautomobile";
+//    }
+    
     @RequestMapping(value = "listaAutomobili", method = RequestMethod.GET)
     public @ResponseBody
     Collection<Automobile> listaAutomobiliJSON(HttpServletRequest req) {
         String codiceFiscale = req.getParameter("codiceFiscale");
         return servizi.listaAutomobileJSON(codiceFiscale);
     }
-
+    
     @RequestMapping(value = "salvaautomobile", method = RequestMethod.POST)
     public @ResponseBody
-    Automobile salvaautomobile(@RequestBody Automobile a) {
-        return servizi.salvaautomobile(a);
+    JsonResult salvaautomobile(@RequestBody Automobile a) {
+        JsonResult risultato = new JsonResult();
+        Automobile auto = servizi.salvaautomobile(a);
+        if (auto != null) {
+            risultato.setOggetto(auto);
+            risultato.setMessaggio("auto inserita con successo");
+            risultato.setStatus(true);
+        } else {
+            risultato.setMessaggio("errore nell'inserimento auto");
+            risultato.setStatus(false);
+        }
+        
+        return risultato;
     }
 }
