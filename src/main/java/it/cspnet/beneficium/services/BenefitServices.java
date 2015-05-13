@@ -30,6 +30,14 @@ public interface BenefitServices {
     
     public void aggiungiAutomobile(Automobile automobile);
 
+
     public List<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception;;
+
+
+    public Collection<Dipendente> listDipendentiJSON();
+
+    public List<Utente> listaUtenti();
+
+
     
 }
