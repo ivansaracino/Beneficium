@@ -8,6 +8,7 @@ package it.cspnet.beneficium.web;
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.services.BenefitServices;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -63,5 +65,11 @@ public class DipendentiController {
         else 
              return "inseriscidipendente.do"; //deve ritornare al menù
     }
+    
+        @RequestMapping(value = "listadipendentijson", method = RequestMethod.GET)
+        public @ResponseBody Collection<Dipendente> listaDipendentiJSON(){
+            return servizi.listDipendentiJSON();
+        }
+
 
 }

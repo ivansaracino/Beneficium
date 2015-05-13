@@ -7,6 +7,7 @@ package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.services.BenefitServices;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -63,5 +65,9 @@ public class UtenteController {
         }
 
     }
-
+    
+    @RequestMapping(value="listautenti", method=RequestMethod.GET)
+    public @ResponseBody List<Utente> getListaUtenti(){
+        return benefitServices.listaUtenti();
+    }
 }

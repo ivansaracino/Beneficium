@@ -6,8 +6,8 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Cellulare;
-import it.cspnet.beneficium.model.Contratto;
 import it.cspnet.beneficium.services.BenefitServices;
+import java.util.Collection;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -25,33 +25,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class CellulariController {
+
     @Autowired
     private BenefitServices servizi;
-    
+
     @ModelAttribute("cellulare")
     public Cellulare getModelCellulare() {
         return new Cellulare();
     }
-    
+
     @RequestMapping(value = "inseriscicellulare", method = RequestMethod.GET)
     public String getInserisciCellulare() {
         return "inseriscicellulare";
     }
-    
+
     @RequestMapping(value = "inseriscicellulare", method = RequestMethod.POST)
-    public String postInserisciCellulare(HttpServletRequest req, @Valid Cellulare cellulare, BindingResult result){
-        if(!result.hasErrors()){
-        try {
-            servizi.inserisciCellulare(cellulare);
-            req.setAttribute("messaggio", "Cellulare inserito correttamente!!");
+    public String postInserisciCellulare(HttpServletRequest req, @Valid Cellulare cellulare, BindingResult result) {
+        if (!result.hasErrors()) {
+            try {
+                servizi.inserisciCellulare(cellulare);
+                req.setAttribute("messaggio", "Cellulare inserito correttamente!!");
                 return "inseriscicellulare";
-        } catch (Exception ex) {
-            req.setAttribute("messaggio", "Cellulare non inserito correttamente!!");
+            } catch (Exception ex) {
+                req.setAttribute("messaggio", "Cellulare non inserito correttamente!!");
                 return "inseriscicellulare";
+            }
+        } else {
+            return "inseriscicellulare";
         }
-        }
-        else
-             return "inseriscicellulare";
-        
+
+    }
+
+    @RequestMapping(value = "listaCellulareJson", method = RequestMethod.GET)
+    public @ResponseBody List<Cellulare> listaCellulariJSON(HttpServletRequest req) throws Exception {
+        String codiceFiscale= req.getParameter("codiceFiscale");
+        return servizi.listaCellulareJSON(codiceFiscale);
     }
 }
