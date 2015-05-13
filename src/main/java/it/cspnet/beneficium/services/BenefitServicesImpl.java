@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package it.cspnet.beneficium.services;
-
+import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.data.AutomobiliRepository;
 import it.cspnet.beneficium.data.CellulariRepository;
+import it.cspnet.beneficium.data.DipendentiRepository;
 import it.cspnet.beneficium.data.UtenteRepository;
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Cellulare;
@@ -15,10 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author luca
- */
+
+
 @Service
 public class BenefitServicesImpl implements BenefitServices {
 
@@ -29,6 +28,10 @@ public class BenefitServicesImpl implements BenefitServices {
     private UtenteRepository utenteRepository;
 
     @Autowired
+    private DipendentiRepository dipendenteRepository;
+    
+
+    @Autowired
     private CellulariRepository cellulariRepository;
 
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception {
@@ -37,12 +40,14 @@ public class BenefitServicesImpl implements BenefitServices {
 
     @Transactional
     public Utente findUtente(Utente u) throws Exception {
-         return utenteRepository.findByUsernameAndPassword(u.getUsername(), u.getPassword());
-
+        return utenteRepository.findByUsernameAndPassword(u.getUsername(), u.getPassword());
     }
 
     public void aggiungiAutomobile(Automobile automobile) {
         repAutomobile.save(automobile);
+    }
 
+    public Dipendente aggiungiDipendente(Dipendente dipendente) {
+       return dipendenteRepository.save(dipendente);
     }
 }
