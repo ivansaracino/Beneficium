@@ -12,7 +12,7 @@ import it.cspnet.beneficium.data.DipendentiRepository;
 import it.cspnet.beneficium.data.UtenteRepository;
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Cellulare;
-import it.cspnet.beneficium.model.Contratto;
+import it.cspnet.beneficium.model.ContrattoTelefonico;
 import it.cspnet.beneficium.model.Utente;
 import java.util.Collection;
 import java.util.List;

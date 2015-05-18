@@ -22,19 +22,45 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name = "CELLULARI")
-public class Cellulare implements Serializable{
+public class Cellulare implements Serializable {
+
     @Id
     @GeneratedValue
     private int id;
+
     @NotEmpty
     private String numero;
+
+    @NotEmpty
+    private String numeroSim;
+
+    @NotEmpty
+    private String modello;
+
     @OneToMany(mappedBy = "cellulare")
-    private List<Contratto> contratti;
-    
-    
+    private List<ContrattoTelefonico> contratti;
+
     @JsonIgnore
     @ManyToOne
     private Dipendente dipendente;
+    
+    // getters and setters
+
+    public String getNumeroSim() {
+        return numeroSim;
+    }
+
+    public void setNumeroSim(String numeroSim) {
+        this.numeroSim = numeroSim;
+    }
+
+    public String getModello() {
+        return modello;
+    }
+
+    public void setModello(String modello) {
+        this.modello = modello;
+    }
 
     public Dipendente getDipendente() {
         return dipendente;
@@ -44,11 +70,11 @@ public class Cellulare implements Serializable{
         this.dipendente = dipendente;
     }
 
-    public List<Contratto> getContratti() {
+    public List<ContrattoTelefonico> getContratti() {
         return contratti;
     }
 
-    public void setContratti(List<Contratto> contratti) {
+    public void setContratti(List<ContrattoTelefonico> contratti) {
         this.contratti = contratti;
     }
 
@@ -68,6 +94,8 @@ public class Cellulare implements Serializable{
         this.numero = numero;
     }
 
+    // equals and hashcode
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -90,5 +118,4 @@ public class Cellulare implements Serializable{
         return true;
     }
 
-    
 }
