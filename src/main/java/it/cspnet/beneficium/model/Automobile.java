@@ -38,8 +38,8 @@ public class Automobile {
     @JsonIgnore
     private Dipendente dipendente;
     
-    @OneToMany(mappedBy = "automobile")
-    private Collection<Contratto> contratti;        
+//    @OneToMany(mappedBy = "automobile")
+//    private Collection<ContrattoTelefonico> contratti;        
 
     
     public Dipendente getDipendente() {
@@ -51,16 +51,16 @@ public class Automobile {
         this.dipendente = dipendente;
     }
 
-    public Collection<Contratto> getContratti() {
-        return contratti;
-    }
-
-    public void setContratti(Collection<Contratto> contratti) {
-        this.contratti = contratti;
-    }
-    
-    
-    
+//    public Collection<ContrattoTelefonico> getContratti() {
+//        return contratti;
+//    }
+//
+//    public void setContratti(Collection<ContrattoTelefonico> contratti) {
+//        this.contratti = contratti;
+//    }
+//    
+//    
+//    
     
     
    
