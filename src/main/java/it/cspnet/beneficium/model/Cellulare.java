@@ -31,6 +31,7 @@ public class Cellulare implements Serializable {
     @NotEmpty
     private String numero;
 
+
     @NotEmpty
     private String numeroSim;
 
@@ -39,6 +40,7 @@ public class Cellulare implements Serializable {
 
     @OneToMany(mappedBy = "cellulare")
     private List<ContrattoTelefonico> contratti;
+
 
     @JsonIgnore
     @ManyToOne
@@ -70,6 +72,7 @@ public class Cellulare implements Serializable {
         this.dipendente = dipendente;
     }
 
+
     public List<ContrattoTelefonico> getContratti() {
         return contratti;
     }
@@ -77,6 +80,7 @@ public class Cellulare implements Serializable {
     public void setContratti(List<ContrattoTelefonico> contratti) {
         this.contratti = contratti;
     }
+
 
     public int getId() {
         return id;

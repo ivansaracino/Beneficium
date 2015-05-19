@@ -32,6 +32,8 @@ public class UtenteController {
     public Utente getUtente() {
         return new Utente();
     }
+    
+    
 
     @RequestMapping(value = "start")
     public String nuovoUtente() {
