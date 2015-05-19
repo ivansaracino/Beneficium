@@ -8,6 +8,7 @@ package it.cspnet.beneficium.model;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -38,36 +39,41 @@ public class Automobile {
     @JsonIgnore
     private Dipendente dipendente;
     
-    @OneToMany(mappedBy = "automobile")
-    private Collection<Contratto> contratti;        
-
-    
-    public Dipendente getDipendente() {
-        return dipendente;
-    }
-
-    
-    public void setDipendente(Dipendente dipendente) {
-        this.dipendente = dipendente;
-    }
-
-    public Collection<Contratto> getContratti() {
-        return contratti;
-    }
-
-    public void setContratti(Collection<Contratto> contratti) {
-        this.contratti = contratti;
-    }
-    
-    
-    
-    
-    
-   
-  
+    @OneToMany(mappedBy = "automobile" , fetch = FetchType.LAZY)
+    private Collection<Contratto_Auto> contrattoAuto;        
 
     public int getIdAuto() {
         return idAuto;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + this.idAuto;
+        return hash;
+    }
+
+    public Collection<Contratto_Auto> getContrattoAuto() {
+        return contrattoAuto;
+    }
+
+    public void setContrattoAuto(Collection<Contratto_Auto> contrattoAuto) {
+        this.contrattoAuto = contrattoAuto;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Automobile other = (Automobile) obj;
+        if (this.idAuto != other.idAuto) {
+            return false;
+        }
+        return true;
     }
 
     public void setIdAuto(int idAuto) {
@@ -90,31 +96,21 @@ public class Automobile {
         this.modello = modello;
     }
 
-    
-
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + this.idAuto;
-        return hash;
+    public Dipendente getDipendente() {
+        return dipendente;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Automobile other = (Automobile) obj;
-        if (this.idAuto != other.idAuto) {
-            return false;
-        }
-        return true;
+    public void setDipendente(Dipendente dipendente) {
+        this.dipendente = dipendente;
     }
-   
-    
+
+    public Collection<Contratto_Auto> getContratti() {
+        return contrattoAuto;
+    }
+
+    public void setContratti(Collection<Contratto_Auto> contratti) {
+        this.contrattoAuto = contratti;
+    }
+
     
 }
