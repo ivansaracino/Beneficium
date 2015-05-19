@@ -23,31 +23,28 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  * @author dave
  */
-
 @Entity
 @Table(name = "CONTRATTI_TELEFONICI")
 public class ContrattoTelefonico implements Serializable {
-    
+
     @Id
     @GeneratedValue
     private int idContrattoTelefonico;
-    
+
     @NotEmpty
     private String profiloContratto;
-    
+
     @NotEmpty
     private String tipoContratto;
-    
+
     @NotNull
     private float costoBimestrale;
-   
+
     private boolean scaduto;
-    
+
     @ManyToOne
     private Cellulare cellulare;
-    
-    
-    
+
     public String getTipoContratto() {
         return tipoContratto;
     }
@@ -89,8 +86,6 @@ public class ContrattoTelefonico implements Serializable {
         this.scaduto = scaduto;
     }
 
-
-
     public Cellulare getCellulare() {
         return cellulare;
     }
@@ -100,7 +95,6 @@ public class ContrattoTelefonico implements Serializable {
     }
 
 // equals e hashcode sull'id
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -123,16 +117,4 @@ public class ContrattoTelefonico implements Serializable {
         return true;
     }
 
-   
-  
-
- 
-
-  
-
-
-
-
-    
-    
 }

@@ -23,12 +23,6 @@ public class JsonResult {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-
-
-
-    
-
 
     public Object getOggetto() {
         return oggetto;

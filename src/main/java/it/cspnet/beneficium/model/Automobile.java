@@ -39,7 +39,7 @@ public class Automobile {
     private Dipendente dipendente;
     
 //    @OneToMany(mappedBy = "automobile")
-//    private Collection<ContrattoTelefonico> contratti;        
+//    private Collection<Contratto> contratti;        
 
     
     public Dipendente getDipendente() {
@@ -51,11 +51,11 @@ public class Automobile {
         this.dipendente = dipendente;
     }
 
-//    public Collection<ContrattoTelefonico> getContratti() {
+//    public Collection<Contratto> getContratti() {
 //        return contratti;
 //    }
 //
-//    public void setContratti(Collection<ContrattoTelefonico> contratti) {
+//    public void setContratti(Collection<Contratto> contratti) {
 //        this.contratti = contratti;
 //    }
     

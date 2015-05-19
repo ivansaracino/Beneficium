@@ -5,6 +5,7 @@
  */
 package it.cspnet.beneficium.services;
 
+import it.cspnet.beneficium.data.ContrattiTelefoniciRepository;
 import it.cspnet.beneficium.data.AutomobiliRepository;
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.data.CellulariRepository;
@@ -34,6 +35,9 @@ public class BenefitServicesImpl implements BenefitServices {
     
     @Autowired
     private CellulariRepository cellulariRepository;
+    
+     @Autowired
+    private ContrattiTelefoniciRepository contrattiTelefoniciRepository;
     
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception {
         return cellulariRepository.save(cellulare);
@@ -72,6 +76,10 @@ public class BenefitServicesImpl implements BenefitServices {
     
     public Automobile salvaautomobile(Automobile a) {
         return repAutomobile.save(a);
+    }
+
+    public ContrattoTelefonico inserisciContrattoTelefonico(ContrattoTelefonico contrattoTelefonico) {
+       return contrattiTelefoniciRepository.save(contrattoTelefonico);
     }
     
 }

@@ -36,4 +36,6 @@ public interface BenefitServices {
     public List<Automobile> listaAutomobileJSON(String codiceFiscale);
 
     public Automobile salvaautomobile(Automobile a);
+
+    public ContrattoTelefonico inserisciContrattoTelefonico(ContrattoTelefonico contrattoTelefonico);
 }

@@ -15,11 +15,15 @@
     <body>
         <h3>Inserimento cellulare associato a dipendente</h3>
         <form:form action="inseriscicellulare.do" commandName="cellulare"> 
-            Numero cel.<form:input path="numero" /> <br />
-           <input type="submit" value="Salva cel"/> 
-           <form:errors path="*" element="div"/>
+            Numero cellulare:<form:input path="numero" /> <br />
+            Modello:<form:input path="modello" /> <br />
+            Numero SIMCard:<form:input path="numeroSim" /> <br />
+            Dipendente: <form:input path="dipendente" /> <br />
+            Contratto:<input type="checkbox" name="contratto" value="ON" /><br />            
+            <input type="submit" value="Associa cel"/> 
+            <form:errors path="*" element="div"/>
         </form:form>
-        
+
         ${messaggio}
     </body>
 </html>
