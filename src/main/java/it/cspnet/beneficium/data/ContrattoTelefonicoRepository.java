@@ -5,17 +5,12 @@
  */
 package it.cspnet.beneficium.data;
 
-import it.cspnet.beneficium.model.Automobile;
-import java.util.List;
+import it.cspnet.beneficium.model.ContrattoTelefonico;
+import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author ivan
- */
-public interface AutomobiliRepository extends JpaRepository<Automobile, Integer> {
-
-    public List<Automobile> findByDipendente_codiceFiscale(String codiceFiscale);
-
+@Repository
+public interface ContrattoTelefonicoRepository extends JpaRepository<ContrattoTelefonico, Integer>{
     
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.cspnet.beneficium.model;
 
 import java.io.Serializable;
@@ -13,24 +8,48 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
-/**
- *
- * @author corsojava
- */
 @Entity
 @Table(name = "CELLULARI")
-public class Cellulare implements Serializable{
+public class Cellulare implements Serializable {
+
     @Id
     @GeneratedValue
     private int id;
+
     @NotEmpty
     private String numero;
+
+    @NotEmpty
+    private String numeroSim;
+
+    @NotEmpty
+    private String modello;
+
     @OneToMany(mappedBy = "cellulare")
-    private List<Contratto> contratti;
+    private List<ContrattoTelefonico> contratti;
+
+    @JsonIgnore
     @ManyToOne
     private Dipendente dipendente;
+
+    public String getNumeroSim() {
+        return numeroSim;
+    }
+
+    public void setNumeroSim(String numeroSim) {
+        this.numeroSim = numeroSim;
+    }
+
+    public String getModello() {
+        return modello;
+    }
+
+    public void setModello(String modello) {
+        this.modello = modello;
+    }
 
     public Dipendente getDipendente() {
         return dipendente;
@@ -40,11 +59,11 @@ public class Cellulare implements Serializable{
         this.dipendente = dipendente;
     }
 
-    public List<Contratto> getContratti() {
+    public List<ContrattoTelefonico> getContratti() {
         return contratti;
     }
 
-    public void setContratti(List<Contratto> contratti) {
+    public void setContratti(List<ContrattoTelefonico> contratti) {
         this.contratti = contratti;
     }
 
@@ -86,5 +105,4 @@ public class Cellulare implements Serializable{
         return true;
     }
 
-    
 }
