@@ -5,17 +5,12 @@
  */
 package it.cspnet.beneficium.data;
 
-
 import it.cspnet.beneficium.model.ContrattoTelefonico;
-import java.util.List;
+import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author lora
- */
 @Repository
-public interface ContrattiTelefoniciRepository extends JpaRepository<ContrattoTelefonico, Integer>{
-    List<ContrattoTelefonico> findByIdContrattoTelefonico(int idContrattoTelefonico);
+public interface ContrattoTelefonicoRepository extends JpaRepository<ContrattoTelefonico, Integer>{
+    
 }

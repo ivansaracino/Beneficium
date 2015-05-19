@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.cspnet.beneficium.model;
 
 import java.util.Collection;
@@ -18,10 +13,6 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-/**
- *
- * @author luca
- */
 @Entity
 public class Automobile {
 
@@ -59,14 +50,7 @@ public class Automobile {
     public void setContrattoAuto(Collection<Contratto_Auto> contrattoAuto) {
         this.contrattoAuto = contrattoAuto;
     }
-
-//    public Collection<Contratto> getContratti() {
-//        return contratti;
-//    }
-//
-//    public void setContratti(Collection<Contratto> contratti) {
-//        this.contratti = contratti;
-//    }
+    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
