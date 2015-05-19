@@ -25,7 +25,7 @@ public class ContrattoAutomobileController {
     @Autowired
     private BenefitServices servizi;
     
-    @RequestMapping(value = "inseriscicontratto", method = RequestMethod.GET)
+    @RequestMapping(value = "inserisciautomobile", method = RequestMethod.GET)
     
     @ModelAttribute("automobile")
     public Automobile creaAutomobile() throws Exception {
