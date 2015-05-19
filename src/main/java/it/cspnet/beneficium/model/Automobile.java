@@ -39,8 +39,10 @@ public class Automobile {
     @JsonIgnore
     private Dipendente dipendente;
     
+
     @OneToMany(mappedBy = "automobile" , fetch = FetchType.LAZY)
     private Collection<Contratto_Auto> contrattoAuto;        
+
 
     public int getIdAuto() {
         return idAuto;
@@ -53,6 +55,7 @@ public class Automobile {
         return hash;
     }
 
+
     public Collection<Contratto_Auto> getContrattoAuto() {
         return contrattoAuto;
     }
@@ -60,6 +63,22 @@ public class Automobile {
     public void setContrattoAuto(Collection<Contratto_Auto> contrattoAuto) {
         this.contrattoAuto = contrattoAuto;
     }
+
+//    public Collection<ContrattoTelefonico> getContratti() {
+//        return contratti;
+//    }
+//
+//    public void setContratti(Collection<ContrattoTelefonico> contratti) {
+//        this.contratti = contratti;
+//    }
+    
+    
+    
+    
+    
+   
+  
+
 
     @Override
     public boolean equals(Object obj) {
