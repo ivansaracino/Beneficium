@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author ivan
  */
 @Controller
-public class ContrattoController {
+public class ContrattoAutomobileController {
     
     @Autowired
     private BenefitServices servizi;
