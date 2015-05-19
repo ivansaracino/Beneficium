@@ -1,19 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package it.cspnet.beneficium.services;
 
 import it.cspnet.beneficium.data.AutomobiliRepository;
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.data.CellulariRepository;
+
+import it.cspnet.beneficium.data.ContrattoTelefonicoRepository;
+
 import it.cspnet.beneficium.data.ContrattoAutoRepository;
+
 import it.cspnet.beneficium.data.DipendentiRepository;
 import it.cspnet.beneficium.data.UtenteRepository;
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Cellulare;
+
 import it.cspnet.beneficium.model.Contratto_Auto;
+
 import it.cspnet.beneficium.model.ContrattoTelefonico;
 import it.cspnet.beneficium.model.Utente;
 import java.util.Collection;
@@ -37,8 +39,13 @@ public class BenefitServicesImpl implements BenefitServices {
     @Autowired
     private CellulariRepository cellulariRepository;
     
+
+    @Autowired
+    private ContrattoTelefonicoRepository contrattiTelefoniciRepository;
+
      @Autowired
     private ContrattoAutoRepository contrattoAutoRepository;
+
     
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception {
         return cellulariRepository.save(cellulare);
@@ -83,6 +90,11 @@ public class BenefitServicesImpl implements BenefitServices {
     public Contratto_Auto salvaContratto(Contratto_Auto contratto) {
         
         return contrattoAutoRepository.save(contratto);
+    }
+    
+    @Transactional
+    public ContrattoTelefonico aggiungiContrattoTelefonico(ContrattoTelefonico contrattoTelefonico) {
+    return contrattiTelefoniciRepository.save(contrattoTelefonico);
     }
     
 }

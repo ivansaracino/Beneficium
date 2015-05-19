@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package it.cspnet.beneficium.model;
 
 import java.util.Date;
@@ -17,10 +13,7 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
-/**
- *
- * @author dave
- */
+
 @Entity
 @Table(name = "CONTRATTO_AUTO")
 public class Contratto_Auto {

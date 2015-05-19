@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.cspnet.beneficium.model;
 
 import java.io.Serializable;
@@ -16,10 +11,6 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
-/**
- *
- * @author corsojava
- */
 @Entity
 @Table(name = "CELLULARI")
 public class Cellulare implements Serializable {
@@ -31,7 +22,6 @@ public class Cellulare implements Serializable {
     @NotEmpty
     private String numero;
 
-
     @NotEmpty
     private String numeroSim;
 
@@ -41,12 +31,9 @@ public class Cellulare implements Serializable {
     @OneToMany(mappedBy = "cellulare")
     private List<ContrattoTelefonico> contratti;
 
-
     @JsonIgnore
     @ManyToOne
     private Dipendente dipendente;
-    
-    // getters and setters
 
     public String getNumeroSim() {
         return numeroSim;
@@ -72,7 +59,6 @@ public class Cellulare implements Serializable {
         this.dipendente = dipendente;
     }
 
-
     public List<ContrattoTelefonico> getContratti() {
         return contratti;
     }
@@ -80,7 +66,6 @@ public class Cellulare implements Serializable {
     public void setContratti(List<ContrattoTelefonico> contratti) {
         this.contratti = contratti;
     }
-
 
     public int getId() {
         return id;
@@ -98,8 +83,6 @@ public class Cellulare implements Serializable {
         this.numero = numero;
     }
 
-    // equals and hashcode
-    
     @Override
     public int hashCode() {
         int hash = 7;
