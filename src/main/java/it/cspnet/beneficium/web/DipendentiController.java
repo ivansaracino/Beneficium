@@ -6,6 +6,7 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Dipendente;
+import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.services.BenefitServices;
 import java.util.Collection;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,30 +43,45 @@ public class DipendentiController {
         return new Utente();
     }
     
-    @RequestMapping(value = "inserisciDipendente", method = RequestMethod.POST)
-    public String nuovoDipendente(HttpServletRequest req, @Valid Dipendente dip, BindingResult result) {
-        if (!result.hasErrors()) {
+    @RequestMapping(value = "inseriscidipendentejson", method = RequestMethod.POST)
+    public @ResponseBody JsonResult nuovoDipendente(HttpServletRequest req,@Valid @RequestBody Dipendente dip, BindingResult result) {
+       // if (!result.hasErrors()) {
 
-            String codiceFiscale = req.getParameter("codiceFiscale");
-            String nome = req.getParameter("nome");
-            String cognome = req.getParameter("cognome");
-            String indirizzo = req.getParameter("indirizzo");
-            float stipendioMensile = Float.parseFloat(req.getParameter("stipendioMensile"));
+//            String codiceFiscale = req.getParameter("codiceFiscale");
+//            String nome = req.getParameter("nome");
+//            String cognome = req.getParameter("cognome");
+//            String indirizzo = req.getParameter("indirizzo");
+//            float stipendioMensile = Float.parseFloat(req.getParameter("stipendioMensile"));
+//            
+//            Dipendente d = new Dipendente();
+//            d.setCodiceFiscale(codiceFiscale);
+//            d.setNome(nome);
+//            d.setCognome(cognome);
+//            d.setIndirizzo(indirizzo);
+//            d.setStipendioMensile(stipendioMensile);
             
-            Dipendente d = new Dipendente();
-            d.setCodiceFiscale(codiceFiscale);
-            d.setNome(nome);
-            d.setCognome(cognome);
-            d.setIndirizzo(indirizzo);
-            d.setStipendioMensile(stipendioMensile);
+            Dipendente d = servizi.aggiungiDipendente(dip);
+            JsonResult j = new JsonResult();
             
-            servizi.aggiungiDipendente(dip);
-            req.setAttribute("messaggio", "dipendente salvato!");
-             return "start"; //deve ritornare al menù
-        }
-        else 
-             return "inseriscidipendente.do"; //deve ritornare al menù
+            if(d != null){
+           
+            j.setOggetto(d);
+            j.setMessaggio("inserimento corretto");
+            j.setStatus(true);
+            }
+            else{
+            j.setMessaggio("inserimento sbagliato");  
+            j.setStatus(false);
+            }
+            
+            return j;
+//            req.setAttribute("messaggio", "dipendente salvato!");
+            // return "start"; //deve ritornare al menù
     }
+//        }
+//        else 
+//             return "inseriscidipendente.do"; //deve ritornare al menù
+//    }
     
         @RequestMapping(value = "listadipendentijson", method = RequestMethod.GET)
         public @ResponseBody Collection<Dipendente> listaDipendentiJSON(){
