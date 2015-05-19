@@ -19,6 +19,7 @@
 
             TARGA: <form:input path="targa" /> <br>
             MODELLO: <form:input path="modello" /> <br>
+            TIPO CONTRATTO <form:input path="contratto.tipo_contratto" /> <br>
             
             <input type="submit" value="Inserisci" />
             <form:errors path="*" element="div" />

@@ -6,6 +6,7 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
+import it.cspnet.beneficium.model.Contratto;
 import it.cspnet.beneficium.services.BenefitServices;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -26,12 +27,18 @@ public class AutomobiliController {
     @Autowired
     private BenefitServices servizi;
 
-    @RequestMapping(value = "inserisciautomobile", method = RequestMethod.GET)
     @ModelAttribute("automobile")
     public Automobile creaAutomobile() throws Exception {
         return new Automobile();
     }
+    
+    @ModelAttribute("contratto")
+    public Contratto creaContratto() throws Exception {
+        return new Contratto();
+    }
 
+     
+     
     @RequestMapping(value = "aggiungiAuto", method = RequestMethod.POST)
     public String creaAutomobile(HttpServletRequest req, @Valid Automobile automobile, BindingResult result) throws Exception {
         if (!result.hasErrors()) {
