@@ -1,4 +1,3 @@
-
 package it.cspnet.beneficium.model;
 
 import java.io.Serializable;
@@ -12,41 +11,45 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
-
 @Entity
 @Table(name = "CELLULARI")
-public class Cellulare implements Serializable{
+public class Cellulare implements Serializable {
+
     @Id
     @GeneratedValue
     private int id;
+
     @NotEmpty
     private String numero;
-    
+
     @NotEmpty
     private String numeroSim;
 
     @NotEmpty
     private String modello;
 
-//    public Cellulare(int id, String numero, String numeroSim, String modello, List<ContrattoTelefonico> contratti, Dipendente dipendente) {
-//        this.id = id;
-//        this.numero = numero;
-//        this.numeroSim = numeroSim;
-//        this.modello = modello;
-//        this.contratti = contratti;
-//        this.dipendente = dipendente;
-//    }
-//    
-    
-  
-    
     @OneToMany(mappedBy = "cellulare")
     private List<ContrattoTelefonico> contratti;
-    
-    
+
     @JsonIgnore
     @ManyToOne
     private Dipendente dipendente;
+
+    public String getNumeroSim() {
+        return numeroSim;
+    }
+
+    public void setNumeroSim(String numeroSim) {
+        this.numeroSim = numeroSim;
+    }
+
+    public String getModello() {
+        return modello;
+    }
+
+    public void setModello(String modello) {
+        this.modello = modello;
+    }
 
     public Dipendente getDipendente() {
         return dipendente;
@@ -80,25 +83,6 @@ public class Cellulare implements Serializable{
         this.numero = numero;
     }
 
-    public String getModello() {
-        return modello;
-    }
-
-    public void setModello(String modello) {
-        this.modello = modello;
-    }
-    
-
-    public String getNumeroSim() {
-        return numeroSim;
-    }
-
-    public void setNumeroSim(String numeroSim) {
-        this.numeroSim = numeroSim;
-    }
-
-    
-    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -121,5 +105,4 @@ public class Cellulare implements Serializable{
         return true;
     }
 
-    
 }

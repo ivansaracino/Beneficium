@@ -37,6 +37,14 @@ public class ContrattoTelefonico implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     private Cellulare cellulare;
 
+    public String getTipoContratto() {
+        return tipoContratto;
+    }
+
+    public void setTipoContratto(String tipoContratto) {
+        this.tipoContratto = tipoContratto;
+    }
+
     public int getIdContrattoTelefonico() {
         return idContrattoTelefonico;
     }
@@ -61,14 +69,6 @@ public class ContrattoTelefonico implements Serializable {
         this.profiloContratto = profiloContratto;
     }
 
-    public String getTipoContratto() {
-        return tipoContratto;
-    }
-
-    public void setTipoContratto(String tipoContratto) {
-        this.tipoContratto = tipoContratto;
-    }
-
     public boolean isScaduto() {
         return scaduto;
     }
@@ -85,4 +85,25 @@ public class ContrattoTelefonico implements Serializable {
         this.cellulare = cellulare;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + this.idContrattoTelefonico;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ContrattoTelefonico other = (ContrattoTelefonico) obj;
+        if (this.idContrattoTelefonico != other.idContrattoTelefonico) {
+            return false;
+        }
+        return true;
+    }
 }

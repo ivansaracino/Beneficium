@@ -1,22 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package it.cspnet.beneficium.services;
 
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.Cellulare;
 import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.model.Automobile;
+
+
+import it.cspnet.beneficium.model.Contratto_Auto;
+
+
 import it.cspnet.beneficium.model.ContrattoTelefonico;
 import java.util.Collection;
 import java.util.List;
 
-/**
- *
- * @author ivan
- */
+
 public interface BenefitServices {
 
     public Cellulare inserisciCellulare(Cellulare cellulare) throws Exception;
@@ -37,5 +35,9 @@ public interface BenefitServices {
 
     public Automobile salvaautomobile(Automobile a);
 
+
     public ContrattoTelefonico aggiungiContrattoTelefonico(ContrattoTelefonico contrattoTelefonico);
+
+    public Contratto_Auto salvaContratto(Contratto_Auto contratto);
+
 }

@@ -29,27 +29,11 @@ public class CellulariController {
         return new Cellulare();
     }
 
-    @RequestMapping(value = "inseriscicellulare", method = RequestMethod.GET)
-    public String getInserisciCellulare() {
-        return "inseriscicellulare";
-    }
-//
-//    @RequestMapping(value = "inseriscicellulare", method = RequestMethod.POST)
-//    public String postInserisciCellulare(HttpServletRequest req, @Valid Cellulare cellulare, BindingResult result) {
-//        if (!result.hasErrors()) {
-//            try {
-//                servizi.inserisciCellulare(cellulare);
-//                req.setAttribute("messaggio", "Cellulare inserito correttamente!!");
-//                return "inseriscicellulare";
-//            } catch (Exception ex) {
-//                req.setAttribute("messaggio", "Cellulare non inserito correttamente!!");
-//                return "inseriscicellulare";
-//            }
-//        } else {
-//            return "inseriscicellulare";
-//        }
-//
+//    @RequestMapping(value = "inseriscicellulare", method = RequestMethod.GET)
+//    public String getInserisciCellulare() {
+//        return "inseriscicellulare";
 //    }
+
 
     @RequestMapping(value = "inseriscicellulare", method = RequestMethod.POST)
     public @ResponseBody

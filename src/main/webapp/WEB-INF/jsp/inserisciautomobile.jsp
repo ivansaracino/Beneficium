@@ -15,15 +15,32 @@
     </head>
     <body>
         <h1>Inserisci automobile</h1>
-        <form:form action = "aggiungiAuto.do" commandName="automobile">
+        <form:form action = "salvacontratto.do" commandName="contratto">
 
-            TARGA: <form:input path="targa" /> <br>
-            MODELLO: <form:input path="modello" /> <br>
+            TARGA: <form:input path="automobile.targa" /> <br>
+            MODELLO: <form:input path="automobile.modello" /> <br>
             
+            
+            DATA ATTIVAZIONE <form:input path="dataAttivazione" /> <br>
+            DATA SCANDENZA <form:input path="dataScadenza" /> <br>
+            COSTO NOLEGGIO <form:input path="costoNoleggio" /> <br>
+            COSTO SERVIZI <form:input path="costoServizi" /> <br>
+            KILOMETRI CONTRATTO <form:input path="kilometriContratto" /> <br>
+            SOCIETÀ LEASING <form:input path="societaLeasing" /> <br>
+            
+            <!--form action="demo_post_enctype.asp"
+                  method="post" enctype="multipart/form-data">
+                First name: <input type="text" name="fname"><br>
+                
+                <input type="submit" value="Submit">
+            </form-->
+
+
+
             <input type="submit" value="Inserisci" />
             <form:errors path="*" element="div" />
         </form:form>
-              ${messaggio}
-       
+        ${messaggio}
+
     </body>
 </html>

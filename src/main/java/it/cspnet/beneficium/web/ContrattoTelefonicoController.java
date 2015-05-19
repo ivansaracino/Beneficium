@@ -23,7 +23,7 @@ public class ContrattoTelefonicoController {
     @Autowired
     private BenefitServices servizi;
     
-    @RequestMapping(value = "inseriscicontratto", method = RequestMethod.GET)
+    @RequestMapping(value = "inseriscicontrattotelefonico", method = RequestMethod.GET)
     @ModelAttribute("contratto")
     public ContrattoTelefonico getModelContrattoTelefonico() {
         return new ContrattoTelefonico();
