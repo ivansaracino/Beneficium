@@ -14,7 +14,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/miocss.css" rel="stylesheet" media="screen">
     </head>
-    <body>    
+    <body class="sfondo">    
         <div class="container">
             <div class="row">
                 <div class="header col-md-12">
