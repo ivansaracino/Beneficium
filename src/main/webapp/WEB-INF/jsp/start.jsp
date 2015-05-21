@@ -18,7 +18,7 @@
         <h1>Login</h1>
           <form:form action = "login.do" commandName="utente">
            USERNAME: <form:input path="username" /> <br>
-            PASSWORD <form:input path="password" /> <br>
+           PASSWORD <form:input path="password" /> <br>
             <input type="submit" value="Login" />
             <form:errors path="*" element="div" />
         </form:form>
