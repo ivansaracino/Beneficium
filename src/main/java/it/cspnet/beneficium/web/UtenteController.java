@@ -63,7 +63,7 @@ public class UtenteController {
             }
 
         } else {
-            return "start";
+            return "home";
         }
 
     }
