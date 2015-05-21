@@ -44,7 +44,6 @@
                     <button type="submit" class="btn btn-default">Login</button>
                 <form:errors path="*" element="div"/>
         </form:form>    
->>>>>>> 8373edde53a3a4fcb0b3429057cf4549fed8f63c
         ${messaggio}
         <p></p>
                 </div>
