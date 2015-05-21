@@ -14,26 +14,13 @@
     </head>
     <body>
         <h3>Inserimento cellulare associato a dipendente</h3>
-        <form:form action="inseriscicellulare.do" commandName="cellulare"> 
-            Numero cellulare:<form:input path="numero" /> <br />
-            Modello:<form:input path="modello" /> <br />
-            Numero SIMCard:<form:input path="numeroSim" /> <br />
-            Dipendente: <form:input path="dipendente" /> <br />
-            Contratto:<input type="checkbox" name="contratto" value="ON" /><br />            
-            <input type="submit" value="Associa cel"/> 
-            <form:errors path="*" element="div"/>
-        </form:form>
-
         <form:form action="inseriscicontrattojson.do" commandName="contratto"> 
             Numero cel:<form:input path="cellulare.numero" /> <br />
             NumeroSim: <form:input path="cellulare.numeroSim" /> <br />
             Modello:   <form:input path="cellulare.modello" /> <br />
-
             Costo Bimestrale:   <form:input path="costoBimestrale" /> <br />
             Profilo Contratto:   <form:input path="profiloContratto" /> <br />                 
             Tipo Contratto:   <form:input path="tipoContratto" /> <br />
-
-
             <input type="submit" value="Salva "/> 
             <form:errors path="*" element="div"/>
         </form:form>
