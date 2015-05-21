@@ -10,18 +10,45 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Beneficium</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/miocss.css" rel="stylesheet" media="screen">
     </head>
-    <body>
 
-        <h3>Pagina iniziale Beneficium</h3>
-        <h1>Login</h1>
-          <form:form action = "login.do" commandName="utente">
-           USERNAME: <form:input path="username" /> <br>
-           PASSWORD <form:input path="password" /> <br>
-            <input type="submit" value="Login" />
-            <form:errors path="*" element="div" />
-        </form:form>
+    <body>    
+        <div class="container">
+            <div class="row">
+                <div class="header col-md-12">
+                    <h1>Beneficium</h1>
+                    <h5>Gestione benefit CSP</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><h3> </h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-9"></div>
+                <div class="barradestra col-md-3">
+                <h1>Benvenuto!</h1>
+                <form:form action = "login.do" commandName="utente">
+                    <div class="form-group">
+                        <label for="inputUsername">Username</label>
+                        <!--input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username"-->
+                        <form:input path="username" cssClass="form-control" id="inputUsername" placeholder="Username"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <!--input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password"-->
+                        <form:input path="password" cssClass="form-control" id="inputPassword" placeholder="Password"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                <form:errors path="*" element="div"/>
+        </form:form>    
+>>>>>>> 8373edde53a3a4fcb0b3429057cf4549fed8f63c
         ${messaggio}
+        <p></p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
