@@ -23,11 +23,31 @@ and open the template in the editor.
 }
 
 .sfondo {
-    margin:0; 
-    padding:0;
-    background-image: url(../img/ImmagineBenefit.bmp); 
+    /*    margin:0; 
+        padding:0;
+        background-image: url(../img/sfondocel.jpg); 
+        background-repeat: no-repeat;
+        background-position: inherit;
+        background-position: left;
+        background-attachment: fixed;
+        background-color: transparent;
+        background-size: auto;*/
+    background: rgb(253,255,234); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(253,255,234,1) 0%, rgba(253,255,234,1) 9%, rgba(253,255,234,1) 9%, rgba(253,255,234,1) 25%, rgba(253,255,234,1) 48%, rgba(242,255,107,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(253,255,234,1)), color-stop(9%,rgba(253,255,234,1)), color-stop(9%,rgba(253,255,234,1)), color-stop(25%,rgba(253,255,234,1)), color-stop(48%,rgba(253,255,234,1)), color-stop(100%,rgba(242,255,107,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(253,255,234,1) 0%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 25%,rgba(253,255,234,1) 48%,rgba(242,255,107,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(253,255,234,1) 0%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 25%,rgba(253,255,234,1) 48%,rgba(242,255,107,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(253,255,234,1) 0%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 25%,rgba(253,255,234,1) 48%,rgba(242,255,107,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(253,255,234,1) 0%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 9%,rgba(253,255,234,1) 25%,rgba(253,255,234,1) 48%,rgba(242,255,107,1) 100%); /* W3C */
+    height: auto; top: 0; left: 0;
+    background: -webkit-background-size: cover;
+    background: -moz-background-size: cover;
+    background: -o-background-size: cover;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0px 0;
-    background-attachment: fixed;
-   background-color: #000;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdffea', endColorstr='#f2ff6b',GradientType=0 ); /* IE6-9 */
+}
+
+div {
+    border-radius: 10px;
 }
