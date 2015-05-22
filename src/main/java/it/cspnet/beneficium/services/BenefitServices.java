@@ -40,4 +40,6 @@ public interface BenefitServices {
 
     public Contratto_Auto salvaContratto(Contratto_Auto contratto);
 
+    public Collection<Automobile> listAutomobiliJSON(String codiceFiscale);
+
 }
