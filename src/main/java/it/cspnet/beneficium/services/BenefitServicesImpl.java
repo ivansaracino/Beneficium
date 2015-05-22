@@ -96,5 +96,11 @@ public class BenefitServicesImpl implements BenefitServices {
     public ContrattoTelefonico aggiungiContrattoTelefonico(ContrattoTelefonico contrattoTelefonico) {
     return contrattiTelefoniciRepository.save(contrattoTelefonico);
     }
+
+    @Override
+    public Collection<Automobile> listAutomobiliJSON(String codiceFiscale) {
+        
+        return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
+    }
     
 }
