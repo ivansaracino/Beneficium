@@ -1,7 +1,9 @@
+
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Contratto_Auto;
+
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.services.BenefitServices;
@@ -23,7 +25,6 @@ public class AutomobiliController {
 
     @Autowired
     private BenefitServices servizi;
-//
 //    @RequestMapping(value = "inserisciautomobile", method = RequestMethod.GET)
 //
 //    @ModelAttribute("automobile")
@@ -59,6 +60,4 @@ public class AutomobiliController {
 //
 //        return risultato;
 //    }
-//    
-//    
 }
