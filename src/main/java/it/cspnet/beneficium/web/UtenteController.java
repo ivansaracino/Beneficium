@@ -44,7 +44,7 @@ public class UtenteController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
 //   
-     public @ResponseBody Utente login(HttpServletRequest req, @RequestBody  Utente utente, BindingResult result) throws Exception {
+     public @ResponseBody Utente login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
             
            return benefitServices.findUtente(utente);
     }
