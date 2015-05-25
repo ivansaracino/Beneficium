@@ -1,27 +1,52 @@
 <div>
     <h3>Lista Dipendenti</h3>
-    <table class="table table-hover">
+
+    <table class="table table-bordered table-hover table-striped" border=1>
+
         <thead>
         <th>CODICE FISCALE</th>
         <th>NOME</th>
         <th>COGNOME</th>
         <th>INDIRIZZO</th>
         <th>STIPENDIO MENSILE</th>
+        <th>AUTO</th>
+        <th>CELLULARE</th>
+        <th>AZIONI</th>
+
         </thead>
         <tr ng-repeat="dipendente in dipendenti">
             <td>{{dipendente.codiceFiscale}}</td>
             <td>{{dipendente.nome}}</td>
             <td>{{dipendente.cognome}}</td>
             <td>{{dipendente.indirizzo}}</td>
+
             <td>{{dipendente.stipendioMensile}}</td>
+
+
+
             <td><input type="button" value="Visualizza Auto" ng-Click="gestioneAuto()"/></td>
             <td><input type="button" value="Visualizza Cellulare"/></td>
 
+            <td>
+                <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.stipendioMensile]">
+                    <button class="btn btn-success dropdown-toggle" dropdown-toggle type="button">
+                        Azioni <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+
+                        <li><a ng-click="modificaDipendente(dipendente)">Modifica</a></li>
+                        <li><a ng-click="eliminaDipendente(dipendente.codiceFiscale)">Delete</a></li>
+
+                        <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
+                    </ul>
+                </div>
+
+                <button class="btn btn-success" ng-show="vm.currentEdit[league.id]" ng-click="vm.saveItem(league)">Save</button>
+                <button class="btn btn-danger" ng-show="vm.currentEdit[league.id]" ng-click="vm.cancelEdit(league.id)">Cancel</button>
+            </td>
         </tr>
+
     </table>
-    
-    
-    <br>
-    <center><a ><img src="../img/exit.png" alt="Logout button"></a></center>
-    
 </div>
+
+
