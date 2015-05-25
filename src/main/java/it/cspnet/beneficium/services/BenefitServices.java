@@ -31,10 +31,10 @@ public interface BenefitServices {
 
     public Automobile salvaautomobile(Automobile a);
 
-    public ContrattoTelefonico inserisciContrattoTelefonico(ContrattoTelefonico contrattoTelefonico);
-
     public ContrattoTelefonico aggiungiContrattoTelefonico(ContrattoTelefonico contrattoTelefonico);
 
     public Contratto_Auto salvaContratto(Contratto_Auto contratto);
+
+    public Collection<Automobile> listAutomobiliJSON(String codiceFiscale);
 
 }

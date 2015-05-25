@@ -28,14 +28,6 @@
             KILOMETRI CONTRATTO <form:input path="kilometriContratto" /> <br>
             SOCIETÀ LEASING <form:input path="societaLeasing" /> <br>
             
-            <!--form action="demo_post_enctype.asp"
-                  method="post" enctype="multipart/form-data">
-                First name: <input type="text" name="fname"><br>
-                
-                <input type="submit" value="Submit">
-            </form-->
-
-
 
             <input type="submit" value="Inserisci" />
             <form:errors path="*" element="div" />

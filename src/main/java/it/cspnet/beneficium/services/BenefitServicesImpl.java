@@ -1,4 +1,3 @@
-
 package it.cspnet.beneficium.services;
 
 import it.cspnet.beneficium.data.AutomobiliRepository;
@@ -35,7 +34,7 @@ public class BenefitServicesImpl implements BenefitServices {
     private CellulariRepository cellulariRepository;
 
     @Autowired
-    private ContrattoAutoRepository contrattoAutoRepository; 
+    private ContrattoAutoRepository contrattoAutoRepository;
 
     @Autowired
     private ContrattoTelefonicoRepository contrattiTelefoniciRepository;
@@ -85,13 +84,14 @@ public class BenefitServicesImpl implements BenefitServices {
         return contrattoAutoRepository.save(contratto);
     }
 
-
-    public ContrattoTelefonico inserisciContrattoTelefonico(ContrattoTelefonico contrattoTelefonico) {
+    @Transactional
+    public ContrattoTelefonico aggiungiContrattoTelefonico(ContrattoTelefonico contrattoTelefonico) {
         return contrattiTelefoniciRepository.save(contrattoTelefonico);
     }
 
-    @Transactional
-    public ContrattoTelefonico aggiungiContrattoTelefonico(ContrattoTelefonico contrattoTelefonico) {
-    return contrattiTelefoniciRepository.save(contrattoTelefonico);
+    @Override
+    public Collection<Automobile> listAutomobiliJSON(String codiceFiscale) {
+
+        return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,37 +36,17 @@ public class UtenteController {
     
     
 
-    @RequestMapping(value = "start")
-    public String nuovoUtente() {
-        return "start";
-
-    }
+//    @RequestMapping(value = "start")
+//    public String nuovoUtente() {
+//        return "login";
+//
+//    }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(HttpServletRequest req, @Valid Utente utente, BindingResult result) throws Exception {
-
-        if (!result.hasErrors()) {
-
-            String username = req.getParameter("username");
-            String password = req.getParameter("password");
-
-            Utente u = new Utente();
-            u.setPassword(password);
-            u.setUsername(username);
-
-            Utente x = benefitServices.findUtente(u);
-            if (x != null) {
-                req.getSession().setAttribute("utente", x);
-                return "home";
-            } else {
-                req.setAttribute("messaggio", "credenziali errate");
-                return "start";
-            }
-
-        } else {
-            return "home";
-        }
-
+//   
+     public @ResponseBody Utente login(HttpServletRequest req, @RequestBody  Utente utente, BindingResult result) throws Exception {
+            
+           return benefitServices.findUtente(utente);
     }
     
     @RequestMapping(value="listautenti", method=RequestMethod.GET)
