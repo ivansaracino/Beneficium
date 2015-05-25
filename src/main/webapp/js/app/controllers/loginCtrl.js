@@ -1,7 +1,11 @@
 angular.module('myBenefit')
         .controller('loginCtrl', function ($scope, dataServices, $location) {
             var callback = function (risposta) {
-                $location.path('/listadipendentijson');
+                if (risposta.status === true)
+                    $location.path('/listadipendentijson');
+                else
+                    // ToASTR 
+                    $location.path('/login'); 
             };
 
             var error = function (risposta) {
