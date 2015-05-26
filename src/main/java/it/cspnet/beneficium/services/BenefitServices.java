@@ -48,5 +48,7 @@ public interface BenefitServices {
 
 
 
+    public Collection<Automobile> listAutomobiliJSON(String codiceFiscale);
+
 
 }

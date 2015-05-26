@@ -37,38 +37,29 @@ public class UtenteController {
     
     
 
-    @RequestMapping(value = "start")
-    public String nuovoUtente() {
-        return "start";
-
-    }
+//    @RequestMapping(value = "start")
+//    public String nuovoUtente() {
+//        return "login";
+//
+//    }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(HttpServletRequest req, @Valid Utente utente, BindingResult result) throws Exception {
-
-        if (!result.hasErrors()) {
-
-            String username = req.getParameter("username");
-            String password = req.getParameter("password");
-
-            Utente u = new Utente();
-            u.setPassword(password);
-            u.setUsername(username);
-
-            Utente x = benefitServices.findUtente(u);
-            if (x != null) {
-                req.getSession().setAttribute("utente", x);
-                return "home";
-            } else {
-                req.setAttribute("messaggio", "credenziali errate");
-                return "start";
-            }
-
-        } else {
-            return "start";
-        }
-
-    }
+//   
+     public @ResponseBody JsonResult login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
+           JsonResult jR = new JsonResult();
+           try {
+           
+           Utente u = benefitServices.findUtente(utente);
+           jR.setOggetto(u);
+           jR.setMessaggio("bEnvenuto");
+           
+           } catch (Exception ex) {
+               jR.setMessaggio("utente non abilititato");
+               jR.setStatus(false);
+           } finally {
+               return jR;
+           }
+    } 
     
     @RequestMapping(value="listautenti", method=RequestMethod.GET)
     public @ResponseBody List<Utente> getListaUtenti(){

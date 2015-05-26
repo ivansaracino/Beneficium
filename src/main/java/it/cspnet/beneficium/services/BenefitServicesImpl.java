@@ -104,4 +104,12 @@ public class BenefitServicesImpl implements BenefitServices {
     return contrattiTelefoniciRepository.save(contrattoTelefonico);
     }
 
+
+    @Override
+    public Collection<Automobile> listAutomobiliJSON(String codiceFiscale) {
+        
+        return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
+    }
+    
+
 }
