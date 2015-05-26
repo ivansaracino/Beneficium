@@ -66,3 +66,20 @@ html{
 body {
   min-height: 100;
 }
+/*-----------------------------------------------------------------------------------------------------*/
+.header-wrap {
+  background: #0099cc;
+  /*border removed*/
+  padding:2%;
+  box-shadow: 0 5px 10px #aaa;
+  -webkit-box-shadow: 0 5px 10px #aaa;
+  -moz-box-shadow: 0 5px 10px #aaa;
+}
+
+header {
+  background: #ccc;
+  padding: 15px;
+  display: table;
+  width: 100%;
+  border-radius: 10px;
+}

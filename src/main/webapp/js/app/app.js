@@ -1,1 +1,1 @@
-angular.module('myBenefit',['ngRoute']);
+angular.module('myBenefit',['ngRoute','ui.bootstrap']);

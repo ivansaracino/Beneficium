@@ -5,6 +5,7 @@
  */
 package it.cspnet.beneficium.web;
 
+import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.services.BenefitServices;
 import java.util.List;
@@ -44,10 +45,24 @@ public class UtenteController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
 //   
-     public @ResponseBody Utente login(HttpServletRequest req, @RequestBody  Utente utente, BindingResult result) throws Exception {
-            
-           return benefitServices.findUtente(utente);
-    }
+     public @ResponseBody JsonResult login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
+           JsonResult jR = new JsonResult();
+           
+           
+           Utente u = benefitServices.findUtente(utente);
+           jR.setOggetto(u);
+           
+           if(u != null){
+           jR.setMessaggio("bEnvenuto");
+           jR.setStatus(true);
+           }
+           else{
+               jR.setMessaggio("utente non abilititato");
+               jR.setStatus(false);
+           } 
+               return jR;
+           
+    } 
     
     @RequestMapping(value="listautenti", method=RequestMethod.GET)
     public @ResponseBody List<Utente> getListaUtenti(){
