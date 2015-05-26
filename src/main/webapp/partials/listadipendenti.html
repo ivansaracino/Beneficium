@@ -1,6 +1,6 @@
 <div>
     <h3>Lista Dipendenti</h3>
-
+    
     <table class="table table-bordered table-hover table-striped" border=1>
 
         <thead>
@@ -24,8 +24,8 @@
 
 
 
-            <td><input type="button" value="Visualizza Auto" ng-Click="gestioneAuto()"/></td>
-            <td><input type="button" value="Visualizza Cellulare"/></td>
+            <td><button class="btn btn-success"  ng-Click="gestioneAuto()" />Visualizza Auto</button></td>
+            <td><button class="btn btn-success"   />Visualizza Cellulare</button></td>
 
             <td>
                 <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.stipendioMensile]">
@@ -33,13 +33,13 @@
                         Azioni <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-
-                        <li><a ng-click="modificaDipendente(dipendente)">Modifica</a></li>
-                        <li><a ng-click="eliminaDipendente(dipendente.codiceFiscale)">Delete</a></li>
-
-                        <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
+                        <li><a ng-click="aggiungiContrattoTelefonico()">Aggiungi contratto telefonico</a></li>
+                        <li><a ng-click="aggiungiContrattoAutomobile()">Aggiungi contratto automobile</a></li>
                     </ul>
                 </div>
+                
+              
+
 
                 <button class="btn btn-success" ng-show="vm.currentEdit[league.id]" ng-click="vm.saveItem(league)">Save</button>
                 <button class="btn btn-danger" ng-show="vm.currentEdit[league.id]" ng-click="vm.cancelEdit(league.id)">Cancel</button>

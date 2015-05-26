@@ -18,6 +18,18 @@ angular.module('myBenefit')
                             alert("Il dipendente con codice fiscale : " + codiceFiscale + " è stato rimosso");
                         });
             };
+            
+            $scope.aggiungiContrattoTelefonico = function () {
+                alert("aggiungo contratto telefonico ");
+            };
+            
+             $scope.aggiungiContrattoAutomobile = function () {
+                alert("aggiungo contratto automobile ");
+            };
+            
+           
+            
+            
 
 //            $scope.aggiungiProdotto = function () {
 //                var modalInstance = $modal.open({
