@@ -47,18 +47,21 @@ public class UtenteController {
 //   
      public @ResponseBody JsonResult login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
            JsonResult jR = new JsonResult();
-           try {
+           
            
            Utente u = benefitServices.findUtente(utente);
            jR.setOggetto(u);
-           jR.setMessaggio("bEnvenuto");
            
-           } catch (Exception ex) {
+           if(u != null){
+           jR.setMessaggio("bEnvenuto");
+           jR.setStatus(true);
+           }
+           else{
                jR.setMessaggio("utente non abilititato");
                jR.setStatus(false);
-           } finally {
+           } 
                return jR;
-           }
+           
     } 
     
     @RequestMapping(value="listautenti", method=RequestMethod.GET)
