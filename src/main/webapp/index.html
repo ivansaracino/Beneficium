@@ -12,18 +12,22 @@
     </head>
     <body>
         <div class="container">
-            <header>
-                <div class="col-md-4">
+            <!--div class="row"><h3> </h3></div-->
+            <div class="row">
+                <div class="header col-md-12">
+                <div class="col-md-9" id="titolo">
+                    <div class="col-md-3 titolo">BENEFICIUM</div>
+                    <div class="col-md-6 sottotitolo"><br/> <br/> <br/>Benefit management made easy!</div>
+                </div>
+                    <div class="col-md-3">
                     <hgroup>
                         <a href="http://cspnet.it/">
-                            <img src="img/logo.png" alt="Logo CSP">
+                            <img src="img/logo.png" alt="Logo CSP" width="205" height="95">
                         </a> 
                     </hgroup>
                 </div>
-                <div class="col-md-8" id="titolo">
-                    <h1 >BENEFICIUM </h1> <h3>Benefit Management Made Easy!</h3>
-                </div>
-            </header>
+            </div>
+            </div>
             <div ng-view></div>
             <script src="js/lib/angular.min.js"></script>
             <script src="js/lib/angular-route.min.js"></script>
