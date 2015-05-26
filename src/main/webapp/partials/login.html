@@ -1,8 +1,27 @@
 
-<div>
+<div class="row">
+    <div class="col-md-9"></div>
+    <div class="barradestra col-md-3">
+        <h2>Benvenuto!</h2>
+        <div class="form-group">
+            <label for="inputUsername">Username</label>
+            <!--input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username"-->
+            <input type="text" ng-model="user.username" class="form-control" id="inputUsername" placeholder="Username"/>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <!--input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password"-->
+            <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password"/>
+        </div>
+        <button class="btn btn-default" ng-click="login()">Login</button>  
+        {{messaggio}}
+    </div>
+</div>
+
+<!--div>
     Nome:<input type="text" ng-model="user.username" />
     Password:<input type="text" ng-model="user.password"/>
     <button ng-click="login()">Login</button>
         
         {{messaggio}}
-</div>
+</div-->

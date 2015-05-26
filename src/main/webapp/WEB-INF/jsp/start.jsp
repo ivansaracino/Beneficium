@@ -14,8 +14,8 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/miocss.css" rel="stylesheet" media="screen">
     </head>
-    <body>
-        <div class="container sfondo">
+    <body id="sfondo">
+        <div class="container">
             <div class="row">
                 <div class="header col-md-12">
                     <h1>Beneficium</h1>
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-9"></div>
                 <div class="barradestra col-md-3">
-                    <h1>Benvenuto!</h1>
+                    <h2>Benvenuto!</h2>
                     <form:form action = "login.do" commandName="utente">
                         <div class="form-group">
                             <label for="inputUsername">Username</label>
@@ -44,10 +44,8 @@
                         <form:errors path="*" element="div"/>
                     </form:form>    
                     ${messaggio}
-                    <p></p>
                 </div>
             </div>
-            <div class="row riga"></div>
         </div>
     </body>
 </html>
