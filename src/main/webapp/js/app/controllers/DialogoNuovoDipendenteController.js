@@ -3,7 +3,7 @@ angular.module('myBenefit')
             $scope.data = data;
     
             $scope.save = function() {
-                $modalInstance.close($scope.data);
+                $modalInstance.close($scope.dipendente);
             };
             
             $scope.cancel = function() {

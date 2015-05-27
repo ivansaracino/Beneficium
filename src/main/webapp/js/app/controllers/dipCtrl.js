@@ -22,7 +22,7 @@ angular.module('myBenefit')
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovo-dipendente.html',
-                    controller: 'DialogoNuovoDipendenteController',
+                    controller: 'dialogoNuovoDipendenteController',
                     resolve: {
                         data: function () {
                             return {
@@ -31,13 +31,13 @@ angular.module('myBenefit')
                             };
                         }
                     },
-                    size: 'sm'
+                    size: 'lg'
                 });
 
                 modalInstance.result.then(function (dipendente) {
                     alert("Salvo " + dipendente.cognome + "-" + dipendente.nome);
                 }, function () {
-                    alert('Inserimento annullato');
+                    console.log("inserimento annullato");
                 });
             };
         });
