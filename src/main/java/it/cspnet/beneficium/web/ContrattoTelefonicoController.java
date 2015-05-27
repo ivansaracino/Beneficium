@@ -1,9 +1,7 @@
-
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Cellulare;
 import it.cspnet.beneficium.model.ContrattoTelefonico;
-import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.services.BenefitServices;
 import javax.servlet.http.HttpServletRequest;
@@ -34,11 +32,6 @@ public class ContrattoTelefonicoController {
         return new Cellulare();
     }
 
-    
-  
-    
-    
-    
     @RequestMapping(value = "inseriscicontrattojson", method = RequestMethod.POST)
     public @ResponseBody JsonResult nuovoContrattoTelefonico(HttpServletRequest req, @RequestBody ContrattoTelefonico contrattoTelefonico,String codiceFiscale, BindingResult result) {
        

@@ -31,6 +31,7 @@ angular.module('myBenefit')
                 });
             };
 
+
             $scope.AgggiungiContrattoAuto = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovoContrattoAuto.html',
@@ -39,7 +40,6 @@ angular.module('myBenefit')
                         data: function () {
                             return {
                                 titolo: 'Nuovo Contratto',
-                                buttons: ['Salva', 'Annulla']
                             };
                         }
                     },
@@ -52,7 +52,32 @@ angular.module('myBenefit')
                     alert('Inserimento annullato');
                 });
             };
-        });
 
+
+
+            $scope.aggiungiDipendente = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/nuovo-dipendente.html',
+                    controller: 'dialogoNuovoDipendenteController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                titolo: 'Nuovo Dipendente',
+                                buttons: ['Salva', 'Annulla']
+                            };
+                        }
+                    },
+                    size: 'lg'
+                });
+
+                modalInstance.result.then(function (dipendente) {
+                    alert("Salvo " + dipendente.cognome + "-" + dipendente.nome);
+                }, function () {
+                    console.log("inserimento annullato");
+                });
+            };
+
+
+        });
 
 
