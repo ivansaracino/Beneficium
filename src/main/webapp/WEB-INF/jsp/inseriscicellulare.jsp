@@ -18,21 +18,14 @@
             Numero cel:<form:input path="cellulare.numero" /> <br />
             NumeroSim: <form:input path="cellulare.numeroSim" /> <br />
             Modello:   <form:input path="cellulare.modello" /> <br />
-            
             Costo Bimestrale:   <form:input path="costoBimestrale" /> <br />
             Profilo Contratto:   <form:input path="profiloContratto" /> <br />                 
             Tipo Contratto:   <form:input path="tipoContratto" /> <br />
-            
-            
-           <input type="submit" value="Salva "/> 
-           <form:errors path="*" element="div"/>
+            <input type="submit" value="Salva "/> 
+            <form:errors path="*" element="div"/>
         </form:form>
-        
-        
+
         ${messaggio}
-        
-        
-        
-        
+
     </body>
 </html>

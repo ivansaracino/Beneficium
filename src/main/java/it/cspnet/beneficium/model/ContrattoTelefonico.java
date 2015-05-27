@@ -15,6 +15,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 @Entity
 @Table(name = "CONTRATTI")
 public class ContrattoTelefonico implements Serializable {
@@ -84,7 +85,8 @@ public class ContrattoTelefonico implements Serializable {
     public void setCellulare(Cellulare cellulare) {
         this.cellulare = cellulare;
     }
-
+    
+// equals e hashcode sull'id
     @Override
     public int hashCode() {
         int hash = 7;
@@ -106,4 +108,5 @@ public class ContrattoTelefonico implements Serializable {
         }
         return true;
     }
+
 }

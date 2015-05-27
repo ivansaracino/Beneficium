@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h2>{{data.titolo}}</h2>
+  
+</div>
+<div class="modal-body">
+    
+    <form role="form" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Nome Dipendente</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="dipendente.nome" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Cognome Dipendente</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="dipendente.cognome"/> 
+            </div>
+        </div>
+      
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="save()">Save</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>

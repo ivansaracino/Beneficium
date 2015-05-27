@@ -31,27 +31,27 @@ angular.module('myBenefit')
             
             
 
-//            $scope.aggiungiProdotto = function () {
-//                var modalInstance = $modal.open({
-//                    templateUrl: 'partials/nuovo-prodotto.html',
-//                    controller: 'dialogoNuovoProdottoController',
-//                    resolve: {
-//                        data: function () {
-//                            return {
-//                                titolo: 'Nuovo Prodotto',
-//                                buttons: ['Salva', 'Annulla']
-//                            };
-//                        }
-//                    },
-//                    size: 'sm'
-//                });
-//
-//                modalInstance.result.then(function (prodotto) {
-//                    alert("Salvo " + prodotto.prezzo + "-" + prodotto.nome);
-//                }, function () {
-//                    alert('Inserimento annullato');
-//                });
-//            };
+            $scope.aggiungiDipendente = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/nuovo-dipendente.html',
+                    controller: 'dialogoNuovoDipendenteController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                titolo: 'Nuovo Dipendente',
+                                buttons: ['Salva', 'Annulla']
+                            };
+                        }
+                    },
+                    size: 'lg'
+                });
+
+                modalInstance.result.then(function (dipendente) {
+                    alert("Salvo " + dipendente.cognome + "-" + dipendente.nome);
+                }, function () {
+                    console.log("inserimento annullato");
+                });
+            };
         });
 
 
