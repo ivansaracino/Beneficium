@@ -1,6 +1,7 @@
 <div>
     <h3>Lista Dipendenti</h3>
 
+    <button class="btn btn-success" ng-click="aggiungiDipendente()"  />Aggiungi dipendente</button>
     <table class="table table-bordered table-hover table-striped" border=1>
 
         <thead>
@@ -34,10 +35,10 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
 
-                        <li><a ng-click="modificaDipendente(dipendente)">Modifica</a></li>
-                        <li><a ng-click="eliminaDipendente(dipendente.codiceFiscale)">Delete</a></li>
+                      <!--  <li><a ng-click="modificaDipendente(dipendente)">Modifica</a></li>-->
+                        <!-- <li><a ng-click="eliminaDipendente(dipendente.codiceFiscale)">Delete</a></li>-->
 
-                        <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
+                        <li><a ng-click="aggiungiDipendente()">Aggiungi</a></li>
                     </ul>
                 </div>
 

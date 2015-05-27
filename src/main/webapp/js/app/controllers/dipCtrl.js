@@ -18,28 +18,29 @@ angular.module('myBenefit')
                             alert("Il dipendente con codice fiscale : " + codiceFiscale + " è stato rimosso");
                         });
             };
+           
 
-//            $scope.aggiungiProdotto = function () {
-//                var modalInstance = $modal.open({
-//                    templateUrl: 'partials/nuovo-prodotto.html',
-//                    controller: 'dialogoNuovoProdottoController',
-//                    resolve: {
-//                        data: function () {
-//                            return {
-//                                titolo: 'Nuovo Prodotto',
-//                                buttons: ['Salva', 'Annulla']
-//                            };
-//                        }
-//                    },
-//                    size: 'sm'
-//                });
-//
-//                modalInstance.result.then(function (prodotto) {
-//                    alert("Salvo " + prodotto.prezzo + "-" + prodotto.nome);
-//                }, function () {
-//                    alert('Inserimento annullato');
-//                });
-//            };
+            $scope.aggiungiDipendente = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/nuovo-dipendente.html',
+                    controller: 'DialogoNuovoDipendenteController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                titolo: 'Nuovo Dipendente',
+                                buttons: ['Salva', 'Annulla']
+                            };
+                        }
+                    },
+                    size: 'sm'
+                });
+
+                modalInstance.result.then(function (dipendente) {
+                    alert("Salvo " + dipendente.nome + "-" + dipendente.cognome);
+                }, function () {
+                    alert('Inserimento annullato');
+                });
+            };
         });
 
 
