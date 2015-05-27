@@ -1,57 +1,54 @@
-
 <html ng-app="myBenefit">
     <head>
         <title>Benefit</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        
-          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"></link>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
         <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"></link>
   
         <!--<link href="css/striscia.css" rel="stylesheet"> -->
 
 
+        
+        <link href="css/miocss.css" rel="stylesheet">
+
     </head>
     <body>
+        <div class="container">
+            <header>
+                <div class="col-md-4">
+                    <hgroup>
+                        <a href="http://cspnet.it/">
+                            <img src="img/logo.png" alt="Logo CSP">
+                        </a> 
+                    </hgroup>
+                </div>
+                <div class="col-md-8" id="titolo">
+                    <h1 >BENEFICIUM </h1> <h3>Benefit Management Made Easy!</h3>
+                </div>
+            </header>
+            <div ng-view></div>
+            <script src="js/lib/angular.min.js"></script>
+            <script src="js/lib/angular-route.min.js"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-        <header>
-            <hgroup>
-                <a href="http://cspnet.it/">
-                    <img src="img/logo.png" alt="Logo CSP" >
-                </a> 
+            <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+            <script src="js/app/app.js"></script>
+            <script src="js/app/servizi/DataServices.js"></script>
+            <script src="js/app/servizi/DialogService.js"></script>
+            <script src="js/app/controllers/DialogoConfermaController.js"></script>
+            <script src="js/app/controllers/loginCtrl.js"></script>
+            <script src="js/app/controllers/dipCtrl.js"></script>
+            <script src="js/app/controllers/dialogoNuovoContrattoTelefonicoController.js"></script>
+            <script src="js/app/rotte.js"></script>
+            <script src="js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+        </div>
+       
 
-            </hgroup>
-
-            <div id="titolo">
-                <h1 >BENEFICIUM </h1> <h3>Benefit Management Made Easy!</h3>
-            </div>
-
-
-        </header>
-
-
-
-
-        <div ng-view></div>
-        <script src="js/lib/angular.min.js"></script>
-        <script src="js/lib/angular-route.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        
-        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-        
-        <script src="js/app/app.js"></script>
-        <script src="js/app/servizi/DataServices.js"></script>
-        <script src="js/app/servizi/DialogService.js"></script>
-        <script src="js/app/controllers/DialogoConfermaController.js"></script>
-        <script src="js/app/controllers/loginCtrl.js"></script>
-        <script src="js/app/controllers/dipCtrl.js"></script>
-        <script src="js/app/rotte.js"></script>
-
-        <script src="js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
-        
-
-    </body>
+      
+</body>
 </html>
