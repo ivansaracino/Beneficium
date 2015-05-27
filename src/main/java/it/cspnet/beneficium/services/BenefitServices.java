@@ -11,9 +11,8 @@ import it.cspnet.beneficium.model.JsonResult;
 
 
 
+
 import it.cspnet.beneficium.model.Contratto_Auto;
-
-
 import it.cspnet.beneficium.model.ContrattoTelefonico;
 
 import java.util.Collection;
@@ -39,7 +38,6 @@ public interface BenefitServices {
     public List<Automobile> listaAutomobileJSON(String codiceFiscale);
 
     public Automobile salvaautomobile(Automobile a);
-
 
     public ContrattoTelefonico aggiungiContrattoTelefonico(ContrattoTelefonico contrattoTelefonico);
 

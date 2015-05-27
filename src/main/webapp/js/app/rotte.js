@@ -9,6 +9,10 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dipCtrl'
                 }).
+                when('/inseriscidipendentejson', {
+                    templateUrl: 'partials/nuovo-dipendente.html',
+                    controller: 'dipCtrl'
+                }).
                
                 otherwise({
                     redirectTo: '/login'

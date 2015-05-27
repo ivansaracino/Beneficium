@@ -85,7 +85,9 @@ public class DipendentiController {
     
         @RequestMapping(value = "listadipendentijson", method = RequestMethod.GET)
         public @ResponseBody Collection<Dipendente> listaDipendentiJSON(){
-            return servizi.listDipendentiJSON();
+             Collection<Dipendente> dip =servizi.listDipendentiJSON();
+             System.out.println("dip size"+dip.size());
+             return dip;
         }
 
 

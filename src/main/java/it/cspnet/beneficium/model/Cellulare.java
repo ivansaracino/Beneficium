@@ -29,7 +29,7 @@ public class Cellulare implements Serializable {
     private String modello;
 
     @OneToMany(mappedBy = "cellulare")
-    private List<ContrattoTelefonico> contratti;
+    private List<ContrattoTelefonico> contrattiTelefonici;
 
     @JsonIgnore
     @ManyToOne
@@ -59,15 +59,15 @@ public class Cellulare implements Serializable {
         this.dipendente = dipendente;
     }
 
-    public List<ContrattoTelefonico> getContratti() {
-        return contratti;
+    public List<ContrattoTelefonico> getContrattiTelefonici() {
+        return contrattiTelefonici;
     }
 
-    public void setContratti(List<ContrattoTelefonico> contratti) {
-        this.contratti = contratti;
+    public void setContrattiTelefonici(List<ContrattoTelefonico> contrattiTelefonici) {
+        this.contrattiTelefonici = contrattiTelefonici;
     }
 
-    public int getId() {
+       public int getId() {
         return id;
     }
 

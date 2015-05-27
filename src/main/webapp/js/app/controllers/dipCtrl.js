@@ -1,10 +1,14 @@
 angular.module('myBenefit')
-        .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices) {
+        .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices, $location) {
             var callback = function (dipendenti) {
                 $scope.dipendenti = dipendenti;
             };
+             var error = function (risposta) {
+                alert("errore lato server");
+            };
             
             dataServices.listadipendentijson(callback);
+            
 
             $scope.modificaDipendente = function (dipendente) {
                 alert("modifica di " + dipendente.codiceFiscale);
@@ -18,12 +22,16 @@ angular.module('myBenefit')
                             alert("Il dipendente con codice fiscale : " + codiceFiscale + " è stato rimosso");
                         });
             };
+            
+             
            
 
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovo-dipendente.html',
-                    controller: 'DialogoNuovoDipendenteController',
+
+                    controller: 'dialogoNuovoDipendenteController',
+
                     resolve: {
                         data: function () {
                             return {
@@ -32,15 +40,23 @@ angular.module('myBenefit')
                             };
                         }
                     },
-                    size: 'sm'
+
+                    size: 'lg'
                 });
+                
+                
 
                 modalInstance.result.then(function (dipendente) {
-                    alert("Salvo " + dipendente.nome + "-" + dipendente.cognome);
+                    dataServices.salva(dipendente, callback, error);
+                    $location.path("/listadipendentijson");
                 }, function () {
-                    alert('Inserimento annullato');
+                    console.log("aggiunta dipendente annullata");
                 });
+
+              
             };
+            
+           
         });
 
 
