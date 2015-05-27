@@ -1,66 +1,57 @@
+<div class="row"><h3> </h3></div>
+<div class="row">
+<div class="col-md-9">
+    <h3>LISTA DIPENDENTI</h3>
+<button class="btn btn-success" ng-click="aggiungiDipendente()"  />Aggiungi dipendente</button>
 
-<div>
-    <h3>Lista Dipendenti</h3>
+    <table class="bordered">
 
-    <table class="table table-bordered table-hover table-striped" border=1>
+        <thead>
+        <th>Codice fiscale</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Indirizzo</th>
+        <th>Stipendio mensile</th>
+        <th>Automobile</th>
+        <th>Cellulare</th>
+        <th>Azioni</th>
 
+        </thead>
+        <tr ng-repeat="dipendente in dipendenti">
+            <td>{{dipendente.codiceFiscale}}</td>
+            <td>{{dipendente.nome}}</td>
+            <td>{{dipendente.cognome}}</td>
+            <td>{{dipendente.indirizzo}}</td>
 
-        <div class="row">
-            <div class="col-md-9">
-                <h3>LISTA DIPENDENTI</h3>
-            </div>
-            <table class="bordered">
-
-
-                <thead>
-                <th>Codice fiscale</th>
-                <th>Nome</th>
-                <th>Cognome</th>
-                <th>Indirizzo</th>
-                <th>Stipendio mensile</th>
-                <th>Automobile</th>
-                <th>Cellulare</th>
-                <th>Azioni</th>
-
-                </thead>
-                <tr ng-repeat="dipendente in dipendenti">
-                    <td>{{dipendente.codiceFiscale}}</td>
-                    <td>{{dipendente.nome}}</td>
-                    <td>{{dipendente.cognome}}</td>
-                    <td>{{dipendente.indirizzo}}</td>
-
-                    <td>{{dipendente.stipendioMensile}}</td>
+            <td>{{dipendente.stipendioMensile}}</td>
 
 
 
-                    <td><button class="btn btn-success"  ng-Click="gestioneAuto()" />Visualizza Auto</button></td>
-                    <td><button class="btn btn-success"   />Visualizza Cellulare</button></td>
+            <td><input type="button" value="Visualizza Auto" ng-Click="gestioneAuto()"/></td>
+            <td><input type="button" value="Visualizza Cellulare"/></td>
 
-                    <td>
-                        <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.stipendioMensile]">
-                            <button class="btn btn-success dropdown-toggle" dropdown-toggle type="button">
-                                Azioni <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a ng-click="aggiungiContrattoTelefonico()">Aggiungi contratto telefonico</a></li>
-                                <li><a ng-click="aggiungiContrattoAutomobile()">Aggiungi contratto automobile</a></li>
-                            </ul>
-                        </div>
+            <td>
+                <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.stipendioMensile]">
+                    <button class="btn btn-success dropdown-toggle" dropdown-toggle type="button">
+                        Azioni <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
 
+                        <li><a ng-click="modificaDipendente(dipendente)">Modifica</a></li>
+                        <li><a ng-click="eliminaDipendente(dipendente.codiceFiscale)">Delete</a></li>
 
+                        <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
+                    </ul>
+                </div>
 
+                <button class="btn btn-success" ng-show="vm.currentEdit[league.id]" ng-click="vm.saveItem(league)">Save</button>
+                <button class="btn btn-danger" ng-show="vm.currentEdit[league.id]" ng-click="vm.cancelEdit(league.id)">Cancel</button>
+            </td>
+        </tr>
 
-                        <button class="btn btn-success" ng-show="vm.currentEdit[league.id]" ng-click="vm.saveItem(league)">Save</button>
-                        <button class="btn btn-danger" ng-show="vm.currentEdit[league.id]" ng-click="vm.cancelEdit(league.id)">Cancel</button>
-                    </td>
-                </tr>
-
-            </table>
-        </div>
+    </table>
 </div>
-<div class="barralogout col-md-3">
-    <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
+                    <div class="barralogout col-md-3">
+                            <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
+                    </div>
 </div>
-
-
-
