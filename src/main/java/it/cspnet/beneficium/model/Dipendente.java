@@ -25,19 +25,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Dipendente implements Serializable {
 
     @Id
-    @NotEmpty
+//    @NotEmpty
     private String codiceFiscale;
-    @NotEmpty
+//    @NotEmpty
     private String nome;
-    @NotEmpty
+//    @NotEmpty
     private String cognome;
-    @NotEmpty
+//    @NotEmpty
     private String indirizzo;
     private float stipendioMensile;
     @JsonIgnore
     @OneToMany(mappedBy = "dipendente", fetch = FetchType.LAZY)
     public Collection<Automobile> auto = new ArrayList<Automobile>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "dipendente", fetch = FetchType.LAZY)
     public Collection<Cellulare> cellulari = new ArrayList<Cellulare>();
 

@@ -5,8 +5,6 @@ angular.module('myBenefit')
             $scope.save = function() {
 
                 $modalInstance.close($scope.dipendente);
-               
-
             };
             
             $scope.cancel = function() {
@@ -15,6 +13,8 @@ angular.module('myBenefit')
            
            
 
+
         });
 
 
+        

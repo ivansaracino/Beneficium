@@ -7,20 +7,55 @@ angular.module('myBenefit')
                 alert("errore lato server");
             };
             
+
             dataServices.listadipendentijson(callback);
             
 
-            $scope.modificaDipendente = function (dipendente) {
-                alert("modifica di " + dipendente.codiceFiscale);
+            $scope.AgggiungiContrattoTelefonico = function (codiceFiscale) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/nuovoContrattoTelefonico.html',
+                    controller: 'dialogoNuovoContrattoTelefonicoController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                titolo: 'Nuovo Contratto',
+                                buttons: ['Salva', 'Annulla']
+                            };
+                        }
+                    },
+                    size: 'lg'
+                });
+
+                modalInstance.result.then(function (contratto) {
+                    alert(codiceFiscale);
+                    // salvataggio del contratto telefonico
+                    dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
+
+                }, function () {
+                    alert('Inserimento annullato');
+                });
             };
 
-            $scope.eliminaDipendente = function (codiceFiscale) {
-                dialogServices.attivaDialog("Sei sicuro di voler rimuover " + codiceFiscale,
-                        "Rimozione dipendente",
-                        ['Conferma', 'Annulla'])
-                        .then(function () {
-                            alert("Il dipendente con codice fiscale : " + codiceFiscale + " è stato rimosso");
-                        });
+
+            $scope.AgggiungiContrattoAuto = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/nuovoContrattoAuto.html',
+                    controller: 'dialogoNuovoContrattoAutoController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                titolo: 'Nuovo Contratto',
+                            };
+                        }
+                    },
+                    size: 'sm'
+                });
+
+                modalInstance.result.then(function (dipendente) {
+                    $location.path('/salvacontratto');
+                }, function () {
+                    alert('Inserimento annullato');
+                });
             };
             
              
@@ -31,6 +66,7 @@ angular.module('myBenefit')
                     templateUrl: 'partials/nuovo-dipendente.html',
 
                     controller: 'dialogoNuovoDipendenteController',
+
 
                     resolve: {
                         data: function () {
@@ -58,6 +94,5 @@ angular.module('myBenefit')
             
            
         });
-
 
 
