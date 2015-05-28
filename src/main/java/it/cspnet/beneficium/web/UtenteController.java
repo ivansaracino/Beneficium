@@ -34,35 +34,42 @@ public class UtenteController {
     public Utente getUtente() {
         return new Utente();
     }
-    
-    
 
 //    @RequestMapping(value = "start")
 //    public String nuovoUtente() {
 //        return "login";
 //
 //    }
-
     @RequestMapping(value = "login", method = RequestMethod.POST)
 //   
-     public @ResponseBody JsonResult login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
-           JsonResult jR = new JsonResult();
-           try {
-           
-           Utente u = benefitServices.findUtente(utente);
-           jR.setOggetto(u);
-           jR.setMessaggio("bEnvenuto");
-           
-           } catch (Exception ex) {
-               jR.setMessaggio("utente non abilititato");
-               jR.setStatus(false);
-           } finally {
-               return jR;
-           }
-    } 
-    
-    @RequestMapping(value="listautenti", method=RequestMethod.GET)
-    public @ResponseBody List<Utente> getListaUtenti(){
+    public @ResponseBody
+    JsonResult login(HttpServletRequest req, @RequestBody Utente utente) throws Exception {
+        JsonResult jR = new JsonResult();
+        try {
+
+            Utente u = benefitServices.findUtente(utente);
+            if (u != null) {
+                jR.setOggetto(u);
+                jR.setMessaggio("bEnvenuto");
+                jR.setStatus(true);
+            }
+            else 
+            {
+                jR.setMessaggio("utente non abilititato");
+                jR.setStatus(false);
+            }
+
+        } catch (Exception ex) {
+            jR.setMessaggio("utente non abilititato");
+            jR.setStatus(false);
+        } finally {
+            return jR;
+        }
+    }
+
+    @RequestMapping(value = "listautenti", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Utente> getListaUtenti() {
         return benefitServices.listaUtenti();
     }
 }
