@@ -15,6 +15,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
     };
     
 
+
     var salva = function (dipendente, callback, error) {
         $http({data: dipendente, method: 'POST', url: 'inseriscidipendentejson.do'})
                 .success(function (risposta, status, headers, config) {
@@ -47,6 +48,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
     return{
         login: login,
         listadipendentijson: listadipendentijson,
+
          aggiungiContrattoTelefonico: aggiungiContrattoTelefonico,
         salva: salva
     };
@@ -57,3 +59,5 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
  
 
 
+        
+  

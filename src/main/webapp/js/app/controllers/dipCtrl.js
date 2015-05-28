@@ -3,6 +3,7 @@ angular.module('myBenefit')
             var callback = function (dipendenti) {
                 $scope.dipendenti = dipendenti;
             };
+
              var error = function (risposta) {
                 alert("errore lato server");
             };
@@ -65,6 +66,7 @@ angular.module('myBenefit')
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovo-dipendente.html',
 
+
                     controller: 'dialogoNuovoDipendenteController',
 
 
@@ -95,4 +97,4 @@ angular.module('myBenefit')
            
         });
 
-
+            
