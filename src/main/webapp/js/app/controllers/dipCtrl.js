@@ -1,40 +1,75 @@
 angular.module('myBenefit')
-        .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices) {
+        .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices, $location) {
             var callback = function (dipendenti) {
                 $scope.dipendenti = dipendenti;
             };
+
+             var error = function (risposta) {
+                alert("errore lato server");
+            };
             
+
             dataServices.listadipendentijson(callback);
+            
 
-            $scope.modificaDipendente = function (dipendente) {
-                alert("modifica di " + dipendente.codiceFiscale);
+            $scope.AgggiungiContrattoTelefonico = function (codiceFiscale) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/nuovoContrattoTelefonico.html',
+                    controller: 'dialogoNuovoContrattoTelefonicoController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                titolo: 'Nuovo Contratto',
+                                buttons: ['Salva', 'Annulla']
+                            };
+                        }
+                    },
+                    size: 'lg'
+                });
+
+                modalInstance.result.then(function (contratto) {
+                    alert(codiceFiscale);
+                    // salvataggio del contratto telefonico
+                    dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
+
+                }, function () {
+                    alert('Inserimento annullato');
+                });
             };
 
-            $scope.eliminaDipendente = function (codiceFiscale) {
-                dialogServices.attivaDialog("Sei sicuro di voler rimuover " + codiceFiscale,
-                        "Rimozione dipendente",
-                        ['Conferma', 'Annulla'])
-                        .then(function () {
-                            alert("Il dipendente con codice fiscale : " + codiceFiscale + " è stato rimosso");
-                        });
+
+            $scope.AgggiungiContrattoAuto = function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/nuovoContrattoAuto.html',
+                    controller: 'dialogoNuovoContrattoAutoController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                titolo: 'Nuovo Contratto',
+                            };
+                        }
+                    },
+                    size: 'sm'
+                });
+
+                modalInstance.result.then(function (dipendente) {
+                    $location.path('/salvacontratto');
+                }, function () {
+                    alert('Inserimento annullato');
+                });
             };
             
-            $scope.aggiungiContrattoTelefonico = function () {
-                alert("aggiungo contratto telefonico ");
-            };
-            
-             $scope.aggiungiContrattoAutomobile = function () {
-                alert("aggiungo contratto automobile ");
-            };
-            
+             
            
-            
-            
 
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovo-dipendente.html',
+
+
                     controller: 'dialogoNuovoDipendenteController',
+
+
                     resolve: {
                         data: function () {
                             return {
@@ -43,16 +78,21 @@ angular.module('myBenefit')
                             };
                         }
                     },
+
                     size: 'lg'
                 });
+                
+                
 
                 modalInstance.result.then(function (dipendente) {
-                    alert("Salvo " + dipendente.cognome + "-" + dipendente.nome);
+                    dataServices.salva(dipendente, callback, error);
+                    $location.path("/listadipendentijson");
                 }, function () {
-                    console.log("inserimento annullato");
+                    console.log("aggiunta dipendente annullata");
                 });
+
+              
             };
+            
+           
         });
-
-
-
