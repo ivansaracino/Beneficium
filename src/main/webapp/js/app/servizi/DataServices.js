@@ -8,15 +8,25 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                     error(rispostastatus);
                 });
     };
+
+
+
+
     var listadipendentijson = function (callback) {
         $http.get('listadipendentijson.do').success(function (dipendenti) {
             callback(dipendenti);
         });
     };
+
+
     return{
         login: login,
-        listadipendentijson: listadipendentijson
+        listadipendentijson: listadipendentijson,
+
     };
+
+
+
 });
 
 
