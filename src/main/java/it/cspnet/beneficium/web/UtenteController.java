@@ -66,6 +66,7 @@ public class UtenteController {
     public @ResponseBody
     JsonResult logout(HttpServletRequest request) throws Exception {
         request.getSession().invalidate();
+        
         JsonResult jR = new JsonResult();
         jR.setStatus(true);
         return jR;
