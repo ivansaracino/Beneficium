@@ -1,9 +1,9 @@
 <div class="row"><h3> </h3></div>
 <div class="row">
 <div class="col-md-9">
-    <h3>LISTA DIPENDENTI</h3>
-<button class="btn btn-success" ng-click="aggiungiDipendente()"  />Aggiungi dipendente</button>
-
+    <div class="row"><h3>LISTA DIPENDENTI</h3></div>
+    <div class="row"><h3> </h3></div>
+    <div class="row">
     <table class="bordered">
 
         <thead>
@@ -12,9 +12,7 @@
         <th>Cognome</th>
         <th>Indirizzo</th>
         <th>Stipendio mensile</th>
-        <th>Automobile</th>
-        <th>Cellulare</th>
-        <th>Azioni</th>
+        <th></th>
 
         </thead>
         <tr ng-repeat="dipendente in dipendenti">
@@ -25,20 +23,17 @@
 
             <td>{{dipendente.stipendioMensile}}</td>
 
-
-
-            <td><input type="button" value="Visualizza Auto" ng-Click="gestioneAuto()"/></td>
-            <td><input type="button" value="Visualizza Cellulare"/></td>
-
             <td>
                 <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
                     <button class="btn btn-success dropdown-toggle" dropdown-toggle type="button">
-                        Aggiungi <span class="caret"></span>
+                        Azioni <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
 
-                        <li><a ng-click="AgggiungiContrattoTelefonico(dipendente.codiceFiscale)">Cellulare</a></li>
-                        <li><a ng-click="AgggiungiContrattoAuto(dipendente.codiceFiscale)">Auto</a></li>
+                        <li><a ng-click="AggiungiContrattoTelefonico(dipendente.codiceFiscale)">Contratto telefonico</a></li>
+                        <li><a ng-click="AggiungiContrattoAuto(dipendente.codiceFiscale)">Contratto leasing</a></li>
+                        <li><a ng-click="VisualizzaContrattiTelefonici(dipendente.codiceFiscale)">Visualizza contratti telefonici</a></li>
+                        <li><a ng-click="VisualizzaContrattiAuto(dipendente.codiceFiscale)">Visualizza contratti leasing</a></li>
 
                         <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
                     </ul>
@@ -50,6 +45,11 @@
         </tr>
 
     </table>
+    </div>
+    <div class="row"><h1> </h1></div>
+    <div class="row">
+    <button class="btn btn-success bottone" ng-click="aggiungiDipendente()"  />Aggiungi dipendente</button>
+    </div>
 </div>
                     <div class="barralogout col-md-3">
                             <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
