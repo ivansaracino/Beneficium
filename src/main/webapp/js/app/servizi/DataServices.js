@@ -22,6 +22,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
     return{
         login: login,
         listadipendentijson: listadipendentijson,
+    
 
     };
 

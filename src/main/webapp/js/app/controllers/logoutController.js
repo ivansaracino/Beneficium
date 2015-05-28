@@ -1,5 +1,6 @@
 angular.module('myBenefit')
         .controller('logoutController', function ($scope, dataServices, $location) {
+            
 //            
 //            var callback = function (risposta) {
 //                if (risposta.status === true) {
