@@ -34,38 +34,49 @@ public class UtenteController {
     public Utente getUtente() {
         return new Utente();
     }
-    
-    
 
 //    @RequestMapping(value = "start")
 //    public String nuovoUtente() {
 //        return "login";
 //
 //    }
-
     @RequestMapping(value = "login", method = RequestMethod.POST)
 //   
-     public @ResponseBody JsonResult login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
-           JsonResult jR = new JsonResult();
-           
-           
-           Utente u = benefitServices.findUtente(utente);
-           jR.setOggetto(u);
-           
-           if(u != null){
-           jR.setMessaggio("bEnvenuto");
-           jR.setStatus(true);
-           }
-           else{
-               jR.setMessaggio("utente non abilititato");
-               jR.setStatus(false);
-           } 
-               return jR;
-           
-    } 
-    
-    @RequestMapping(value="listautenti", method=RequestMethod.GET)
-    public @ResponseBody List<Utente> getListaUtenti(){
+    public @ResponseBody
+    JsonResult login(HttpServletRequest req, @RequestBody Utente utente) throws Exception {
+        JsonResult jR = new JsonResult();
+
+        Utente u = benefitServices.findUtente(utente);
+        jR.setOggetto(u);
+
+        if (u != null) {
+            jR.setMessaggio("benvenuto");
+            jR.setStatus(true);
+        } else {
+            jR.setMessaggio("utente non abilititato");
+            jR.setStatus(false);
+        }
+        return jR;
+
+    }
+
+    /* aggiunta 27 maggio */
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+
+    public @ResponseBody
+    JsonResult logout(HttpServletRequest request) throws Exception {
+        request.getSession().invalidate();
+        
+        JsonResult jR = new JsonResult();
+        jR.setStatus(true);
+        return jR;
+
+    }
+    /*  fine aggiunta */
+
+    @RequestMapping(value = "listautenti", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Utente> getListaUtenti() {
         return benefitServices.listaUtenti();
     }
     

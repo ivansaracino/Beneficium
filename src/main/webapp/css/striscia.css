@@ -11,7 +11,7 @@ and open the template in the editor.
 /*bottom border removed: 130306*/
 
 
-body { margin:0px; }
+/*body { margin:0px; }
 h1 {
   color:white;
   font-family: arial, helvetica, san-serif;
@@ -21,7 +21,7 @@ h1 {
 
 .header-wrap {
   background: #0099cc;
-  /*border removed*/
+  border removed
   padding:2%;
   box-shadow: 0 5px 10px #aaa;
   -webkit-box-shadow: 0 5px 10px #aaa;
@@ -187,7 +187,7 @@ a, a:visited {
   -webkit-transition: all .3s ease-in-out;
      -moz-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
-}
+}*/
 
 
 

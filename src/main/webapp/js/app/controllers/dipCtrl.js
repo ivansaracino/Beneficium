@@ -12,7 +12,7 @@ angular.module('myBenefit')
             dataServices.listadipendentijson(callback);
             
 
-            $scope.AgggiungiContrattoTelefonico = function (codiceFiscale) {
+            $scope.AggiungiContrattoTelefonico = function (codiceFiscale) {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovoContrattoTelefonico.html',
                     controller: 'dialogoNuovoContrattoTelefonicoController',
@@ -38,7 +38,9 @@ angular.module('myBenefit')
             };
 
 
-            $scope.AgggiungiContrattoAuto = function (codiceFiscale) {
+
+            $scope.AggiungiContrattoAuto = function () {
+
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovoContrattoAuto.html',
                     controller: 'dialogoNuovoContrattoAutoController',
@@ -104,5 +106,3 @@ angular.module('myBenefit')
                $location.path('/listaauto/' + codiceFiscale);
            };
         });
-
-            
