@@ -6,32 +6,32 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/toastr.min.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>      
+        <link rel="stylesheet" href="css/camporicerca.css">
         <link href="css/miocss.css" rel="stylesheet">
-
+        <!--link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet"-->
+        <!--link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"-->
     </head>
     <body>
         <div class="container">
-            <!--div class="row"><h3> </h3></div-->
             <div class="row">
                 <div class="header col-md-12">
-                <div class="col-md-9" id="titolo">
-                    <div class="col-md-3 titolo">BENEFICIUM</div>
-                    <div class="col-md-6 sottotitolo"><br/> <br/> <br/>Benefit management made easy!</div>
-                </div>
+                    <div class="col-md-9" id="titolo">
+                        <div class="col-md-3 titolo">BENEFICIUM</div>
+                        <div class="col-md-6 sottotitolo"><br/> <br/> <br/>Benefit management made easy!</div>
+                    </div>
                     <div class="col-md-3">
-                    <hgroup>
-                        <a href="http://cspnet.it/">
-                            <img src="img/logo.png" alt="Logo CSP" width="205" height="95">
-                        </a> 
-                    </hgroup>
+                        <hgroup>
+                            <a href="http://cspnet.it/">
+                                <img src="img/logo.png" alt="Logo CSP" width="205" height="95">
+                            </a> 
+                        </hgroup>
+                    </div>
                 </div>
-            </div>
             </div>
             <div ng-view></div>
             <script src="js/lib/angular.min.js"></script>
             <script src="js/lib/angular-route.min.js"></script>
             <script src="js/lib/jquery.min.js"></script>
-
             <script src="js/lib/toastr.min.js"></script>
             <script src="js/app/app.js"></script>
             <script src="js/app/servizi/DataServices.js"></script>
@@ -40,13 +40,10 @@
             <script src="js/app/controllers/DialogoNuovoDipendenteController.js"></script>
             <script src="js/app/controllers/loginCtrl.js"></script>
             <script src="js/app/controllers/dipCtrl.js"></script>
-
             <script src="js/app/controllers/dialogoNuovoContrattoTelefonicoController.js"></script>
             <script src="js/app/rotte.js"></script>
             <script src="js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
-        </div>
-       
-
-      
+            <script src="js/app/controllers/logoutController.js"></script>
+        </div>     
 </body>
 </html>

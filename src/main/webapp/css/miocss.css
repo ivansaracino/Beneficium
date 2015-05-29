@@ -86,7 +86,8 @@ table {
     border-collapse: collapse; /* IE7 and lower */
     border-spacing: 0;
     width: 100%;  
-background:#ffffff !important; /* For IE*/
+
+    /* background:#ffffff !important; */ /* For IE*/
     font-size: 12px;
 }
 
@@ -114,18 +115,19 @@ background:#ffffff !important; /* For IE*/
     text-align: left;    
 }
 .bordered th {
-    background-color: #dce9f9;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
-    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    background-color: #f44f0f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f44f0f), to(#c72d03));
+    background-image: -webkit-linear-gradient(top, #f44f0f, #c72d03);
+    background-image:    -moz-linear-gradient(top, #f44f0f, #c72d03);
+    background-image:     -ms-linear-gradient(top, #f44f0f, #c72d03);
+    background-image:      -o-linear-gradient(top, #f44f0f, #c72d03);
+    background-image:         linear-gradient(top, #f44f0f, #c72d03);
+    color: #ffffff;
     -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
     -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
     box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
     border-top: none;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+/*    text-shadow: 0 1px 0 rgba(255,255,255,.5);*/
 }
 .bordered td:first-child, .bordered th:first-child {
     border-left: none;
