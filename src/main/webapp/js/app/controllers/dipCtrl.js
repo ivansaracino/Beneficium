@@ -28,7 +28,7 @@ angular.module('myBenefit')
                 });
 
                 modalInstance.result.then(function (contratto) {
-                    alert(codiceFiscale);
+                    
                     // salvataggio del contratto telefonico
                     dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
 
@@ -38,7 +38,7 @@ angular.module('myBenefit')
             };
 
 
-            $scope.AgggiungiContrattoAuto = function () {
+            $scope.AgggiungiContrattoAuto = function (codiceFiscale) {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovoContrattoAuto.html',
                     controller: 'dialogoNuovoContrattoAutoController',
@@ -46,18 +46,23 @@ angular.module('myBenefit')
                         data: function () {
                             return {
                                 titolo: 'Nuovo Contratto',
+                                buttons: ['Salva', 'Annulla']
                             };
                         }
                     },
-                    size: 'sm'
+                    size: 'lg'
                 });
 
-                modalInstance.result.then(function (dipendente) {
-                    $location.path('/salvacontratto');
+                modalInstance.result.then(function (contrattoAuto) {
+                    
+                    // salvataggio del contratto telefonico
+                    dataServices.aggiungiContrattoAuto(contrattoAuto, codiceFiscale);
+
                 }, function () {
                     alert('Inserimento annullato');
                 });
             };
+
             
              
            
@@ -94,7 +99,10 @@ angular.module('myBenefit')
               
             };
             
-           
+           $scope.visualizzaAuto = function(codiceFiscale){
+               alert('/:' + codiceFiscale);
+               $location.path('/listaauto/' + codiceFiscale);
+           };
         });
 
             

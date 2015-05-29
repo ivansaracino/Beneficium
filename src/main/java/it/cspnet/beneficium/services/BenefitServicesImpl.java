@@ -10,7 +10,7 @@ import it.cspnet.beneficium.data.UtenteRepository;
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Cellulare;
 import it.cspnet.beneficium.model.JsonResult;
-import it.cspnet.beneficium.model.Contratto_Auto;
+import it.cspnet.beneficium.model.ContrattoAuto;
 import it.cspnet.beneficium.model.ContrattoTelefonico;
 
 import it.cspnet.beneficium.model.Utente;
@@ -82,7 +82,7 @@ public class BenefitServicesImpl implements BenefitServices {
 
 
     @Override
-    public Contratto_Auto salvaContratto(Contratto_Auto contratto) {
+    public ContrattoAuto salvaContratto(ContrattoAuto contratto) {
 
         return contrattoAutoRepository.save(contratto);
     }
@@ -97,5 +97,9 @@ public class BenefitServicesImpl implements BenefitServices {
     public Collection<Automobile> listAutomobiliJSON(String codiceFiscale) {
 
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
+    }
+
+    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale) {
+        return contrattoAutoRepository.findByAutomobile(repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale));
     }
 }

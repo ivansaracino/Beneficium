@@ -16,8 +16,7 @@
         <th>Cognome</th>
         <th>Indirizzo</th>
         <th>Stipendio mensile</th>
-        <th>Automobile</th>
-        <th>Cellulare</th>
+        
         <th>Azioni</th>
 
         </thead>
@@ -31,8 +30,6 @@
 
 
 
-            <td><input type="button" value="Visualizza Auto" ng-Click="gestioneAuto()"/></td>
-            <td><input type="button" value="Visualizza Cellulare"/></td>
 
             <td>
                 <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
@@ -43,9 +40,10 @@
 
                         <li><a ng-click="AgggiungiContrattoTelefonico(dipendente.codiceFiscale)">Cellulare</a></li>
                         <li><a ng-click="AgggiungiContrattoAuto(dipendente.codiceFiscale)">Auto</a></li>
-
-
-                        <li><a ng-click="aggiungiDipendente()">Aggiungi</a></li>
+                        <li><a ng-click="VisualizzaCellulare(dipendente.codiceFiscale)">Lista cellulari</a></li>
+                        <li><a ng-click="visualizzaAuto(dipendente.codiceFiscale)">Lista Auto</a></li>
+                       
+                        
                     </ul>
                 </div>
 
