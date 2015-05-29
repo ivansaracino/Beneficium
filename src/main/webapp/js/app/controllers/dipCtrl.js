@@ -4,7 +4,13 @@ angular.module('myBenefit')
                 $scope.dipendenti = dipendenti;
             };
 
+             var error = function (risposta) {
+                alert("errore lato server");
+            };
+            
+
             dataServices.listadipendentijson(callback);
+            
 
             $scope.AggiungiContrattoTelefonico = function (codiceFiscale) {
                 var modalInstance = $modal.open({
@@ -52,13 +58,18 @@ angular.module('myBenefit')
                     alert('Inserimento annullato');
                 });
             };
-
-
+            
+             
+           
 
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovo-dipendente.html',
+
+
                     controller: 'dialogoNuovoDipendenteController',
+
+
                     resolve: {
                         data: function () {
                             return {
@@ -67,17 +78,23 @@ angular.module('myBenefit')
                             };
                         }
                     },
+
                     size: 'lg'
                 });
+                
+                
 
                 modalInstance.result.then(function (dipendente) {
-                    alert("Salvo " + dipendente.cognome + "-" + dipendente.nome);
+                    dataServices.salva(dipendente, callback, error);
+                    $location.path("/listadipendentijson");
                 }, function () {
-                    console.log("inserimento annullato");
+                    console.log("aggiunta dipendente annullata");
                 });
+
+              
             };
-
-
+            
+           
         });
 
-
+            

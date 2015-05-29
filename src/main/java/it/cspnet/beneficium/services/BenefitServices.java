@@ -5,8 +5,12 @@ import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.Cellulare;
 import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.model.Automobile;
+
+import it.cspnet.beneficium.model.JsonResult;
+
 import it.cspnet.beneficium.model.Contratto_Auto;
 import it.cspnet.beneficium.model.ContrattoTelefonico;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -35,6 +39,10 @@ public interface BenefitServices {
 
     public Contratto_Auto salvaContratto(Contratto_Auto contratto);
 
+
+
+
     public Collection<Automobile> listAutomobiliJSON(String codiceFiscale);
+
 
 }

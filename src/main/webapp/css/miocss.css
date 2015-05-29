@@ -53,8 +53,8 @@ background: -o-linear-gradient(top,  rgba(111,163,247,1) 0%,rgba(215,240,247,1) 
 background: -ms-linear-gradient(top,  rgba(111,163,247,1) 0%,rgba(215,240,247,1) 98%); /* IE10+ */
 background: linear-gradient(to bottom,  rgba(111,163,247,1) 0%,rgba(215,240,247,1) 98%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6fa3f7', endColorstr='#d7f0f7',GradientType=0 ); /* IE6-9 */
-
 }
+
 div {
     
 }

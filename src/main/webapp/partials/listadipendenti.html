@@ -1,10 +1,12 @@
 <div class="row"><h3> </h3></div>
 <div class="row">
 <div class="col-md-9">
+
     <div class="row"><h3>LISTA DIPENDENTI</h3></div>
     <div class="row"><h3> </h3></div>
     <div class="row">
     <table class="bordered">
+
 
         <thead>
         <th>Codice fiscale</th>
@@ -30,12 +32,10 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
 
-                        <li><a ng-click="AggiungiContrattoTelefonico(dipendente.codiceFiscale)">Contratto telefonico</a></li>
-                        <li><a ng-click="AggiungiContrattoAuto(dipendente.codiceFiscale)">Contratto leasing</a></li>
+                        <li><a ng-click="AggiungiContrattoTelefonico(dipendente.codiceFiscale)">Nuovo contratto telefonico</a></li>
+                        <li><a ng-click="AggiungiContrattoAuto(dipendente.codiceFiscale)">Nuovo contratto leasing</a></li>
                         <li><a ng-click="VisualizzaContrattiTelefonici(dipendente.codiceFiscale)">Visualizza contratti telefonici</a></li>
                         <li><a ng-click="VisualizzaContrattiAuto(dipendente.codiceFiscale)">Visualizza contratti leasing</a></li>
-
-                        <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
                     </ul>
                 </div>
 
@@ -48,7 +48,7 @@
     </div>
     <div class="row"><h1> </h1></div>
     <div class="row">
-    <button class="btn btn-success bottone" ng-click="aggiungiDipendente()"  />Aggiungi dipendente</button>
+    <button class="btn btn-success bottone" ng-click="aggiungiDipendente()"  />Nuovo dipendente</button>
     </div>
 </div>
                     <div class="barralogout col-md-3">

@@ -10,7 +10,14 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dipCtrl'
                 }).
-                        
+
+
+                when('/inseriscidipendentejson', {
+                    templateUrl: 'partials/nuovo-dipendente.html',
+                    controller: 'dipCtrl'
+                }).
+               
+
                when('/inseriscicontrattojson', {
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dialogoNuovoContrattoTelefonicoController'

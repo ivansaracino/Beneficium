@@ -14,6 +14,19 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         });
     };
     
+
+
+    var salva = function (dipendente, callback, error) {
+        $http({data: dipendente, method: 'POST', url: 'inseriscidipendentejson.do'})
+                .success(function (risposta, status, headers, config) {
+                    callback(risposta)
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
+};
+
+
     var aggiungiContrattoTelefonico = function (nuovoContratto,codiceFiscale) {
      
         nuovoContratto.cellulare.dipendente = {};
@@ -28,14 +41,23 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
 //                .error(function (rispostastatus, headers, config) {
 //                    error(rispostastatus);
 //                });
+
     };
     
     
     return{
         login: login,
         listadipendentijson: listadipendentijson,
-        aggiungiContrattoTelefonico: aggiungiContrattoTelefonico
+
+         aggiungiContrattoTelefonico: aggiungiContrattoTelefonico,
+        salva: salva
     };
+
 });
 
+    
+ 
 
+
+        
+  
