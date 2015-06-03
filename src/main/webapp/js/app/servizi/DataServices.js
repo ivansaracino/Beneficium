@@ -13,9 +13,16 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
             callback(dipendenti);
         });
     };
+    var logout = function (callback) {
+       $http.get('logout.do').success(function (diplogout) {
+            callback(diplogout);
+            });
+    };
+        
     return{
         login: login,
-        listadipendentijson: listadipendentijson
+        listadipendentijson: listadipendentijson,
+        logout: logout
     };
 });
 

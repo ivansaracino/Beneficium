@@ -34,38 +34,48 @@ public class UtenteController {
     public Utente getUtente() {
         return new Utente();
     }
-    
-    
 
 //    @RequestMapping(value = "start")
 //    public String nuovoUtente() {
 //        return "login";
 //
 //    }
-
     @RequestMapping(value = "login", method = RequestMethod.POST)
 //   
-     public @ResponseBody JsonResult login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
-           JsonResult jR = new JsonResult();
-           
-           
-           Utente u = benefitServices.findUtente(utente);
-           jR.setOggetto(u);
-           
-           if(u != null){
-           jR.setMessaggio("bEnvenuto");
-           jR.setStatus(true);
-           }
-           else{
-               jR.setMessaggio("utente non abilititato");
-               jR.setStatus(false);
-           } 
-               return jR;
-           
-    } 
-    
-    @RequestMapping(value="listautenti", method=RequestMethod.GET)
-    public @ResponseBody List<Utente> getListaUtenti(){
+    public @ResponseBody
+    JsonResult login(HttpServletRequest req, @RequestBody Utente utente) throws Exception {
+        JsonResult jR = new JsonResult();
+
+        Utente u = benefitServices.findUtente(utente);
+        jR.setOggetto(u);
+
+        if (u != null) {
+            jR.setMessaggio("Benvenuto");
+            jR.setStatus(true);
+        } else {
+            jR.setMessaggio("utente non abilititato");
+            jR.setStatus(false);
+        }
+        return jR;
+
+    }
+
+    @RequestMapping(value = "listautenti", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Utente> getListaUtenti() {
         return benefitServices.listaUtenti();
     }
+
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+
+    public @ResponseBody
+    void logout(HttpServletRequest req, @RequestBody Utente utente) throws Exception {
+        req.getSession().invalidate();
+        //JsonResult jR = new JsonResult();
+        //jR.setStatus(true);
+        
+     
+      }
+
+    
 }
