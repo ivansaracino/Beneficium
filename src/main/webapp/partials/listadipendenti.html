@@ -4,7 +4,8 @@
     <div class="col-md-9">
         <div class="row">
         <div class="col-md-9 intestazione">
-            <h3>LISTA DIPENDENTI</h3>
+            <h3>LISTA DIPENDENTI {{user.username}}</h3>
+                
         </div>
         <div class="col-md-3 barraricerca">
             <div class="form-group">
@@ -52,13 +53,14 @@
                                 <li><a ng-click="visualizzaAuto(dipendente.codiceFiscale)">Visualizza contratti leasing</a></li>
                             </ul>
                         </div>
+                    
                     </td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="barralogout col-md-3">
-        <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
+        <button ng-controller="logoutController" class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
     </div>
 
 </div>

@@ -14,14 +14,11 @@ angular.module('myBenefit')
 //                    $location.path('/listadipendentijson');
 //                }
 //            };
-//
-//            $scope.logout = function () {
-//                dataServices.login($scope.user, callback);
-//
-//            };
+
             $scope.logout = function () {
-                dataServices.login($scope.user);
+                dataServices.logout($scope.user);
                 $location.path('/login');
+             
                 toastr.success('Logout eseguito');
             };
         });

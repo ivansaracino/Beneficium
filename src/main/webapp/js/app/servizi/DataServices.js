@@ -34,9 +34,9 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         console.log(contrattoAuto);
         $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'});
     };
-    var ListaAuto = function (codiceFiscale , callback) {
-      
-        $http.get('listaauto.do?codiceFiscale='+codiceFiscale).success(function (auto) {
+    var ListaAuto = function (codiceFiscale, callback) {
+
+        $http.get('listaauto.do?codiceFiscale=' + codiceFiscale).success(function (auto) {
             callback(auto);
         });
     };
@@ -49,6 +49,19 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         });
     };
     
+
+
+    var logout = function () {
+        $http({method: 'GET', url: 'logout.do'})
+                .success(function (risposta, status, headers, config) {
+                    callback(risposta);
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
+    };
+
+
     return{
         login: login,
         listadipendentijson: listadipendentijson,
@@ -56,6 +69,8 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         aggiungiContrattoAuto: aggiungiContrattoAuto,
         ListaAuto: ListaAuto,
         ListaCellulari: ListaCellulari,
-        salva: salva
+        salva: salva,
+        logout: logout
+
     };
 });
