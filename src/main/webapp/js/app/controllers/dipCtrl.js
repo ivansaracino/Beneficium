@@ -19,7 +19,7 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                titolo: 'Nuovo Contratto',
+                                titolo: 'Nuovo contratto leasing',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
@@ -80,7 +80,7 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                titolo: 'Nuovo Dipendente',
+                                titolo: 'Nuovo dipendente',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
