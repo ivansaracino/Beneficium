@@ -1,13 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 9-apr-2015, 15.08.24
-    Author     : corsojava
-*/
-
 
 .barralogout {
     background-color: #222749;
@@ -44,15 +34,6 @@ border-bottom-left-radius:10px;
 }
 
 #sfondo {
-    /*        margin:0; 
-            padding:0;
-            background-image: url(../img/sfondocel.jpg); 
-            background-repeat: no-repeat;
-            background-position: inherit;
-            background-position: left;
-            background-attachment: fixed;
-            background-color: transparent;
-            background-size: auto;*/
 /*    background: rgb(111,163,247);  Old browsers 
 background: -moz-linear-gradient(top,  rgba(111,163,247,1) 0%, rgba(215,240,247,1) 98%);  FF3.6+ 
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(111,163,247,1)), color-stop(98%,rgba(215,240,247,1)));  Chrome,Safari4+ 

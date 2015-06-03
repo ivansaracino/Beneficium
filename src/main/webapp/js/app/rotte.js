@@ -10,6 +10,11 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dipCtrl'
                 }).
+                        
+               when('/logout', {
+                    templateUrl: 'partials/login.html',
+                    controller: 'logoutController'
+                }).
 
 
                 when('/inseriscidipendentejson', {

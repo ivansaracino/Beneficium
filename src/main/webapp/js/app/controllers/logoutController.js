@@ -19,18 +19,9 @@ angular.module('myBenefit')
 //                dataServices.login($scope.user, callback);
 //
 //            };
-
-
             $scope.logout = function () {
                 dataServices.login($scope.user);
                 $location.path('/login');
                 toastr.success('Logout eseguito');
-
             };
-
-
         });
-
-
-
-

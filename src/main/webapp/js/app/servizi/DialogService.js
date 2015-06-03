@@ -1,4 +1,3 @@
-
 angular.module('myBenefit').factory('dialogServices', function($modal){
     var attivaDialog = function(messaggio, titolo, bottoni) {
         var modalInstance = $modal.open({

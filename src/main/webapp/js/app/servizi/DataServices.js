@@ -13,9 +13,6 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
             callback(dipendenti);
         });
     };
-
-
-
     var salva = function (dipendente, callback, error) {
         $http({data: dipendente, method: 'POST', url: 'inseriscidipendentejson.do'})
                 .success(function (risposta, status, headers, config) {
@@ -25,42 +22,24 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                     error(rispostastatus);
                 });
     };
-
-
     var aggiungiContrattoTelefonico = function (nuovoContratto, codiceFiscale) {
-
         nuovoContratto.cellulare.dipendente = {};
-
         nuovoContratto.cellulare.dipendente.codiceFiscale = codiceFiscale;
         console.log(nuovoContratto);
-
         $http({data: nuovoContratto, method: 'POST', url: 'inseriscicontrattojson.do'});
-
-
     };
-
-
     var aggiungiContrattoAuto = function (contrattoAuto, codiceFiscale) {
-
         contrattoAuto.automobile.dipendente = {};
-
         contrattoAuto.automobile.dipendente.codiceFiscale = codiceFiscale;
         console.log(contrattoAuto);
-
         $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'});
-
-
     };
-
     var ListaAuto = function (codiceFiscale , callback) {
       
         $http.get('listaauto.do?codiceFiscale='+codiceFiscale).success(function (auto) {
             callback(auto);
         });
     };
-
-
-
     return{
         login: login,
         listadipendentijson: listadipendentijson,
@@ -69,6 +48,4 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         ListaAuto: ListaAuto,
         salva: salva
     };
-
 });
-
