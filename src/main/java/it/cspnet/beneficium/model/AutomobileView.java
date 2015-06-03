@@ -16,8 +16,8 @@ public class AutomobileView {
     private String codiceFiscale;
     private String modello;
     private String targa;
-    private Date dataAttivazione;
-    private Date dataScadenza;
+//    private Date dataAttivazione;
+//    private Date dataScadenza;
     private float costoNoleggio;
     private float costoServizi;
     private long kilometriContratto;
@@ -47,21 +47,21 @@ public class AutomobileView {
         this.targa = targa;
     }
 
-    public Date getDataAttivazione() {
-        return dataAttivazione;
-    }
-
-    public void setDataAttivazione(Date dataAttivazione) {
-        this.dataAttivazione = dataAttivazione;
-    }
-
-    public Date getDataScadenza() {
-        return dataScadenza;
-    }
-
-    public void setDataScadenza(Date dataScadenza) {
-        this.dataScadenza = dataScadenza;
-    }
+//    public Date getDataAttivazione() {
+//        return dataAttivazione;
+//    }
+//
+//    public void setDataAttivazione(Date dataAttivazione) {
+//        this.dataAttivazione = dataAttivazione;
+//    }
+//
+//    public Date getDataScadenza() {
+//        return dataScadenza;
+//    }
+//
+//    public void setDataScadenza(Date dataScadenza) {
+//        this.dataScadenza = dataScadenza;
+//    }
 
     public float getCostoNoleggio() {
         return costoNoleggio;

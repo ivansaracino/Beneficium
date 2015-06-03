@@ -99,7 +99,14 @@ public class BenefitServicesImpl implements BenefitServices {
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
-    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale) {
+    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale)throws Exception {
         return contrattoAutoRepository.findByAutomobile(repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale));
+    }
+
+    @Override
+    public Collection<ContrattoTelefonico> listaContrattiCellulare(String codiceFiscale) throws Exception{
+         Collection<ContrattoTelefonico> c = contrattiTelefoniciRepository.findByCellulare(cellulariRepository.findBydipendente_codiceFiscale(codiceFiscale));
+        System.out.println(c.size());
+        return  c;
     }
 }

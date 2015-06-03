@@ -47,7 +47,7 @@ public class ContrattoAutomobileController {
     
       @RequestMapping(value = "listaauto", method = RequestMethod.GET)
       
-        public @ResponseBody Collection<AutomobileView> listaAuto(HttpServletRequest req){
+        public @ResponseBody Collection<AutomobileView> listaAuto(HttpServletRequest req) throws Exception{
             String codiceFiscale= req.getParameter("codiceFiscale");
              Collection<ContrattoAuto> lista =servizi.listaContrattiAuto(codiceFiscale);
              List<AutomobileView> listaAuto = new ArrayList<>();
@@ -56,8 +56,8 @@ public class ContrattoAutomobileController {
                  aW.setCodiceFiscale(c.getAutomobile().getDipendente().getCodiceFiscale());
                  aW.setModello(c.getAutomobile().getModello());
                  aW.setTarga(c.getAutomobile().getTarga());
-                 aW.setDataAttivazione(c.getDataAttivazione());
-                 aW.setDataScadenza(c.getDataScadenza());
+//                 aW.setDataAttivazione(c.getDataAttivazione());
+//                 aW.setDataScadenza(c.getDataScadenza());
                  aW.setCostoNoleggio(c.getCostoNoleggio());
                  aW.setCostoServizi(c.getCostoServizi());
                  aW.setKilometriContratto(c.getKilometriContratto());
