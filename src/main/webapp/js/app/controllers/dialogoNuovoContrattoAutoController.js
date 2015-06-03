@@ -1,5 +1,5 @@
 angular.module('myBenefit')
-        .controller('dialogoNuovoContrattoTelefonicoController', function ($modalInstance, $scope, dataServices, data) {
+        .controller('dialogoNuovoContrattoAutoController', function ($modalInstance, $scope, dataServices, data) {
             $scope.data = data;
 
             $scope.opened = false;
@@ -25,7 +25,7 @@ angular.module('myBenefit')
 
 
             $scope.aggiungiContratto = function () {
-                $modalInstance.close($scope.nuovoContratto);
+                $modalInstance.close($scope.contrattoAuto);
 
             };
 

@@ -2,11 +2,14 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
-import it.cspnet.beneficium.model.Contratto_Auto;
+import it.cspnet.beneficium.model.AutomobileView;
+import it.cspnet.beneficium.model.ContrattoAuto;
+import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.services.BenefitServices;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,26 +28,11 @@ public class ContrattoAutomobileController {
     @Autowired
     private BenefitServices servizi;
     
-    @RequestMapping(value = "inserisciautomobile", method = RequestMethod.GET)
-    
-    @ModelAttribute("automobile")
-    public Automobile creaAutomobile() throws Exception {
-        return new Automobile();
-    }
-   
-     
-    
-    @ModelAttribute("contratto")
-    public Contratto_Auto creaContratto() throws Exception {
-        return new Contratto_Auto();
-    }
-
-    
     @RequestMapping(value = "salvacontratto", method = RequestMethod.POST)
     public @ResponseBody
-    JsonResult salvaContratto(@RequestBody Contratto_Auto contratto) {
+    JsonResult salvaContratto(@RequestBody ContrattoAuto contratto) {
         JsonResult risultato = new JsonResult();
-        Contratto_Auto contratto2 = servizi.salvaContratto(contratto);
+        ContrattoAuto contratto2 = servizi.salvaContratto(contratto);
         if (contratto2 != null) {
             risultato.setOggetto(contratto);
             risultato.setMessaggio("contratto inserito con successo");
@@ -56,4 +44,27 @@ public class ContrattoAutomobileController {
         
         return risultato;
     }
+    
+      @RequestMapping(value = "listaauto", method = RequestMethod.GET)
+      
+        public @ResponseBody Collection<AutomobileView> listaAuto(HttpServletRequest req){
+            String codiceFiscale= req.getParameter("codiceFiscale");
+             Collection<ContrattoAuto> lista =servizi.listaContrattiAuto(codiceFiscale);
+             List<AutomobileView> listaAuto = new ArrayList<>();
+             for (ContrattoAuto c : lista) {
+                 AutomobileView aW = new AutomobileView();
+                 aW.setCodiceFiscale(c.getAutomobile().getDipendente().getCodiceFiscale());
+                 aW.setModello(c.getAutomobile().getModello());
+                 aW.setTarga(c.getAutomobile().getTarga());
+                 aW.setDataAttivazione(c.getDataAttivazione());
+                 aW.setDataScadenza(c.getDataScadenza());
+                 aW.setCostoNoleggio(c.getCostoNoleggio());
+                 aW.setCostoServizi(c.getCostoServizi());
+                 aW.setKilometriContratto(c.getKilometriContratto());
+                 aW.setSocietaLeasing(c.getSocietaLeasing());
+                 listaAuto.add(aW);
+             }
+             return listaAuto;
+        }
 }
+ 

@@ -13,7 +13,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
             callback(dipendenti);
         });
     };
-    
+
 
 
     var salva = function (dipendente, callback, error) {
@@ -24,40 +24,51 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                 .error(function (rispostastatus, headers, config) {
                     error(rispostastatus);
                 });
-};
+    };
 
 
-    var aggiungiContrattoTelefonico = function (nuovoContratto,codiceFiscale) {
-     
+    var aggiungiContrattoTelefonico = function (nuovoContratto, codiceFiscale) {
+
         nuovoContratto.cellulare.dipendente = {};
-        
+
         nuovoContratto.cellulare.dipendente.codiceFiscale = codiceFiscale;
         console.log(nuovoContratto);
-        
+
         $http({data: nuovoContratto, method: 'POST', url: 'inseriscicontrattojson.do'});
-//                .success(function (risposta, status, headers, config) {
-//                    callback(risposta)
-//                })
-//                .error(function (rispostastatus, headers, config) {
-//                    error(rispostastatus);
-//                });
+
 
     };
-    
-    
+
+
+    var aggiungiContrattoAuto = function (contrattoAuto, codiceFiscale) {
+
+        contrattoAuto.automobile.dipendente = {};
+
+        contrattoAuto.automobile.dipendente.codiceFiscale = codiceFiscale;
+        console.log(contrattoAuto);
+
+        $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'});
+
+
+    };
+
+    var ListaAuto = function (codiceFiscale , callback) {
+      
+        $http.get('listaauto.do?codiceFiscale='+codiceFiscale).success(function (auto) {
+            callback(auto);
+        });
+    };
+
+
+
     return{
         login: login,
         listadipendentijson: listadipendentijson,
-
-         aggiungiContrattoTelefonico: aggiungiContrattoTelefonico,
+        aggiungiContrattoTelefonico: aggiungiContrattoTelefonico,
+        aggiungiContrattoAuto: aggiungiContrattoAuto,
+        ListaAuto: ListaAuto,
         salva: salva
     };
 
 });
 
-    
- 
-
-
-        
-  

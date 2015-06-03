@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Automobile {
+public class Automobile  {
 
     @Id
     @GeneratedValue
@@ -25,12 +25,13 @@ public class Automobile {
     @NotEmpty
     private String modello;
 
+    
     @ManyToOne
-    @JsonIgnore
     private Dipendente dipendente;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "automobile", fetch = FetchType.LAZY)
-    private Collection<Contratto_Auto> contrattoAuto;
+    private Collection<ContrattoAuto> contratti;
 
     public int getIdAuto() {
         return idAuto;
@@ -43,13 +44,11 @@ public class Automobile {
         return hash;
     }
 
-    public Collection<Contratto_Auto> getContrattoAuto() {
-        return contrattoAuto;
+    public Collection<ContrattoAuto> getContrattoAuto() {
+        return contratti;
     }
 
-    public void setContrattoAuto(Collection<Contratto_Auto> contrattoAuto) {
-        this.contrattoAuto = contrattoAuto;
-    }
+    
     
     @Override
     public boolean equals(Object obj) {
@@ -94,11 +93,8 @@ public class Automobile {
         this.dipendente = dipendente;
     }
 
-    public Collection<Contratto_Auto> getContratti() {
-        return contrattoAuto;
+    public Collection<ContrattoAuto> getContratti() {
+        return contratti;
     }
 
-    public void setContratti(Collection<Contratto_Auto> contratti) {
-        this.contrattoAuto = contratti;
-    }
 }

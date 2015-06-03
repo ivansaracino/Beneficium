@@ -1,0 +1,90 @@
+
+<div class="modal-header">
+    <h2>Contratto Auto</h2>
+
+</div>
+
+<div class="modal-body">
+
+    <form role="form" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Data Attivazione</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.dataAttivazione" 
+                       datepicker-popup="dd/MM/yyyy"
+                       is-open="opened"
+                       ng-click="open($event)" 
+                       close-text="Chiudi"/> 
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Data Scadenza</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.dataScadenza"
+                       datepicker-popup="dd/MM/yyyy"
+                       is-open="opened2"
+                       ng-click="open2($event)" 
+                       close-text="Chiudi"/> 
+            </div>
+        </div>
+        
+        
+        <div class="form-group">
+            <label class="col-sm-3 control-label">costoNoleggio</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.costoNoleggio" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-3 control-label">costoServizi</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.costoServizi" />
+            </div>
+        </div>
+        
+        
+        <div class="form-group">
+            <label class="col-sm-3 control-label">kilometriContratto</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.kilometriContratto" />
+            </div>
+        </div>
+        
+        
+       
+        
+        
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Società Leasing</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.societaLeasing" />
+            </div>
+        </div>
+        
+       <div class="form-group">
+            <label class="col-sm-3 control-label">Targa</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.automobile.targa" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Modello</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.automobile.modello" />
+            </div>
+        </div>
+
+        
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="aggiungiContratto()">Save</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>
+
+
+

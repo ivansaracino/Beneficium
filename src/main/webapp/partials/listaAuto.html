@@ -1,0 +1,39 @@
+<div class="row"><h3> </h3></div>
+<div class="row">
+    <div class="col-md-9">
+        <h3>LISTA AUTO</h3>
+
+
+
+        <table class="bordered">
+
+
+            <thead> 
+            <th>Modello</th>
+            <th>Targa</th>
+            <th>Data Attivazione</th>
+            <th>Data Scadenza</th>
+           <th>Costo Noleggio</th>
+            <th>Costo Servizi</th>
+            <th>Socie taLeasing</th>
+            
+
+
+
+            </thead>
+            <tr ng-repeat="automobili in automobili">
+                <td>{{automobili.modello}}</td>
+                <td>{{automobili.targa}}</td>
+                <td>{{automobili.dataAttivazione}}</td>
+                <td>{{automobili.dataScadenza}}</td>
+                <td>{{automobili.costoNoleggio}}</td>
+                <td>{{automobili.costoServizi}}</td>
+                <td>{{automobili.societaLeasing}}</td>
+            </tr>
+
+        </table>
+    </div>
+    
+</div>
+
+

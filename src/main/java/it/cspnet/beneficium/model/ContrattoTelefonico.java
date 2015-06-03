@@ -33,6 +33,12 @@ public class ContrattoTelefonico implements Serializable {
     @NotEmpty
     private String tipoContratto;
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dataAttivazione;
+    
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dataScadenza;
+    
     private boolean scaduto;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -84,6 +90,22 @@ public class ContrattoTelefonico implements Serializable {
 
     public void setCellulare(Cellulare cellulare) {
         this.cellulare = cellulare;
+    }
+
+    public Date getDataAttivazione() {
+        return dataAttivazione;
+    }
+
+    public void setDataAttivazione(Date dataAttivazione) {
+        this.dataAttivazione = dataAttivazione;
+    }
+
+    public Date getDataScadenza() {
+        return dataScadenza;
+    }
+
+    public void setDataScadenza(Date dataScadenza) {
+        this.dataScadenza = dataScadenza;
     }
     
 // equals e hashcode sull'id

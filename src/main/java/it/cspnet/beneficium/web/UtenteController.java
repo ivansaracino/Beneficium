@@ -41,59 +41,43 @@ public class UtenteController {
 //
 //    }
     @RequestMapping(value = "login", method = RequestMethod.POST)
-//   
-<<<<<<< HEAD
+
     public @ResponseBody
     JsonResult login(HttpServletRequest req, @RequestBody Utente utente) throws Exception {
         JsonResult jR = new JsonResult();
-        try {
 
-            Utente u = benefitServices.findUtente(utente);
-            if (u != null) {
-                jR.setOggetto(u);
-                jR.setMessaggio("bEnvenuto");
-                jR.setStatus(true);
-            }
-            else 
-            {
-                jR.setMessaggio("utente non abilititato");
-                jR.setStatus(false);
-            }
+        Utente u = benefitServices.findUtente(utente);
+        jR.setOggetto(u);
 
-        } catch (Exception ex) {
+        if (u != null) {
+            jR.setMessaggio("benvenuto");
+            jR.setStatus(true);
+        } else {
             jR.setMessaggio("utente non abilititato");
             jR.setStatus(false);
-        } finally {
-            return jR;
         }
+        return jR;
+
     }
+
+    /* aggiunta 27 maggio */
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+
+    public @ResponseBody
+    JsonResult logout(HttpServletRequest request) throws Exception {
+        request.getSession().invalidate();
+        
+        JsonResult jR = new JsonResult();
+        jR.setStatus(true);
+        return jR;
+
+    }
+    /*  fine aggiunta */
 
     @RequestMapping(value = "listautenti", method = RequestMethod.GET)
     public @ResponseBody
     List<Utente> getListaUtenti() {
-=======
-     public @ResponseBody JsonResult login(HttpServletRequest req, @RequestBody  Utente utente) throws Exception {
-           JsonResult jR = new JsonResult();
-           
-           
-           Utente u = benefitServices.findUtente(utente);
-           jR.setOggetto(u);
-           
-           if(u != null){
-           jR.setMessaggio("bEnvenuto");
-           jR.setStatus(true);
-           }
-           else{
-               jR.setMessaggio("utente non abilititato");
-               jR.setStatus(false);
-           } 
-               return jR;
-           
-    } 
-    
-    @RequestMapping(value="listautenti", method=RequestMethod.GET)
-    public @ResponseBody List<Utente> getListaUtenti(){
->>>>>>> c76c93b6cb563e457bcd9c24622bd877cdde7461
+
         return benefitServices.listaUtenti();
     }
     

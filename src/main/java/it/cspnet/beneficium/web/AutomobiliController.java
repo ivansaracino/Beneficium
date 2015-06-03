@@ -2,7 +2,7 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
-import it.cspnet.beneficium.model.Contratto_Auto;
+import it.cspnet.beneficium.model.ContrattoAuto;
 
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.JsonResult;
