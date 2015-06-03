@@ -10,6 +10,7 @@ import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.services.BenefitServices;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -49,6 +50,7 @@ public class UtenteController {
 
         if (u != null) {
             jR.setMessaggio("Benvenuto");
+            
             jR.setStatus(true);
         } else {
             jR.setMessaggio("utente non abilititato");
@@ -59,7 +61,7 @@ public class UtenteController {
     }
 
 
-    /* aggiunta 27 maggio */
+  
     @RequestMapping(value = "logout", method = RequestMethod.GET)
 
     public @ResponseBody
@@ -68,10 +70,11 @@ public class UtenteController {
         
         JsonResult jR = new JsonResult();
         jR.setStatus(true);
+        
         return jR;
 
     }
-    /*  fine aggiunta */
+
     @RequestMapping(value = "listautenti", method = RequestMethod.GET)
     public @ResponseBody
     List<Utente> getListaUtenti() {

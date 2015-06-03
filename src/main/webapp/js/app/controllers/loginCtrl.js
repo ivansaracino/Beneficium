@@ -7,7 +7,8 @@ angular.module('myBenefit')
                     $location.path('/login');
                 }
                 else{
-                    toastr.success('Benvenuto', 'Beneficium');
+                    var user = $scope.user;
+                    toastr.success('Benvenuto ' + $scope.user.username, 'Beneficium');
                     $location.path('/listadipendentijson'); 
                 }
             };
