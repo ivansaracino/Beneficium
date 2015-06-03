@@ -5,11 +5,24 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/login.html',
                     controller: 'loginCtrl'
                 }).
+                        
                 when('/listadipendentijson', {
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dipCtrl'
                 }).
+
+
+                when('/inseriscidipendentejson', {
+                    templateUrl: 'partials/nuovo-dipendente.html',
+                    controller: 'dipCtrl'
+                }).
                
+
+               when('/inseriscicontrattojson', {
+                    templateUrl: 'partials/listadipendenti.html',
+                    controller: 'dialogoNuovoContrattoTelefonicoController'
+                }).
+                        
                 otherwise({
                     redirectTo: '/login'
                 });

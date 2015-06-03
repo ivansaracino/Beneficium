@@ -1,6 +1,4 @@
-
 package it.cspnet.beneficium.model;
-
 
 public class JsonResult {
 
@@ -16,12 +14,6 @@ public class JsonResult {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-
-
-
-    
-
 
     public Object getOggetto() {
         return oggetto;
@@ -30,8 +22,6 @@ public class JsonResult {
     public void setOggetto(Object oggetto) {
         this.oggetto = oggetto;
     }
-
-
 
     public String getMessaggio() {
         return messaggio;
@@ -42,5 +32,4 @@ public class JsonResult {
 
     }
 
-    
 }

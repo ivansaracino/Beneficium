@@ -1,17 +1,24 @@
-<div>
-    <h3>Lista Dipendenti</h3>
+<div class="row"><h3> </h3></div>
+<div class="row">
+<div class="col-md-9">
+    <h3>LISTA DIPENDENTI</h3>
 
-    <table class="table table-bordered table-hover table-striped" border=1>
+
+<button class="btn btn-success" ng-click="aggiungiDipendente()"  />Aggiungi dipendente</button>
+
+
+    <table class="bordered">
+
 
         <thead>
-        <th>CODICE FISCALE</th>
-        <th>NOME</th>
-        <th>COGNOME</th>
-        <th>INDIRIZZO</th>
-        <th>STIPENDIO MENSILE</th>
-        <th>AUTO</th>
-        <th>CELLULARE</th>
-        <th>AZIONI</th>
+        <th>Codice fiscale</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Indirizzo</th>
+        <th>Stipendio mensile</th>
+        <th>Automobile</th>
+        <th>Cellulare</th>
+        <th>Azioni</th>
 
         </thead>
         <tr ng-repeat="dipendente in dipendenti">
@@ -28,16 +35,17 @@
             <td><input type="button" value="Visualizza Cellulare"/></td>
 
             <td>
-                <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.stipendioMensile]">
+                <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
                     <button class="btn btn-success dropdown-toggle" dropdown-toggle type="button">
-                        Azioni <span class="caret"></span>
+                        Aggiungi <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
 
-                        <li><a ng-click="modificaDipendente(dipendente)">Modifica</a></li>
-                        <li><a ng-click="eliminaDipendente(dipendente.codiceFiscale)">Delete</a></li>
+                        <li><a ng-click="AgggiungiContrattoTelefonico(dipendente.codiceFiscale)">Cellulare</a></li>
+                        <li><a ng-click="AgggiungiContrattoAuto(dipendente.codiceFiscale)">Auto</a></li>
 
-                        <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
+
+                        <li><a ng-click="aggiungiDipendente()">Aggiungi</a></li>
                     </ul>
                 </div>
 
@@ -47,6 +55,10 @@
         </tr>
 
     </table>
+</div>
+                    <div class="barralogout col-md-3">
+                            <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
+                    </div>
 </div>
 
 

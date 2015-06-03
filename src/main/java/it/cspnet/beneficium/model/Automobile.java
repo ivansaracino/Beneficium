@@ -50,7 +50,7 @@ public class Automobile {
     public void setContrattoAuto(Collection<Contratto_Auto> contrattoAuto) {
         this.contrattoAuto = contrattoAuto;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -101,5 +101,4 @@ public class Automobile {
     public void setContratti(Collection<Contratto_Auto> contratti) {
         this.contrattoAuto = contratti;
     }
-
 }

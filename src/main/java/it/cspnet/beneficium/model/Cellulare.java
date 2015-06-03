@@ -2,6 +2,7 @@ package it.cspnet.beneficium.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,13 +28,15 @@ public class Cellulare implements Serializable {
 
     @NotEmpty
     private String modello;
+    
+    
 
     @OneToMany(mappedBy = "cellulare")
-    private List<ContrattoTelefonico> contratti;
+    private List<ContrattoTelefonico> contrattiTelefonici;
 
-    @JsonIgnore
+   
     @ManyToOne
-    private Dipendente dipendente;
+    private Dipendente dipendente = new Dipendente();
 
     public String getNumeroSim() {
         return numeroSim;
@@ -59,15 +62,15 @@ public class Cellulare implements Serializable {
         this.dipendente = dipendente;
     }
 
-    public List<ContrattoTelefonico> getContratti() {
-        return contratti;
+    public List<ContrattoTelefonico> getContrattiTelefonici() {
+        return contrattiTelefonici;
     }
 
-    public void setContratti(List<ContrattoTelefonico> contratti) {
-        this.contratti = contratti;
+    public void setContrattiTelefonici(List<ContrattoTelefonico> contrattiTelefonici) {
+        this.contrattiTelefonici = contrattiTelefonici;
     }
 
-    public int getId() {
+       public int getId() {
         return id;
     }
 

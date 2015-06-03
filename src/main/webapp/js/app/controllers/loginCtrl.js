@@ -1,11 +1,17 @@
 angular.module('myBenefit')
         .controller('loginCtrl', function ($scope, dataServices, $location) {
             var callback = function (risposta) {
-                if (risposta.status === true)
-                    $location.path('/listadipendentijson');
-                else
+                if (risposta.status === false   ){
+                     toastr.error('Credenziali errate')
+                    
+                    $location.path('/login');
+                }
+                else{
                     // ToASTR 
-                    $location.path('/login'); 
+                    toastr.success('Benvenuto', 'Beneficium')
+
+                    $location.path('/listadipendentijson'); 
+                }
             };
 
             var error = function (risposta) {
@@ -18,6 +24,21 @@ angular.module('myBenefit')
             };
         });
         
-
-
-
+   
+   toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
