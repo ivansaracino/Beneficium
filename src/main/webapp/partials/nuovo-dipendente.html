@@ -6,22 +6,41 @@
     
     <form role="form" class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-3 control-label">Nome Dipendente</label>
+            <label class="col-sm-3 control-label">Nome</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" ng-model="dipendente.nome" />
+                <input type="text" class="form-control" ng-model="dipendente.nome"/> 
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label">Cognome Dipendente</label>
+            <label class="col-sm-3 control-label">Cognome</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" ng-model="dipendente.cognome"/> 
+                <input type="text" class="form-control" ng-model="dipendente.cognome" />
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Codice fiscale</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="dipendente.codiceFiscale"/> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Indirizzo</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="dipendente.indirizzo"/> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Stipendio mensile</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="dipendente.stipendioMensile"/> 
+            </div>
+        </div>
+        
       
     </form>
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="save()">Save</button>
-    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-click="save()">Salva</button>
+    <button class="btn btn-default" ng-click="cancel()">Annulla</button>
 </div>

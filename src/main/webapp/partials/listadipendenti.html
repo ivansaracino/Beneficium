@@ -1,59 +1,64 @@
 <div class="row"><h3> </h3></div>
 <div class="row">
-<div class="col-md-9">
-    <h3>LISTA DIPENDENTI</h3>
-<button class="btn btn-success" ng-click="aggiungiDipendente()"  />Aggiungi dipendente</button>
 
-    <table class="bordered">
+    <div class="col-md-9">
+        <div class="row">
+        <div class="col-md-9 intestazione">
+            <h3>LISTA DIPENDENTI</h3>
+        </div>
+        <div class="col-md-3 barraricerca">
+            <div class="form-group">
+                <input class="name form-control" type="text" placeholder="Cognome" ng-model="query"/>
+            </div>
+            <!--input ng-model="query" type="search" placeholder="Cognome" autofocus-->
+        </div>
+        </div>
+        <div class="row"><h3> </h3></div>
+        <div class="row">
+            <table class="bordered">
+                <thead>
+                <th>Cognome</th>              
+                <th>Nome</th>
+                <th>Codice fiscale</th>
+                <th>Indirizzo</th>
+                <th>Stipendio mensile</th>
+                <th></th>
+                </thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-default" ng-click="aggiungiDipendente()"/>Nuovo</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="dipendente in dipendenti| filter:query | orderBy: 'dipendente.cognome' ">
+                    <td>{{dipendente.cognome}}</td>
+                    <td>{{dipendente.nome}}</td>
+                    <td>{{dipendente.codiceFiscale}}</td>      
+                    <td>{{dipendente.indirizzo}}</td>
+                    <td>{{dipendente.stipendioMensile}}</td>
+                    <td>
+                        <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
+                            <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">
+                                Azioni <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a ng-click="AggiungiContrattoTelefonico(dipendente.codiceFiscale)">Nuovo contratto telefonico</a></li>
+                                <li><a ng-click="AggiungiContrattoAuto(dipendente.codiceFiscale)">Nuovo contratto leasing</a></li>
+                                <li><a ng-click="VisualizzaContrattiTelefonici(dipendente.codiceFiscale)">Visualizza contratti telefonici</a></li>
+                                <li><a ng-click="visualizzaAuto(dipendente.codiceFiscale)">Visualizza contratti leasing</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="barralogout col-md-3">
+        <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
+    </div>
 
-        <thead>
-        <th>Codice fiscale</th>
-        <th>Nome</th>
-        <th>Cognome</th>
-        <th>Indirizzo</th>
-        <th>Stipendio mensile</th>
-        <th>Automobile</th>
-        <th>Cellulare</th>
-        <th>Azioni</th>
-
-        </thead>
-        <tr ng-repeat="dipendente in dipendenti">
-            <td>{{dipendente.codiceFiscale}}</td>
-            <td>{{dipendente.nome}}</td>
-            <td>{{dipendente.cognome}}</td>
-            <td>{{dipendente.indirizzo}}</td>
-
-            <td>{{dipendente.stipendioMensile}}</td>
-
-
-
-            <td><input type="button" value="Visualizza Auto" ng-Click="gestioneAuto()"/></td>
-            <td><input type="button" value="Visualizza Cellulare"/></td>
-
-            <td>
-                <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.stipendioMensile]">
-                    <button class="btn btn-success dropdown-toggle" dropdown-toggle type="button">
-                        Azioni <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-
-                        <li><a ng-click="modificaDipendente(dipendente)">Modifica</a></li>
-                        <li><a ng-click="eliminaDipendente(dipendente.codiceFiscale)">Delete</a></li>
-
-                        <!-- <li><a ng-click="aggiungiProdotto()">Aggiungi</a></li>-->
-                    </ul>
-                </div>
-
-                <button class="btn btn-success" ng-show="vm.currentEdit[league.id]" ng-click="vm.saveItem(league)">Save</button>
-                <button class="btn btn-danger" ng-show="vm.currentEdit[league.id]" ng-click="vm.cancelEdit(league.id)">Cancel</button>
-            </td>
-        </tr>
-
-    </table>
 </div>
-                    <div class="barralogout col-md-3">
-                            <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
-                    </div>
-</div>
-
-

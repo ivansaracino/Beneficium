@@ -1,6 +1,4 @@
-
 package it.cspnet.beneficium.model;
-
 
 public class JsonResult {
 
@@ -25,8 +23,6 @@ public class JsonResult {
         this.oggetto = oggetto;
     }
 
-
-
     public String getMessaggio() {
         return messaggio;
     }
@@ -36,5 +32,4 @@ public class JsonResult {
 
     }
 
-    
 }

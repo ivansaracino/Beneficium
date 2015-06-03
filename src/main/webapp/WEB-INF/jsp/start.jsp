@@ -10,9 +10,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        
+         <link href="${pageContext.request.contextPath}/css/newcss.css" rel="stylesheet">
+        
+        <title>JSP Page</title>
+
         <title>Beneficium</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/miocss.css" rel="stylesheet" media="screen">
+
     </head>
     <body id="sfondo">
         <div class="container">

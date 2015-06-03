@@ -33,9 +33,8 @@ public class ContrattoTelefonicoController {
     }
 
     @RequestMapping(value = "inseriscicontrattojson", method = RequestMethod.POST)
-    public @ResponseBody JsonResult nuovoContrattoTelefonico(HttpServletRequest req,@Valid @RequestBody ContrattoTelefonico contrattoTelefonico, BindingResult result) {
-      
-            
+    public @ResponseBody JsonResult nuovoContrattoTelefonico(HttpServletRequest req, @RequestBody ContrattoTelefonico contrattoTelefonico, BindingResult result) {
+       
             ContrattoTelefonico cT = servizi.aggiungiContrattoTelefonico(contrattoTelefonico);
             JsonResult j = new JsonResult();
             

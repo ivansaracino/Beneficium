@@ -10,10 +10,8 @@ import it.cspnet.beneficium.model.Utente;
 import it.cspnet.beneficium.services.BenefitServices;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,22 +58,26 @@ public class UtenteController {
 
     }
 
+
+    /* aggiunta 27 maggio */
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+
+    public @ResponseBody
+    JsonResult logout(HttpServletRequest request) throws Exception {
+        request.getSession().invalidate();
+        
+        JsonResult jR = new JsonResult();
+        jR.setStatus(true);
+        return jR;
+
+    }
+    /*  fine aggiunta */
     @RequestMapping(value = "listautenti", method = RequestMethod.GET)
     public @ResponseBody
     List<Utente> getListaUtenti() {
         return benefitServices.listaUtenti();
     }
-
-    @RequestMapping(value = "logout", method = RequestMethod.GET)
-
-    public @ResponseBody
-    void logout(HttpServletRequest req, @RequestBody Utente utente) throws Exception {
-        req.getSession().invalidate();
-        //JsonResult jR = new JsonResult();
-        //jR.setStatus(true);
-        
      
       }
 
     
-}

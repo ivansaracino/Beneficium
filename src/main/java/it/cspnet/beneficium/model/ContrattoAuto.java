@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "CONTRATTO_AUTO")
-public class Contratto_Auto {
+public class ContrattoAuto {
     
     @Id
     @GeneratedValue
@@ -134,7 +134,7 @@ public class Contratto_Auto {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Contratto_Auto other = (Contratto_Auto) obj;
+        final ContrattoAuto other = (ContrattoAuto) obj;
         if (this.idContratto != other.idContratto) {
             return false;
         }
