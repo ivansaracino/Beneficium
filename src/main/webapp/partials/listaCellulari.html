@@ -1,0 +1,39 @@
+<div class="row"><h3> </h3></div>
+<div class="row">
+    <div class="col-md-9">
+        <h3>LISTA CELLULARI</h3>
+
+
+
+        <table class="bordered">
+
+
+            <thead> 
+            <th>Codice Fiscale</th>
+            <th>Numero</th>
+            <th>Modello</th>
+            <th>Data Attivazione</th>
+            <th>Data Scadenza</th>
+            <th>Tipo Contratto</th>
+          
+
+
+
+            </thead>
+            <tr ng-repeat="cellulari in cellulari">
+                <td>{{cellulari.codiceFiscale}}</td>
+                <td>{{cellulari.numero}}</td>
+                <td>{{cellulari.modello}}</td>
+                <td>{{cellulari.dataAttivazione}}</td>
+                <td>{{cellulari.dataScadenza}}</td>
+                <td>{{cellulari.tipoContratto}}</td>
+                
+                
+            </tr>
+
+        </table>
+    </div>
+    
+</div>
+
+

@@ -10,6 +10,11 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dipCtrl'
                 }).
+                        
+               when('/logout', {
+                    templateUrl: 'partials/login.html',
+                    controller: 'logoutController'
+                }).
 
 
                 when('/inseriscidipendentejson', {
@@ -32,6 +37,11 @@ angular.module('myBenefit').config(['$routeProvider',
                 when('/listaauto/:codiceFiscale', {
                     templateUrl: 'partials/listaAuto.html',
                     controller: 'listaAutoController'
+                }).
+                
+                 when('/listacellulari/:codiceFiscale', {
+                    templateUrl: 'partials/listaCellulari.html',
+                    controller: 'listaCellulariController'
                 }).
                         
                 otherwise({
