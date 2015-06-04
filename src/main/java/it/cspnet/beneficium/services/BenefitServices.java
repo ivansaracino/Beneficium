@@ -44,7 +44,9 @@ public interface BenefitServices {
 
     public Collection<Automobile> listAutomobiliJSON(String codiceFiscale);
 
-    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale);
+    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale)throws Exception;
+
+    public Collection<ContrattoTelefonico> listaContrattiCellulare(String codiceFiscale)throws Exception;
 
 
 }

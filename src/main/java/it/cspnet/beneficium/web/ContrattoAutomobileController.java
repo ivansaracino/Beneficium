@@ -2,12 +2,14 @@
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
+import it.cspnet.beneficium.model.AutomobileView;
 import it.cspnet.beneficium.model.ContrattoAuto;
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.services.BenefitServices;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +47,24 @@ public class ContrattoAutomobileController {
     
       @RequestMapping(value = "listaauto", method = RequestMethod.GET)
       
-        public @ResponseBody Collection<ContrattoAuto> listaAuto(HttpServletRequest req){
+        public @ResponseBody Collection<AutomobileView> listaAuto(HttpServletRequest req) throws Exception{
             String codiceFiscale= req.getParameter("codiceFiscale");
              Collection<ContrattoAuto> lista =servizi.listaContrattiAuto(codiceFiscale);
-             return lista;
+             List<AutomobileView> listaAuto = new ArrayList<>();
+             for (ContrattoAuto c : lista) {
+                 AutomobileView aW = new AutomobileView();
+                 aW.setCodiceFiscale(c.getAutomobile().getDipendente().getCodiceFiscale());
+                 aW.setModello(c.getAutomobile().getModello());
+                 aW.setTarga(c.getAutomobile().getTarga());
+//                 aW.setDataAttivazione(c.getDataAttivazione());
+//                 aW.setDataScadenza(c.getDataScadenza());
+                 aW.setCostoNoleggio(c.getCostoNoleggio());
+                 aW.setCostoServizi(c.getCostoServizi());
+                 aW.setKilometriContratto(c.getKilometriContratto());
+                 aW.setSocietaLeasing(c.getSocietaLeasing());
+                 listaAuto.add(aW);
+             }
+             return listaAuto;
         }
 }
+ 

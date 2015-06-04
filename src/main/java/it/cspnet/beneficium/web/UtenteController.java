@@ -40,7 +40,7 @@ public class UtenteController {
 //
 //    }
     @RequestMapping(value = "login", method = RequestMethod.POST)
-//   
+
     public @ResponseBody
     JsonResult login(HttpServletRequest req, @RequestBody Utente utente) throws Exception {
         JsonResult jR = new JsonResult();
@@ -78,6 +78,7 @@ public class UtenteController {
     @RequestMapping(value = "listautenti", method = RequestMethod.GET)
     public @ResponseBody
     List<Utente> getListaUtenti() {
+
         return benefitServices.listaUtenti();
     }
      

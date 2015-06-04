@@ -9,13 +9,26 @@
 
 
             <thead> 
+            <th>Modello</th>
+            <th>Targa</th>
             <th>Data Attivazione</th>
+            <th>Data Scadenza</th>
+           <th>Costo Noleggio</th>
+            <th>Costo Servizi</th>
+            <th>Socie taLeasing</th>
+            
+
 
 
             </thead>
-            <tr ng-repeat="contratto in contratti">
-                <td>{{contratto.dataAttivazione}}</td>
-
+            <tr ng-repeat="automobili in automobili">
+                <td>{{automobili.modello}}</td>
+                <td>{{automobili.targa}}</td>
+                <td>{{automobili.dataAttivazione}}</td>
+                <td>{{automobili.dataScadenza}}</td>
+                <td>{{automobili.costoNoleggio}}</td>
+                <td>{{automobili.costoServizi}}</td>
+                <td>{{automobili.societaLeasing}}</td>
             </tr>
 
         </table>

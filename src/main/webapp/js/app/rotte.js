@@ -38,6 +38,11 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/listaAuto.html',
                     controller: 'listaAutoController'
                 }).
+                
+                 when('/listacellulari/:codiceFiscale', {
+                    templateUrl: 'partials/listaCellulari.html',
+                    controller: 'listaCellulariController'
+                }).
                         
                 otherwise({
                     redirectTo: '/login'

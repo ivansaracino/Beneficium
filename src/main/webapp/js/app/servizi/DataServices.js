@@ -40,6 +40,15 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
             callback(auto);
         });
     };
+    
+    
+    var ListaCellulari = function (codiceFiscale , callback) {
+      
+        $http.get('listacellulari.do?codiceFiscale='+codiceFiscale).success(function (auto) {
+            callback(auto);
+        });
+    };
+    
 
 
     var logout = function () {
@@ -52,13 +61,16 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                 });
     };
 
+
     return{
         login: login,
         listadipendentijson: listadipendentijson,
         aggiungiContrattoTelefonico: aggiungiContrattoTelefonico,
         aggiungiContrattoAuto: aggiungiContrattoAuto,
         ListaAuto: ListaAuto,
+        ListaCellulari: ListaCellulari,
         salva: salva,
         logout: logout
+
     };
 });

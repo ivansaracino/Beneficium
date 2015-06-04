@@ -4,13 +4,13 @@ angular.module('myBenefit')
                 $scope.dipendenti = dipendenti;
             };
 
-            var error = function (risposta) {
+             var error = function (risposta) {
                 alert("errore lato server");
             };
-
+            
 
             dataServices.listadipendentijson(callback);
-
+            
 
             $scope.AggiungiContrattoTelefonico = function (codiceFiscale) {
                 var modalInstance = $modal.open({
@@ -28,19 +28,18 @@ angular.module('myBenefit')
                 });
 
                 modalInstance.result.then(function (contratto) {
-
+                    
                     // salvataggio del contratto telefonico
                     dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
-                    toastr.success('Contratto telefonico inserito', 'Beneficium');
 
                 }, function () {
-                    toastr.error('Inserimento Contratto annullato, riprovare', 'Beneficium');
+                    alert('Inserimento annullato');
                 });
             };
 
 
 
-            $scope.AggiungiContrattoAuto = function () {
+            $scope.AggiungiContrattoAuto = function (codiceFiscale) {
 
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovoContrattoAuto.html',
@@ -57,24 +56,27 @@ angular.module('myBenefit')
                 });
 
                 modalInstance.result.then(function (contrattoAuto) {
-
+                    
                     // salvataggio del contratto telefonico
                     dataServices.aggiungiContrattoAuto(contrattoAuto, codiceFiscale);
-                    toastr.success('Contratto auto inserito', 'Beneficium');
 
                 }, function () {
-                    toastr.error('Inserimento Contratto annullato, riprovare', 'Beneficium');
+                    alert('Inserimento annullato');
                 });
             };
 
-
-
-
+            
+             
+           
 
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/nuovo-dipendente.html',
+
+
                     controller: 'dialogoNuovoDipendenteController',
+
+
                     resolve: {
                         data: function () {
                             return {
@@ -83,24 +85,29 @@ angular.module('myBenefit')
                             };
                         }
                     },
+
                     size: 'lg'
                 });
-
-
+                
+                
 
                 modalInstance.result.then(function (dipendente) {
                     dataServices.salva(dipendente, callback, error);
                     $location.path("/listadipendentijson");
-                    toastr.success('Dipendente inserito', 'Beneficium');
                 }, function () {
-                    toastr.error('aggiunta dipendente annullata, riprovare', 'Beneficium');
+                    console.log("aggiunta dipendente annullata");
                 });
 
-
+              
             };
-
-            $scope.visualizzaAuto = function (codiceFiscale) {
-                alert('/:' + codiceFiscale);
-                $location.path('/listaauto/' + codiceFiscale);
-            };
+            
+           $scope.visualizzaAuto = function(codiceFiscale){
+               $location.path('/listaauto/' + codiceFiscale);
+           };
+           
+           $scope.VisualizzaContrattiTelefonici = function(codiceFiscale){
+               $location.path('/listacellulari/' + codiceFiscale);
+           };
+           
+           
         });
