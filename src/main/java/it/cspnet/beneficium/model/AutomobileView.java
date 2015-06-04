@@ -13,16 +13,27 @@ import java.util.Date;
  */
 public class AutomobileView {
     // info dell'auto che vogliamo visualizzare
+    private int id;
     private String codiceFiscale;
     private String modello;
     private String targa;
-//    private Date dataAttivazione;
-//    private Date dataScadenza;
+    private Date dataAttivazione;
+    private Date dataScadenza;
     private float costoNoleggio;
     private float costoServizi;
     private long kilometriContratto;
     private String societaLeasing;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
+    
     public String getCodiceFiscale() {
         return codiceFiscale;
     }
@@ -93,6 +104,22 @@ public class AutomobileView {
 
     public void setSocietaLeasing(String societaLeasing) {
         this.societaLeasing = societaLeasing;
+    }
+
+    public Date getDataAttivazione() {
+        return dataAttivazione;
+    }
+
+    public void setDataAttivazione(Date dataAttivazione) {
+        this.dataAttivazione = dataAttivazione;
+    }
+
+    public Date getDataScadenza() {
+        return dataScadenza;
+    }
+
+    public void setDataScadenza(Date dataScadenza) {
+        this.dataScadenza = dataScadenza;
     }
     
     
