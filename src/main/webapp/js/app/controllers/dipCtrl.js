@@ -92,7 +92,34 @@ angular.module('myBenefit')
                 });
             };
 
-              
+              $scope.modificaDipendente = function(dipendente) {
+                 
+                        var modalInstance = $modal.open({
+                       
+                        templateUrl: 'partials/modificadipendente.html',
+                        controller: 'dialogoNuovoDipendenteController',
+                        
+                        resolve: {
+                            data: function() {
+                                return {
+                                    dipendente:dipendente,
+                                    titolo: 'Modifica Dipendente',
+                                    buttons: ['Salva', 'Annulla']
+                                };
+                            }
+                        },
+                        size: 'lg'
+                        });
+                        
+                      
+                        modalInstance.result.then(function (dipendente) {
+                            dataServices.salva(dipendente, callback, error);
+                    
+                }, function () {
+                    console.log("aggiunta dipendente annullata");
+                });
+
+                    };
           
             
            $scope.visualizzaAuto = function(codiceFiscale){
