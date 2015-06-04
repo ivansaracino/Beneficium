@@ -1,15 +1,15 @@
 angular.module('myBenefit')
         .controller('loginCtrl', function ($scope, dataServices, $location) {
             var callback = function (risposta) {
-                if (risposta.status === false){
-                    
+                if (risposta.status === false) {
+
                     toastr.error('Credenziali errate', 'Beneficium');
                     $location.path('/login');
                 }
-                else{
+                else {
                     var user = $scope.user;
                     toastr.success('Benvenuto ' + $scope.user.username, 'Beneficium');
-                    $location.path('/listadipendentijson'); 
+                    $location.path('/listadipendentijson');
                 }
             };
 
@@ -21,7 +21,16 @@ angular.module('myBenefit')
                 dataServices.login($scope.user, callback, error);
 
             };
+
+            $scope.azioneEnter = function (event)
+            {
+                if (event.charCode == 13) //if enter then hit the search button
+                    $scope.login();
+            };
+
+
+
         });
-        
-   
+
+
    
