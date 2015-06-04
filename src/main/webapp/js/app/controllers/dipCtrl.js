@@ -99,7 +99,7 @@ angular.module('myBenefit')
                $location.path('/listaauto/' + codiceFiscale);
            };
            
-           $scope.VisualizzaContrattiTelefonici = function(codiceFiscale){
+           $scope.VisualizzaCellulari = function(codiceFiscale){
                $location.path('/listacellulari/' + codiceFiscale);
            };
            

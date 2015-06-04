@@ -27,12 +27,12 @@ public class AutomobiliController {
     @Autowired
     private BenefitServices servizi;
 
-    @RequestMapping(value = "listaAutomobili", method = RequestMethod.GET)
-    public @ResponseBody
-    Collection<Automobile> listaAutomobiliJSON(HttpServletRequest req) {
-        String codiceFiscale = req.getParameter("codiceFiscale");
-        return servizi.listaAutomobileJSON(codiceFiscale);
-    }
+//    @RequestMapping(value = "listaAutomobili", method = RequestMethod.GET)
+//    public @ResponseBody
+//    Collection<Automobile> listaAutomobiliJSON(HttpServletRequest req) {
+//        String codiceFiscale = req.getParameter("codiceFiscale");
+//        return servizi.listaAutomobileJSON(codiceFiscale);
+//    }
 
     @RequestMapping(value = "listaauto", method = RequestMethod.GET)
     public @ResponseBody
