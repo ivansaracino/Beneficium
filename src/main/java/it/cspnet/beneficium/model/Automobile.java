@@ -93,8 +93,4 @@ public class Automobile  {
         this.dipendente = dipendente;
     }
 
-    public Collection<ContrattoAuto> getContratti() {
-        return contratti;
-    }
-
 }

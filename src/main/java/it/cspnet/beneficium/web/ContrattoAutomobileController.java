@@ -1,4 +1,3 @@
-
 package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
@@ -21,13 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 @Controller
 public class ContrattoAutomobileController {
-    
+
     @Autowired
     private BenefitServices servizi;
-    
+
     @RequestMapping(value = "salvacontratto", method = RequestMethod.POST)
     public @ResponseBody
     JsonResult salvaContratto(@RequestBody ContrattoAuto contratto) {
@@ -41,30 +39,28 @@ public class ContrattoAutomobileController {
             risultato.setMessaggio("errore nell'inserimento contratto");
             risultato.setStatus(false);
         }
-        
+
         return risultato;
     }
-    
-      @RequestMapping(value = "listaauto", method = RequestMethod.GET)
-      
-        public @ResponseBody Collection<AutomobileView> listaAuto(HttpServletRequest req) throws Exception{
-            String codiceFiscale= req.getParameter("codiceFiscale");
-             Collection<ContrattoAuto> lista =servizi.listaContrattiAuto(codiceFiscale);
-             List<AutomobileView> listaAuto = new ArrayList<>();
-             for (ContrattoAuto c : lista) {
-                 AutomobileView aW = new AutomobileView();
-                 aW.setCodiceFiscale(c.getAutomobile().getDipendente().getCodiceFiscale());
-                 aW.setModello(c.getAutomobile().getModello());
-                 aW.setTarga(c.getAutomobile().getTarga());
-//                 aW.setDataAttivazione(c.getDataAttivazione());
-//                 aW.setDataScadenza(c.getDataScadenza());
-                 aW.setCostoNoleggio(c.getCostoNoleggio());
-                 aW.setCostoServizi(c.getCostoServizi());
-                 aW.setKilometriContratto(c.getKilometriContratto());
-                 aW.setSocietaLeasing(c.getSocietaLeasing());
-                 listaAuto.add(aW);
-             }
-             return listaAuto;
+
+  
+
+    @RequestMapping(value = "ListaContrattiAuto", method = RequestMethod.GET)
+    public @ResponseBody
+    Collection<AutomobileView> listaContrattiAuto(HttpServletRequest req) throws Exception {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Collection<ContrattoAuto> lista = servizi.listaContrattiAuto2(id);
+        List<AutomobileView> listaAuto = new ArrayList<>();
+        for (ContrattoAuto c : lista) {
+            AutomobileView aW = new AutomobileView();
+            aW.setDataAttivazione(c.getDataAttivazione());
+            aW.setDataScadenza(c.getDataScadenza());
+            aW.setCostoNoleggio(c.getCostoNoleggio());
+            aW.setCostoServizi(c.getCostoServizi());
+            aW.setKilometriContratto(c.getKilometriContratto());
+            aW.setSocietaLeasing(c.getSocietaLeasing());
+            listaAuto.add(aW);
         }
+        return listaAuto;
+    }
 }
- 

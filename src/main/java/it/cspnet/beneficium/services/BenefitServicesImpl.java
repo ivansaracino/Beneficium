@@ -80,7 +80,6 @@ public class BenefitServicesImpl implements BenefitServices {
         return repositoryAutomobile.save(a);
     }
 
-
     @Override
     public ContrattoAuto salvaContratto(ContrattoAuto contratto) {
 
@@ -92,21 +91,32 @@ public class BenefitServicesImpl implements BenefitServices {
         return contrattiTelefoniciRepository.save(contrattoTelefonico);
     }
 
-
     @Override
     public Collection<Automobile> listAutomobiliJSON(String codiceFiscale) {
 
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
-    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale)throws Exception {
+    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale) throws Exception {
         return contrattoAutoRepository.findByAutomobile(repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale));
     }
 
     @Override
-    public Collection<ContrattoTelefonico> listaContrattiCellulare(String codiceFiscale) throws Exception{
-         Collection<ContrattoTelefonico> c = contrattiTelefoniciRepository.findByCellulare(cellulariRepository.findBydipendente_codiceFiscale(codiceFiscale));
+    public Collection<ContrattoTelefonico> listaContrattiCellulare(String codiceFiscale) throws Exception {
+        Collection<ContrattoTelefonico> c = contrattiTelefoniciRepository.findByCellulare(cellulariRepository.findBydipendente_codiceFiscale(codiceFiscale));
         System.out.println(c.size());
-        return  c;
+        return c;
+    }
+
+    @Override
+    public Collection<Automobile> listaAuto(String codiceFiscale) {
+        Dipendente d = dipendenteRepository.findOne(codiceFiscale);
+        return d.getAuto();
+    }
+
+    @Override
+    public Collection<ContrattoAuto> listaContrattiAuto2(int id) {
+        Automobile auto =  repositoryAutomobile.findOne(id);
+        return auto.getContrattoAuto();
     }
 }
