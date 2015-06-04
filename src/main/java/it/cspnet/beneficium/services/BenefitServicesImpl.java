@@ -62,9 +62,7 @@ public class BenefitServicesImpl implements BenefitServices {
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
-    public List<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception {
-        return cellulariRepository.findBydipendente_codiceFiscale(codiceFiscale);
-    }
+  
 
     public Collection<Dipendente> listDipendentiJSON() {
 
@@ -97,15 +95,15 @@ public class BenefitServicesImpl implements BenefitServices {
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
-    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale) throws Exception {
-        return contrattoAutoRepository.findByAutomobile(repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale));
+     public Collection<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception {
+        Dipendente d = dipendenteRepository.findOne(codiceFiscale);
+        return d.getCellulari();
     }
-
+     
     @Override
-    public Collection<ContrattoTelefonico> listaContrattiCellulare(String codiceFiscale) throws Exception {
-        Collection<ContrattoTelefonico> c = contrattiTelefoniciRepository.findByCellulare(cellulariRepository.findBydipendente_codiceFiscale(codiceFiscale));
-        System.out.println(c.size());
-        return c;
+    public Collection<ContrattoTelefonico> listaContrattiCellulare(int id) throws Exception {
+        Cellulare c = cellulariRepository.findOne(id);
+        return c.getContrattiTelefonici();
     }
 
     @Override
