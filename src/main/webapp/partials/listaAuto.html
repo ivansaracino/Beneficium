@@ -9,26 +9,28 @@
 
 
             <thead> 
+            
             <th>Modello</th>
             <th>Targa</th>
-            <th>Data Attivazione</th>
-            <th>Data Scadenza</th>
-           <th>Costo Noleggio</th>
-            <th>Costo Servizi</th>
-            <th>Socie taLeasing</th>
-            
-
-
+            <th>Azioni</th>
+                    
 
             </thead>
             <tr ng-repeat="automobili in automobili">
+               
                 <td>{{automobili.modello}}</td>
                 <td>{{automobili.targa}}</td>
-                <td>{{automobili.dataAttivazione}}</td>
-                <td>{{automobili.dataScadenza}}</td>
-                <td>{{automobili.costoNoleggio}}</td>
-                <td>{{automobili.costoServizi}}</td>
-                <td>{{automobili.societaLeasing}}</td>
+                <td>
+                        <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
+                            <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">
+                                Azioni <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a ng-click="VisualizzaContrattiAuto(automobili.id)">Visualizza contratto</a></li>
+                            </ul>
+                        </div>
+                    
+                    </td>
             </tr>
 
         </table>
