@@ -6,54 +6,40 @@
 
 <div class="modal-body">
 
-    <form role="form" class="form-horizontal">
+    <form role="form" class="form-horizontal" name="formModificaDipendente">
         <div class="form-group">
             <label class="col-sm-3 control-label">Codice Fiscale</label>
             <div class="col-sm-9">
                 <input type="text" readonly="true" class="form-control" ng-model="data.dipendente.codiceFiscale" value="{{data.dipendente.codiceFiscale}}" >
 
             </div>
-
         </div>
+        <div class="modal-body">            
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Nome Dipendente</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="data.dipendente.nome" value="{{data.dipendente.nome}}" >
 
-        <div class="modal-body">
-
-            
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Nome Dipendente</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" ng-model="data.dipendente.nome" value="{{data.dipendente.nome}}" >
-
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Cognome Dipendente</label>
-                    <div class="col-sm-9">
-
-
-
-                        <input type="text" class="form-control" ng-model="data.dipendente.cognome" value="{{data.dipendente.cognome}}"> 
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Cognome Dipendente</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="data.dipendente.cognome" value="{{data.dipendente.cognome}}"> 
                 </div>
-
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">indirizzo</label>
-                    <div class="col-sm-9">
-
-                        <input type="text" class="form-control" ng-model="data.dipendente.indirizzo" value="{{data.dipendente.indirizzo}}"> 
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">indirizzo</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="data.dipendente.indirizzo" value="{{data.dipendente.indirizzo}}"> 
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">stipendio</label>
-                    <div class="col-sm-9">
-
-                        <input type="text" class="form-control" ng-model="data.dipendente.stipendioMensile" value="{{data.dipendente.stipendioMensile}}"> 
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">stipendio</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" ng-model="data.dipendente.stipendioMensile" value="{{data.dipendente.stipendioMensile}}"> 
                 </div>
-
-
-
-
+            </div>
         </div>
     </form>
 

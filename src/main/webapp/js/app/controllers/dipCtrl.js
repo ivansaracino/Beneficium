@@ -4,13 +4,13 @@ angular.module('myBenefit')
                 $scope.dipendenti = dipendenti;
             };
 
-             var error = function (risposta) {
+            var error = function (risposta) {
                 alert("errore lato server");
             };
-            
+
 
             dataServices.listadipendentijson(callback);
-            
+
 
             $scope.AggiungiContrattoTelefonico = function (codiceFiscale) {
                 var modalInstance = $modal.open({
@@ -28,7 +28,7 @@ angular.module('myBenefit')
                 });
 
                 modalInstance.result.then(function (contratto) {
-                    
+
                     // salvataggio del contratto telefonico
                     dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
                     toastr.success('Contratto telefonico inserito', 'Beneficium');
@@ -56,8 +56,8 @@ angular.module('myBenefit')
                 });
 
                 modalInstance.result.then(function (contrattoAuto) {
-                    
-                     // salvataggio del contratto auto
+
+                    // salvataggio del contratto auto
                     dataServices.aggiungiContrattoAuto(contrattoAuto, codiceFiscale);
                     toastr.success('Contratto auto inserito', 'Beneficium');
                 }, function () {
@@ -65,9 +65,9 @@ angular.module('myBenefit')
                 });
             };
 
-            
-             
-           
+
+
+
 
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
@@ -92,43 +92,41 @@ angular.module('myBenefit')
                 });
             };
 
-              $scope.modificaDipendente = function(dipendente) {
-                 
-                        var modalInstance = $modal.open({
-                       
-                        templateUrl: 'partials/modificadipendente.html',
-                        controller: 'dialogoNuovoDipendenteController',
-                        
-                        resolve: {
-                            data: function() {
-                                return {
-                                    dipendente:dipendente,
-                                    titolo: 'Modifica Dipendente',
-                                    buttons: ['Salva', 'Annulla']
-                                };
-                            }
-                        },
-                        size: 'lg'
-                        });
-                        
-                      
-                        modalInstance.result.then(function (dipendente) {
-                            dataServices.salva(dipendente, callback, error);
-                    
-                }, function () {
-                    console.log("aggiunta dipendente annullata");
+            $scope.modificaDipendente = function (dipendente) {
+
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/modificadipendente.html',
+                    controller: 'dialogoNuovoDipendenteController',
+                    resolve: {
+                        data: function () {
+                            return {
+                                dipendente: dipendente,
+                                titolo: 'Modifica Dipendente',
+                                buttons: ['Salva', 'Annulla']
+                            };
+                        }
+                    },
+                    size: 'lg'
                 });
 
-                    };
-          
-            
-           $scope.visualizzaAuto = function(codiceFiscale){
-               $location.path('/listaauto/' + codiceFiscale);
-           };
-           
-           $scope.VisualizzaCellulari = function(codiceFiscale){
-               $location.path('/listacellulari/' + codiceFiscale);
-           };
-           
-           
+
+                modalInstance.result.then(function (dipendente) {
+                    dataServices.salva(dipendente, callback, error);
+                    toastr.success('Dipendente modificato', 'Beneficium');
+                }, function () {
+                    toastr.error('modifica annullata, riprovare', 'Beneficium');
+                });
+
+            };
+
+
+            $scope.visualizzaAuto = function (codiceFiscale) {
+                $location.path('/listaauto/' + codiceFiscale);
+            };
+
+            $scope.VisualizzaCellulari = function (codiceFiscale) {
+                $location.path('/listacellulari/' + codiceFiscale);
+            };
+
+
         });
