@@ -45,20 +45,7 @@ public class DipendentiController {
     
     @RequestMapping(value = "inseriscidipendentejson", method = RequestMethod.POST)
     public @ResponseBody JsonResult nuovoDipendente(HttpServletRequest req,@Valid @RequestBody Dipendente dip, BindingResult result) {
-       // if (!result.hasErrors()) {
-
-//            String codiceFiscale = req.getParameter("codiceFiscale");
-//            String nome = req.getParameter("nome");
-//            String cognome = req.getParameter("cognome");
-//            String indirizzo = req.getParameter("indirizzo");
-//            float stipendioMensile = Float.parseFloat(req.getParameter("stipendioMensile"));
-//            
-//            Dipendente d = new Dipendente();
-//            d.setCodiceFiscale(codiceFiscale);
-//            d.setNome(nome);
-//            d.setCognome(cognome);
-//            d.setIndirizzo(indirizzo);
-//            d.setStipendioMensile(stipendioMensile);
+ 
             
             Dipendente d = servizi.aggiungiDipendente(dip);
             JsonResult j = new JsonResult();
@@ -75,13 +62,9 @@ public class DipendentiController {
             }
             
             return j;
-//            req.setAttribute("messaggio", "dipendente salvato!");
-            // return "start"; //deve ritornare al menù
+
     }
-//        }
-//        else 
-//             return "inseriscidipendente.do"; //deve ritornare al menù
-//    }
+
     
         @RequestMapping(value = "listadipendentijson", method = RequestMethod.GET)
         public @ResponseBody Collection<Dipendente> listaDipendentiJSON(){

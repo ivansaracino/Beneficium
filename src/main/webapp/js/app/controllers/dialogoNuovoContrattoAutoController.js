@@ -28,6 +28,13 @@ angular.module('myBenefit')
                 $modalInstance.close($scope.contrattoAuto);
 
             };
+            
+            
+            $scope.modificaAuto = function() {
+               
+                 $modalInstance.close($scope.data.automobili);
+                
+            };
 
         });
 

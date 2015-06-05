@@ -117,4 +117,12 @@ public class BenefitServicesImpl implements BenefitServices {
         Automobile auto =  repositoryAutomobile.findOne(id);
         return auto.getContrattoAuto();
     }
+
+    @Override
+    public Automobile findAuto(Automobile auto) {
+        Automobile a = repositoryAutomobile.findOne(auto.getIdAuto());
+        a.setModello(auto.getModello());
+        a.setTarga(auto.getTarga());
+        return repositoryAutomobile.save(a);
+    }
 }
