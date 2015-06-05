@@ -21,16 +21,16 @@
                 <td>{{automobili.modello}}</td>
                 <td>{{automobili.targa}}</td>
                 <td>
-                        <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
-                            <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">
-                                Azioni <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a ng-click="VisualizzaContrattiAuto(automobili.id)">Visualizza contratto</a></li>
-                            </ul>
-                        </div>
-                    
-                    </td>
+                    <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
+                        <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">
+                            Azioni <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a ng-click="VisualizzaContrattiAuto(automobili.id)">Visualizza contratto</a></li>
+                        </ul>
+                    </div>
+
+                </td>
             </tr>
 
         </table>

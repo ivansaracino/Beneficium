@@ -56,23 +56,12 @@ public class ContrattoTelefonicoController {
 
     }
 
-    @RequestMapping(value = "listacellulari", method = RequestMethod.GET)
+    @RequestMapping(value = "ListaContrattiCellulare", method = RequestMethod.GET)
 
     public @ResponseBody
-    Collection<CellulariView> listaCellulari(HttpServletRequest req) throws Exception {
-        String codiceFiscale = req.getParameter("codiceFiscale");
-        Collection<ContrattoTelefonico> lista = servizi.listaContrattiCellulare(codiceFiscale);
-        List<CellulariView> listaCellulari = new ArrayList<>();
-        for (ContrattoTelefonico c : lista) {
-            CellulariView aW = new CellulariView();
-            aW.setCodiceFiscale(c.getCellulare().getDipendente().getCodiceFiscale());
-            aW.setDataAttivazione(c.getDataAttivazione());
-            aW.setDataScadenza(c.getDataScadenza());
-            aW.setModello(c.getCellulare().getModello());
-            aW.setTipoContratto(c.getTipoContratto());
-            aW.setNumero(c.getCellulare().getNumero());
-            listaCellulari.add(aW);
-        }
-        return listaCellulari;
+    Collection<ContrattoTelefonico> listaContrattiCellulari(HttpServletRequest req) throws Exception {
+        int id =Integer.parseInt(req.getParameter("id"));
+        return servizi.listaContrattiCellulare(id);
+       
     }
 }

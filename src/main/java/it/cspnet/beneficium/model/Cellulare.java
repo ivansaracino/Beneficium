@@ -30,7 +30,7 @@ public class Cellulare implements Serializable {
     private String modello;
     
     
-
+    @JsonIgnore
     @OneToMany(mappedBy = "cellulare")
     private List<ContrattoTelefonico> contrattiTelefonici;
 
