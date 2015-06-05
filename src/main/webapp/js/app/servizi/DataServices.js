@@ -22,6 +22,22 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                     error(rispostastatus);
                 });
     };
+    
+     var salvaAuto = function (automobile, callback, error) {
+        var auto = {};
+        auto.idAuto = automobile.idAuto;
+        auto.targa = automobile.targa;
+        auto.modello = automobile.modello;
+        $http({data: auto, method: 'POST', url: 'inserisciauto.do'})
+                .success(function (risposta, status, headers, config) {
+                    callback(risposta)
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
+    };
+    
+    
     var aggiungiContrattoTelefonico = function (nuovoContratto, codiceFiscale) {
         nuovoContratto.cellulare.dipendente = {};
         nuovoContratto.cellulare.dipendente.codiceFiscale = codiceFiscale;
@@ -86,6 +102,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         salva: salva,
         ListaContrattiAuto: ListaContrattiAuto,
         ListaContrattiCellulare: ListaContrattiCellulare,
+        salvaAuto:salvaAuto,
         logout: logout
 
     };

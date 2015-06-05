@@ -12,6 +12,11 @@ angular.module('myBenefit')
             };
            
        
+            $scope.modificaDipendente = function() {
+               
+                 $modalInstance.close($scope.data.dipendente);
+                
+            };
 
 
         });
