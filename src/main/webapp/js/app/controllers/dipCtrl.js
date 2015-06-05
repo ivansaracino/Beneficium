@@ -19,7 +19,7 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                titolo: 'Nuovo Contratto',
+                                titolo: 'Nuovo contratto leasing',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
@@ -33,7 +33,7 @@ angular.module('myBenefit')
                     dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
                     toastr.success('Contratto telefonico inserito', 'Beneficium');
                 }, function () {
-                    toastr.error('Inserimento Contratto annullato, riprovare', 'Beneficium');
+                    toastr.error('Inserimento contratto annullato, riprovare', 'Beneficium');
                 });
             };
 
@@ -61,7 +61,7 @@ angular.module('myBenefit')
                     dataServices.aggiungiContrattoAuto(contrattoAuto, codiceFiscale);
                     toastr.success('Contratto auto inserito', 'Beneficium');
                 }, function () {
-                    toastr.error('Inserimento Contratto annullato, riprovare', 'Beneficium');
+                    toastr.error('Inserimento contratto annullato, riprovare', 'Beneficium');
                 });
             };
 
@@ -76,7 +76,7 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                titolo: 'Nuovo Dipendente',
+                                titolo: 'Nuovo dipendente',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }

@@ -19,6 +19,6 @@ angular.module('myBenefit')
                 dataServices.logout($scope.user);
                 $location.path('/login');
              
-                toastr.success('Logout eseguito');
+                toastr.success('Logout eseguito', 'Beneficium');
             };
         });
