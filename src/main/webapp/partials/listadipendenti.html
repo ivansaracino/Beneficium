@@ -1,19 +1,24 @@
 <div class="row"><h3> </h3></div>
-<div class="row">
-
-    <div class="col-md-9">
         <div class="row">
-        <div class="col-md-9 intestazione">
-            <h3>LISTA DIPENDENTI {{user.username}}</h3>
-                
+        <div class="col-md-6 intestazione">
+            <h3>LISTA DIPENDENTI {{user.username}}</h3>               
         </div>
-        <div class="col-md-3 barraricerca">
+     
+            <div class="col-md-3 barraricerca">
             <div class="form-group">
-                <input class="name form-control" type="text" placeholder="Cognome" ng-model="query"/>
+<input class="name form-control" type="text" placeholder="Ricerca" ng-model="query"/>
             </div>
+                </div>
+            <div class="col-md-3 barralogout">
             <!--input ng-model="query" type="search" placeholder="Cognome" autofocus-->
+            <button ng-controller="logoutController" class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
         </div>
-        </div>
+            </div>
+    
+    
+    
+    
+    
         <div class="row"><h3> </h3></div>
         <div class="row">
             <table class="bordered">
@@ -23,18 +28,8 @@
                 <th>Codice fiscale</th>
                 <th>Indirizzo</th>
                 <th>Stipendio mensile</th>
-                <th></th>
+                <th> <button class="btn btn-default" ng-click="aggiungiDipendente()"/>Nuovo</button></th>
                 </thead>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button class="btn btn-default" ng-click="aggiungiDipendente()"/>Nuovo</button>
-                    </td>
-                </tr>
                 <tr ng-repeat="dipendente in dipendenti| filter:query | orderBy: 'dipendente.cognome' ">
                     <td>{{dipendente.cognome}}</td>
                     <td>{{dipendente.nome}}</td>
@@ -59,9 +54,4 @@
                 </tr>
             </table>
         </div>
-    </div>
-    <div class="barralogout col-md-3">
-        <button ng-controller="logoutController" class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
-    </div>
 
-</div>
