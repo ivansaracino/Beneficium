@@ -1,6 +1,16 @@
 <div class="row"><h3> </h3></div>
 <div class="row">    
-    <div class="col-md-9">
+    <div class="col-md-9 intestazione">
+        <h3>LISTA AUTOMOBILI</h3>               
+    </div>
+    <div class="col-md-3 barralogout1">
+        <!--input ng-model="query" type="search" placeholder="Cognome" autofocus-->
+        <button ng-controller="logoutController" class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
+    </div>
+</div>
+<div class="row"><h3> </h3></div>
+<div class="row">
+    <table class="bordered">
 
         <!--div class="row">
         <div class="col-md-9 intestazione">
@@ -53,24 +63,13 @@
     </div>
     <div class="barralogout col-md-3">
         <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button-->
-
-        <h3>LISTA AUTO</h3>
-
-
-
         <table class="bordered">
-
-
-            <thead> 
-            
+        <thead>    
             <th>Modello</th>
             <th>Targa</th>
             <th>Azioni</th>
-                    
-
-            </thead>
-            <tr ng-repeat="automobile in automobili">
-               
+        </thead>
+            <tr ng-repeat="automobile in automobili">               
                 <td>{{automobile.modello}}</td>
                 <td>{{automobile.targa}}</td>
                 <td>
@@ -80,16 +79,10 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a ng-click="VisualizzaContrattiAuto(automobile.idAuto)">Visualizza contratto</a></li>
-                            <li><a ng-click="modificaAuto(automobile)">Modifica auto</a></li>
+                            <li><a ng-click="modificaAuto(automobile)">Modifica automobile</a></li>
                         </ul>
                     </div>
-
                 </td>
             </tr>
-
         </table>
-
     </div>
-</div>
-
-
