@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class AutomobileView {
     // info dell'auto che vogliamo visualizzare
-    private int id;
+    private int idAuto;
     private String codiceFiscale;
     private String modello;
     private String targa;
@@ -24,13 +24,15 @@ public class AutomobileView {
     private long kilometriContratto;
     private String societaLeasing;
 
-    public int getId() {
-        return id;
+    public int getIdAuto() {
+        return idAuto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdAuto(int idAuto) {
+        this.idAuto = idAuto;
     }
+
+    
 
     
     

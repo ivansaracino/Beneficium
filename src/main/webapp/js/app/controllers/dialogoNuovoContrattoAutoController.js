@@ -32,7 +32,7 @@ angular.module('myBenefit')
             
             $scope.modificaAuto = function() {
                
-                 $modalInstance.close($scope.data.automobili);
+                 $modalInstance.close($scope.data.automobile);
                 
             };
 

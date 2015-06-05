@@ -12,7 +12,7 @@ angular.module('myBenefit')
 
             dataServices.ListaAuto($routeParams.codiceFiscale, callback);
 
-            $scope.modificaAuto = function (automobili) {
+            $scope.modificaAuto = function (automobile) {
 
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/modificaauto.html',
@@ -20,7 +20,7 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                automobili: automobili,
+                                automobile: automobile,
                                 titolo: 'Modifica automobile',
                                 buttons: ['Salva', 'Annulla']
                             };
@@ -30,8 +30,8 @@ angular.module('myBenefit')
                 });
 
 
-                modalInstance.result.then(function (automobili) {
-                    dataServices.salvaAuto(automobili, callback, error);
+                modalInstance.result.then(function (automobile) {
+                    dataServices.salvaAuto(automobile, callback, error);
 
                 }, function () {
                     console.log("modifica auto annullata");

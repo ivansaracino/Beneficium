@@ -58,7 +58,7 @@ public class AutomobiliController {
         List<AutomobileView> listaAuto = new ArrayList<>();
         for (Automobile c : lista) {
             AutomobileView aW = new AutomobileView();
-            aW.setId(c.getIdAuto());
+            aW.setIdAuto(c.getIdAuto());
             aW.setModello(c.getModello());
             aW.setTarga(c.getTarga());
             listaAuto.add(aW);

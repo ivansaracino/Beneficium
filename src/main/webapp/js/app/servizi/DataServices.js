@@ -23,8 +23,12 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                 });
     };
     
-     var salvaAuto = function (automobili, callback, error) {
-        $http({data: automobili, method: 'POST', url: 'inserisciauto.do'})
+     var salvaAuto = function (automobile, callback, error) {
+        var auto = {};
+        auto.idAuto = automobile.idAuto;
+        auto.targa = automobile.targa;
+        auto.modello = automobile.modello;
+        $http({data: auto, method: 'POST', url: 'inserisciauto.do'})
                 .success(function (risposta, status, headers, config) {
                     callback(risposta)
                 })
