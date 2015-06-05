@@ -1,5 +1,13 @@
 angular.module('myBenefit')
         .controller('dialogoNuovoContrattoAutoController', function ($modalInstance, $scope, dataServices, data) {
+
+            var callback = function (contrattiauto) {
+                $scope.contrattiauto = contrattiauto;
+            };
+
+            var error = function (risposta) {
+                alert("errore lato server");
+            };
             $scope.data = data;
 
             $scope.opened = false;
@@ -18,7 +26,7 @@ angular.module('myBenefit')
                 $event.stopPropagation();
                 $scope.opened2 = true;
             };
-            
+
             $scope.cancel = function () {
                 $modalInstance.dismiss();
             };
@@ -28,14 +36,18 @@ angular.module('myBenefit')
                 $modalInstance.close($scope.contrattoAuto);
 
             };
-            
-            
-            $scope.modificaAuto = function() {
-               
-                 $modalInstance.close($scope.data.automobile);
-                
-            };
 
+
+            $scope.modificaAuto = function () {
+
+                $modalInstance.close($scope.data.automobile);
+
+            };
+            $scope.modificaContrattoAuto = function () {
+
+                $modalInstance.close($scope.data.contrattoAuto);
+
+            };
         });
 
 

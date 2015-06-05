@@ -22,9 +22,12 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                     error(rispostastatus);
                 });
     };
-    
-     var salvaAuto = function (automobile, callback, error) {
+
+    var salvaAuto = function (automobile, callback, error) {
         var auto = {};
+        auto.dipendente = {};
+        auto.dipendente.codiceFiscale = automobile.codiceFiscale;
+
         auto.idAuto = automobile.idAuto;
         auto.targa = automobile.targa;
         auto.modello = automobile.modello;
@@ -36,8 +39,8 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                     error(rispostastatus);
                 });
     };
-    
-    
+
+
     var aggiungiContrattoTelefonico = function (nuovoContratto, codiceFiscale) {
         nuovoContratto.cellulare.dipendente = {};
         nuovoContratto.cellulare.dipendente.codiceFiscale = codiceFiscale;
@@ -50,7 +53,66 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         console.log(contrattoAuto);
         $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'});
     };
-    
+
+    var modificaContrattoAuto = function (contrattoAuto, codiceFiscale) {
+        var contratto = {};
+        contratto.automobile = {};
+        contratto.automobile.idAuto = contrattoAuto.idAuto;
+        contratto.idContratto = contrattoAuto.idContratto;
+        contratto.dataAttivazione = contrattoAuto.dataAttivazione;
+        contratto.dataScadenza = contrattoAuto.dataScadenza;
+        contratto.costoNoleggio = contrattoAuto.costoNoleggio;
+        contratto.costoServizi = contrattoAuto.costoServizi;
+        contratto.kilometriContratto = contrattoAuto.kilometriContratto;
+        contratto.societaLeasing = contrattoAuto.societaLeasing;
+        contratto.automobile.targa = contrattoAuto.targa;
+        contratto.automobile.modello = contrattoAuto.modello;
+        $http({data: contratto, method: 'POST', url: 'salvacontratto.do'})
+                .success(function (risposta, status, headers, config) {
+                    callback(risposta);
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
+    };
+
+    var modificaCellulare = function (cellulare, codiceFiscale) {
+
+        $http({data: cellulare, method: 'POST', url: 'salvacellulare.do'})
+                .success(function (risposta, status, headers, config) {
+                    callback(risposta)
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
+    };
+
+
+    var modificaContrattoTelefonico = function (nuovoContratto, codiceFiscale) {
+        var contratto = {};
+        contratto.cellulare={};
+        contratto.cellulare.dipendente = {};
+        contratto.cellulare.dipendente.codiceFiscale = nuovoContratto.cellulare.dipendente.codiceFiscale;
+       
+        contratto.cellulare.id=nuovoContratto.cellulare.id;
+        contratto.costoBimestrale=nuovoContratto.costoBimestrale;
+        contratto.profiloContratto=nuovoContratto.profiloContratto;
+        contratto.tipoContratto=nuovoContratto.tipoContratto;
+        contratto.dataAttivazione=nuovoContratto.dataAttivazione;
+        contratto.dataScadenza=nuovoContratto.dataScadenza;
+        
+         console.log(contratto);
+        $http({data: contratto, method: 'POST', url: 'inseriscicontrattojson.do'})
+                .success(function (risposta, status, headers, config) {
+                    callback(risposta);
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
+    };
+
+
+
     var ListaAuto = function (codiceFiscale, callback) {
 
         $http.get('listaauto.do?codiceFiscale=' + codiceFiscale).success(function (automobili) {
@@ -84,14 +146,14 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
             callback(automobili);
         });
     };
-    
-     var ListaContrattiCellulare = function (id, callback) {
+
+    var ListaContrattiCellulare = function (id, callback) {
 
         $http.get('ListaContrattiCellulare.do?id=' + id).success(function (cellulari) {
             callback(cellulari);
         });
     };
-    
+
     return{
         login: login,
         listadipendentijson: listadipendentijson,
@@ -102,7 +164,10 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         salva: salva,
         ListaContrattiAuto: ListaContrattiAuto,
         ListaContrattiCellulare: ListaContrattiCellulare,
-        salvaAuto:salvaAuto,
+        salvaAuto: salvaAuto,
+        modificaContrattoAuto: modificaContrattoAuto,
+        modificaCellulare: modificaCellulare,
+        modificaContrattoTelefonico:modificaContrattoTelefonico,
         logout: logout
 
     };

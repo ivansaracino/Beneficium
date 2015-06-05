@@ -41,11 +41,15 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/listaContrattiCellulare.html',
                     controller: 'listaContrattiCellulareController'
                 }).
-                        
-                when('/inserisciauto', {
-                    templateUrl: 'partials/modificaauto.html',
-                    controller: 'dialogoNuovoContrattoAutoController'
-                }).
+//                when('/inserisciauto', {
+//                    templateUrl: 'partials/modificaauto.html',
+//                    controller: 'dialogoNuovoContrattoAutoController'
+//                }).
+
+//                when('/modificacontratto', {
+//                    templateUrl: 'partials/modificacontrattoauto.html',
+//                    controller: 'dialogoNuovoContrattoAutoController'
+//                }).
                 otherwise({
                     redirectTo: '/login'
                 });

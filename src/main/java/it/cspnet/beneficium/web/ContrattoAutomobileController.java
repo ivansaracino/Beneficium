@@ -26,6 +26,12 @@ public class ContrattoAutomobileController {
     @Autowired
     private BenefitServices servizi;
 
+    @RequestMapping(value = "salvacontratto", method = RequestMethod.GET)
+    @ModelAttribute("contratto")
+    public ContrattoAuto creaContrattoAuto() throws Exception {
+        return new ContrattoAuto();
+    }
+
     @RequestMapping(value = "salvacontratto", method = RequestMethod.POST)
     public @ResponseBody
     JsonResult salvaContratto(@RequestBody ContrattoAuto contratto) {
@@ -43,7 +49,22 @@ public class ContrattoAutomobileController {
         return risultato;
     }
 
-  
+    @RequestMapping(value = "modificacontratto", method = RequestMethod.POST)
+    public @ResponseBody
+    JsonResult modificaContratto(@RequestBody ContrattoAuto contratto) {
+        JsonResult risultato = new JsonResult();
+        ContrattoAuto contratto2 = servizi.modificaContrattoAuto(contratto);
+        if (contratto2 != null) {
+            risultato.setOggetto(contratto);
+            risultato.setMessaggio("contratto inserito con successo");
+            risultato.setStatus(true);
+        } else {
+            risultato.setMessaggio("errore nell'inserimento contratto");
+            risultato.setStatus(false);
+        }
+
+        return risultato;
+    }
 
     @RequestMapping(value = "ListaContrattiAuto", method = RequestMethod.GET)
     public @ResponseBody
@@ -59,6 +80,10 @@ public class ContrattoAutomobileController {
             aW.setCostoServizi(c.getCostoServizi());
             aW.setKilometriContratto(c.getKilometriContratto());
             aW.setSocietaLeasing(c.getSocietaLeasing());
+            aW.setIdAuto(id);
+            aW.setIdContratto(c.getIdContratto());
+            aW.setTarga(c.getAutomobile().getTarga());
+            aW.setModello(c.getAutomobile().getTarga());
             listaAuto.add(aW);
         }
         return listaAuto;
