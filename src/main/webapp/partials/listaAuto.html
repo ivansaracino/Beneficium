@@ -1,7 +1,8 @@
 <div class="row"><h3> </h3></div>
 <div class="row">    
     <div class="col-md-9">
-        <div class="row">
+
+        <!--div class="row">
         <div class="col-md-9 intestazione">
             <h3>LISTA CONTRATTI LEASING</h3>
         </div>
@@ -10,7 +11,7 @@
                 <input class="name form-control" type="text" placeholder="Cognome" ng-model="query"/>
             </div-->
             <!--input ng-model="query" type="search" placeholder="Cognome" autofocus-->
-        </div>
+        <!--/div>
         </div>
         <div class="row"><h3> </h3></div>
         <div class="row">
@@ -34,7 +35,7 @@
                         <button class="btn btn-default" ng-click="NuovoContrattoAuto()"/>Nuovo</button>
                     </td>
                 </tr-->
-                <tr ng-repeat="contratto in contratti">
+                <!--tr ng-repeat="contratto in contratti">
                     <td>{{contratto.societaLeasing}}</td>
                     <td>{{contratto.dataAttivazione}}</td>
                     <td>{{contratto.dataScadenza}}</td>
@@ -51,7 +52,42 @@
         </div>
     </div>
     <div class="barralogout col-md-3">
-        <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
+        <button class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button-->
+
+        <h3>LISTA AUTO</h3>
+
+
+
+        <table class="bordered">
+
+
+            <thead> 
+            
+            <th>Modello</th>
+            <th>Targa</th>
+            <th>Azioni</th>
+                    
+
+            </thead>
+            <tr ng-repeat="automobili in automobili">
+               
+                <td>{{automobili.modello}}</td>
+                <td>{{automobili.targa}}</td>
+                <td>
+                    <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
+                        <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">
+                            Azioni <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a ng-click="VisualizzaContrattiAuto(automobili.id)">Visualizza contratto</a></li>
+                        </ul>
+                    </div>
+
+                </td>
+            </tr>
+
+        </table>
+
     </div>
 </div>
 

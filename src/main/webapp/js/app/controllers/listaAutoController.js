@@ -1,16 +1,20 @@
 angular.module('myBenefit')
-        .controller('listaAutoController', function ($scope, dataServices, $routeParams) {
-                var callback = function (automobili) {
-                    $scope.automobili = automobili;
-                 
-                };
+        .controller('listaAutoController', function ($scope, dataServices, $routeParams,$location) {
+            var callback = function (automobili) {
+                $scope.automobili = automobili;
 
-                var error = function (risposta) {
-                    alert("errore lato server");
-                };
+            };
+
+            var error = function (risposta) {
+                alert("errore lato server");
+            };
 
 
-                dataServices.ListaAuto($routeParams.codiceFiscale,callback);
+            dataServices.ListaAuto($routeParams.codiceFiscale, callback);
+            
+            $scope.VisualizzaContrattiAuto = function (id) {
+                $location.path('/listaContrattiAuto/' + id);
+            };
 
-        }); 
+        });
 

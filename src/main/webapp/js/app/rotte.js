@@ -5,45 +5,43 @@ angular.module('myBenefit').config(['$routeProvider',
                     templateUrl: 'partials/login.html',
                     controller: 'loginCtrl'
                 }).
-                        
                 when('/listadipendentijson', {
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dipCtrl'
                 }).
-                        
-               when('/logout', {
+                when('/logout', {
                     templateUrl: 'partials/login.html',
                     controller: 'logoutController'
                 }).
-
-
                 when('/inseriscidipendentejson', {
                     templateUrl: 'partials/nuovo-dipendente.html',
                     controller: 'dipCtrl'
                 }).
-               
-
-               when('/inseriscicontrattojson', {
+                when('/inseriscicontrattojson', {
                     templateUrl: 'partials/listadipendenti.html',
                     controller: 'dialogoNuovoContrattoTelefonicoController'
                 }).
-                
                 when('/salvacontratto', {
                     templateUrl: 'partials/nuovoContrattoAuto.html',
                     controller: 'dialogoNuovoContrattoAutoController'
                 }).
-                     
-               
                 when('/listaauto/:codiceFiscale', {
                     templateUrl: 'partials/listaAuto.html',
                     controller: 'listaAutoController'
                 }).
-                
-                 when('/listacellulari/:codiceFiscale', {
+                when('/listacellulari/:codiceFiscale', {
                     templateUrl: 'partials/listaCellulari.html',
                     controller: 'listaCellulariController'
                 }).
+                when('/listaContrattiAuto/:id', {
+                    templateUrl: 'partials/listaContrattiAuto.html',
+                    controller: 'listaContrattiAutoController'
+                }).
                         
+                when('/listaContrattiCellulare/:id', {
+                    templateUrl: 'partials/listaContrattiCellulare.html',
+                    controller: 'listaContrattiCellulareController'
+                }).
                 otherwise({
                     redirectTo: '/login'
                 });

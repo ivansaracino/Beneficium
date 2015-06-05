@@ -25,7 +25,7 @@ public interface BenefitServices {
 
     public void aggiungiAutomobile(Automobile automobile);
 
-    public List<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception;
+    public Collection<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception;
 
     public Collection<Dipendente> listDipendentiJSON();
 
@@ -39,14 +39,15 @@ public interface BenefitServices {
 
     public ContrattoAuto salvaContratto(ContrattoAuto contratto);
 
-
-
-
     public Collection<Automobile> listAutomobiliJSON(String codiceFiscale);
 
-    public Collection<ContrattoAuto> listaContrattiAuto(String codiceFiscale)throws Exception;
+    public Collection<ContrattoTelefonico> listaContrattiCellulare(int id)throws Exception;
 
-    public Collection<ContrattoTelefonico> listaContrattiCellulare(String codiceFiscale)throws Exception;
+    public Collection<Automobile> listaAuto(String codiceFiscale);
+
+    public Collection<ContrattoAuto> listaContrattiAuto2(int id);
+
+
 
 
 }

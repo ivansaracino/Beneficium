@@ -1,0 +1,35 @@
+<div class="row"><h3> </h3></div>
+<div class="row">
+    <div class="col-md-9">
+        <h3>LISTA CONTRATTI CELLULARE</h3>
+
+
+
+        <table class="bordered">
+
+
+            <thead> 
+            <th>Data Attivazione</th>
+            <th>Data Scadenza</th>
+            <th>CostoBimestrale</th>
+            <th>Profilo Contratto</th>
+           
+            
+
+
+
+            </thead>
+            <tr ng-repeat="contratticellulare in contratticellulare">
+                <td>{{contratticellulare.dataAttivazione|date : 'dd-MM-yyyy'}}</td>
+                <td>{{contratticellulare.dataScadenza|date : 'dd-MM-yyyy'}}</td>
+                <td>{{contratticellulare.costoBimestrale}}</td>
+                <td>{{contratticellulare.profiloContratto}}</td>
+               
+            </tr>
+
+        </table>
+    </div>
+    
+</div>
+
+

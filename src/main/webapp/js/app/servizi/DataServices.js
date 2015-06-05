@@ -34,21 +34,22 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         console.log(contrattoAuto);
         $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'});
     };
+    
     var ListaAuto = function (codiceFiscale, callback) {
 
-        $http.get('listaauto.do?codiceFiscale=' + codiceFiscale).success(function (auto) {
-            callback(auto);
+        $http.get('listaauto.do?codiceFiscale=' + codiceFiscale).success(function (automobili) {
+            callback(automobili);
         });
     };
-    
-    
-    var ListaCellulari = function (codiceFiscale , callback) {
-      
-        $http.get('listacellulari.do?codiceFiscale='+codiceFiscale).success(function (auto) {
-            callback(auto);
+
+
+    var ListaCellulari = function (codiceFiscale, callback) {
+
+        $http.get('listacellulari.do?codiceFiscale=' + codiceFiscale).success(function (cellulari) {
+            callback(cellulari);
         });
     };
-    
+
 
 
     var logout = function () {
@@ -61,7 +62,20 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                 });
     };
 
+    var ListaContrattiAuto = function (id, callback) {
 
+        $http.get('ListaContrattiAuto.do?id=' + id).success(function (automobili) {
+            callback(automobili);
+        });
+    };
+    
+     var ListaContrattiCellulare = function (id, callback) {
+
+        $http.get('ListaContrattiCellulare.do?id=' + id).success(function (cellulari) {
+            callback(cellulari);
+        });
+    };
+    
     return{
         login: login,
         listadipendentijson: listadipendentijson,
@@ -70,6 +84,8 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         ListaAuto: ListaAuto,
         ListaCellulari: ListaCellulari,
         salva: salva,
+        ListaContrattiAuto: ListaContrattiAuto,
+        ListaContrattiCellulare: ListaContrattiCellulare,
         logout: logout
 
     };
