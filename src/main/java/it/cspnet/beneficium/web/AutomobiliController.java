@@ -2,7 +2,6 @@ package it.cspnet.beneficium.web;
 
 import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.AutomobileView;
-import it.cspnet.beneficium.model.ContrattoAuto;
 
 import it.cspnet.beneficium.model.Dipendente;
 import it.cspnet.beneficium.model.JsonResult;
@@ -27,12 +26,29 @@ public class AutomobiliController {
     @Autowired
     private BenefitServices servizi;
 
-//    @RequestMapping(value = "listaAutomobili", method = RequestMethod.GET)
-//    public @ResponseBody
-//    Collection<Automobile> listaAutomobiliJSON(HttpServletRequest req) {
-//        String codiceFiscale = req.getParameter("codiceFiscale");
-//        return servizi.listaAutomobileJSON(codiceFiscale);
-//    }
+    
+    @RequestMapping(value = "inserisciauto", method = RequestMethod.POST)
+    public @ResponseBody
+    JsonResult salvaAuto(HttpServletRequest req, @Valid @RequestBody Automobile automobile, BindingResult result) {
+        
+//        Automobile a = servizi.findAuto(automobili);
+//        
+        Automobile a = servizi.salvaautomobile(automobile);
+        JsonResult j = new JsonResult();
+
+        if (a != null) {
+
+            j.setOggetto(a);
+            j.setMessaggio("inserimento corretto");
+            j.setStatus(true);
+        } else {
+            j.setMessaggio("inserimento sbagliato");
+            j.setStatus(false);
+        }
+
+        return j;
+
+    }
 
     @RequestMapping(value = "listaauto", method = RequestMethod.GET)
     public @ResponseBody
@@ -42,7 +58,7 @@ public class AutomobiliController {
         List<AutomobileView> listaAuto = new ArrayList<>();
         for (Automobile c : lista) {
             AutomobileView aW = new AutomobileView();
-            aW.setId(c.getIdAuto());
+            aW.setIdAuto(c.getIdAuto());
             aW.setModello(c.getModello());
             aW.setTarga(c.getTarga());
             listaAuto.add(aW);

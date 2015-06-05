@@ -47,6 +47,8 @@ public interface BenefitServices {
 
     public Collection<ContrattoAuto> listaContrattiAuto2(int id);
 
+    public Automobile findAuto(Automobile Auto);
+
 
 
 
