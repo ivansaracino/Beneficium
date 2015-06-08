@@ -1,14 +1,19 @@
-
 <div class="modal-header">
-    <h2>Contratto Auto</h2>
-
+    <h2>Nuovo contratto leasing</h2>
 </div>
 
 <div class="modal-body">
-
     <form role="form" class="form-horizontal">
+        <h4>Dati contratto</h4>
         <div class="form-group">
-            <label class="col-sm-3 control-label">Data Attivazione</label>
+            <label class="col-sm-3 control-label">Società leasing</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.societaLeasing" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Data attivazione</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" ng-model="contrattoAuto.dataAttivazione" 
                        datepicker-popup="dd/MM/yyyy"
@@ -19,51 +24,43 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label">Data Scadenza</label>
+            <label class="col-sm-3 control-label">Data scadenza</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" ng-model="contrattoAuto.dataScadenza"
                        datepicker-popup="dd/MM/yyyy"
                        is-open="opened2"
-                       ng-click="open2($event)" 
+                       ng-click="open2($event)"
                        close-text="Chiudi"/> 
             </div>
         </div>
-        
-        
+
         <div class="form-group">
-            <label class="col-sm-3 control-label">costoNoleggio</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" ng-model="contrattoAuto.costoNoleggio" />
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label class="col-sm-3 control-label">costoServizi</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" ng-model="contrattoAuto.costoServizi" />
-            </div>
-        </div>
-        
-        
-        <div class="form-group">
-            <label class="col-sm-3 control-label">kilometriContratto</label>
+            <label class="col-sm-3 control-label">Kilometri</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" ng-model="contrattoAuto.kilometriContratto" />
             </div>
         </div>
-        
-        
-       
-        
-        
+
         <div class="form-group">
-            <label class="col-sm-3 control-label">Società Leasing</label>
+            <label class="col-sm-3 control-label">Costo noleggio</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" ng-model="contrattoAuto.societaLeasing" />
+                <input type="text" class="form-control" ng-model="contrattoAuto.costoNoleggio" />
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Costo servizi</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="contrattoAuto.costoServizi" />
+            </div>
+        </div>
+    </form>
+</div>      
         
-       <div class="form-group">
+<div class="modal-body">
+    <form role="form" class="form-horizontal">
+        <h4>Dati automobile</h4>
+        <div class="form-group">
             <label class="col-sm-3 control-label">Targa</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" ng-model="contrattoAuto.automobile.targa" />
@@ -75,15 +72,13 @@
             <div class="col-sm-9">
                 <input type="text" class="form-control" ng-model="contrattoAuto.automobile.modello" />
             </div>
-        </div>
-
-        
+        </div> 
     </form>
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="aggiungiContratto()">Save</button>
-    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-click="aggiungiContratto()">Salva</button>
+    <button class="btn btn-default" ng-click="cancel()">Annulla</button>
 </div>
 
 
