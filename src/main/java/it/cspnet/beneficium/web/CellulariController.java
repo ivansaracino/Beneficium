@@ -1,6 +1,7 @@
 
 package it.cspnet.beneficium.web;
 
+import it.cspnet.beneficium.model.Automobile;
 import it.cspnet.beneficium.model.Cellulare;
 import it.cspnet.beneficium.model.JsonResult;
 import it.cspnet.beneficium.services.BenefitServices;
@@ -24,6 +25,26 @@ public class CellulariController {
     @Autowired
     private BenefitServices servizi;
 
+    @RequestMapping(value = "salvacellulare", method = RequestMethod.POST)
+    public @ResponseBody
+    JsonResult salvaCellulare(HttpServletRequest req, @Valid @RequestBody Cellulare cellulare, BindingResult result) {
+      Cellulare c = servizi.saveCellulare(cellulare);
+        JsonResult j = new JsonResult();
+
+        if (c != null) {
+
+            j.setOggetto(c);
+            j.setMessaggio("inserimento corretto");
+            j.setStatus(true);
+        } else {
+            j.setMessaggio("inserimento sbagliato");
+            j.setStatus(false);
+        }
+
+        return j;
+
+    }
+    
     @RequestMapping(value = "listacellulari", method = RequestMethod.GET)
     public @ResponseBody Collection<Cellulare> listaCellulari(HttpServletRequest req) throws Exception {
         String codiceFiscale = req.getParameter("codiceFiscale");

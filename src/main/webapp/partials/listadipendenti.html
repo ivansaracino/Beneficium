@@ -4,6 +4,7 @@
         <h3>LISTA DIPENDENTI</h3>               
     </div>
 
+
     <div class="col-md-3 barraricerca">
         <div class="form-group">
             <input class="name form-control" type="text" placeholder="Cognome" ng-model="query.cognome"/>
@@ -36,13 +37,13 @@
                     <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">
                         Azioni <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a ng-click="AggiungiContrattoTelefonico(dipendente.codiceFiscale)">Nuovo contratto telefonico</a></li>
-                        <li><a ng-click="AggiungiContrattoAuto(dipendente.codiceFiscale)">Nuovo contratto leasing</a></li>
-                        <li><a ng-click="VisualizzaCellulari(dipendente.codiceFiscale)">Visualizza contratti telefonici</a></li>
-                        <li><a ng-click="visualizzaAuto(dipendente.codiceFiscale)">Visualizza contratti leasing</a></li>
-                        <li><a ng-click="modificaDipendente(dipendente)">Modifica dipendente</a></li>
-                    </ul>
+                   <ul class="dropdown-menu" role="menu">
+                                <li><a ng-click="AggiungiContrattoTelefonico(dipendente.codiceFiscale)">Nuovo contratto telefonico</a></li>
+                                <li><a ng-click="AggiungiContrattoAuto(dipendente.codiceFiscale)">Nuovo contratto leasing</a></li>
+                                <li><a ng-click="VisualizzaCellulari(dipendente.codiceFiscale)">Visualizza cellulari</a></li>
+                                <li><a ng-click="visualizzaAuto(dipendente.codiceFiscale)">Visualizza auto</a></li>
+                                <li><a ng-click="modificaDipendente(dipendente)">Modifica dipendente</a></li>
+                            </ul>
                 </div>
             </td>
         </tr>

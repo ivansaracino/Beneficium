@@ -62,8 +62,6 @@ public class BenefitServicesImpl implements BenefitServices {
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
-  
-
     public Collection<Dipendente> listDipendentiJSON() {
 
         return dipendenteRepository.findAll();
@@ -95,11 +93,11 @@ public class BenefitServicesImpl implements BenefitServices {
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
-     public Collection<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception {
+    public Collection<Cellulare> listaCellulareJSON(String codiceFiscale) throws Exception {
         Dipendente d = dipendenteRepository.findOne(codiceFiscale);
         return d.getCellulari();
     }
-     
+
     @Override
     public Collection<ContrattoTelefonico> listaContrattiCellulare(int id) throws Exception {
         Cellulare c = cellulariRepository.findOne(id);
@@ -114,7 +112,7 @@ public class BenefitServicesImpl implements BenefitServices {
 
     @Override
     public Collection<ContrattoAuto> listaContrattiAuto2(int id) {
-        Automobile auto =  repositoryAutomobile.findOne(id);
+        Automobile auto = repositoryAutomobile.findOne(id);
         return auto.getContrattoAuto();
     }
 
@@ -124,5 +122,23 @@ public class BenefitServicesImpl implements BenefitServices {
         a.setModello(auto.getModello());
         a.setTarga(auto.getTarga());
         return repositoryAutomobile.save(a);
+    }
+
+    @Override
+    public ContrattoAuto modificaContrattoAuto(ContrattoAuto contratto) {
+        contrattoAutoRepository.findOne(contratto.getIdContratto()).setAutomobile(contratto.getAutomobile());
+        contrattoAutoRepository.findOne(contratto.getIdContratto()).setCostoNoleggio(contratto.getCostoNoleggio());
+        contrattoAutoRepository.findOne(contratto.getIdContratto()).setCostoServizi(contratto.getCostoServizi());
+        contrattoAutoRepository.findOne(contratto.getIdContratto()).setDataAttivazione(contratto.getDataAttivazione());
+        contrattoAutoRepository.findOne(contratto.getIdContratto()).setDataScadenza(contratto.getDataScadenza());
+        contrattoAutoRepository.findOne(contratto.getIdContratto()).setKilometriContratto(contratto.getKilometriContratto());
+        contrattoAutoRepository.findOne(contratto.getIdContratto()).setSocietaLeasing(contratto.getSocietaLeasing());
+        return contrattoAutoRepository.findOne(contratto.getIdContratto());
+
+    }
+
+    @Override
+    public Cellulare saveCellulare(Cellulare cellulare) {
+        return cellulariRepository.save(cellulare);
     }
 }

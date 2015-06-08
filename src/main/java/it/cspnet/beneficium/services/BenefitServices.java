@@ -49,6 +49,10 @@ public interface BenefitServices {
 
     public Automobile findAuto(Automobile Auto);
 
+    public ContrattoAuto modificaContrattoAuto(ContrattoAuto contratto);
+
+    public Cellulare saveCellulare(Cellulare cellulare);
+
 
 
 

@@ -30,10 +30,7 @@ public class AutomobiliController {
     @RequestMapping(value = "inserisciauto", method = RequestMethod.POST)
     public @ResponseBody
     JsonResult salvaAuto(HttpServletRequest req, @Valid @RequestBody Automobile automobile, BindingResult result) {
-        
-//        Automobile a = servizi.findAuto(automobili);
-//        
-        Automobile a = servizi.salvaautomobile(automobile);
+      Automobile a = servizi.salvaautomobile(automobile);
         JsonResult j = new JsonResult();
 
         if (a != null) {
@@ -61,6 +58,7 @@ public class AutomobiliController {
             aW.setIdAuto(c.getIdAuto());
             aW.setModello(c.getModello());
             aW.setTarga(c.getTarga());
+            aW.setCodiceFiscale(codiceFiscale);
             listaAuto.add(aW);
         }
         return listaAuto;
