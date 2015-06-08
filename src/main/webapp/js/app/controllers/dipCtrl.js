@@ -128,5 +128,5 @@ angular.module('myBenefit')
                 $location.path('/listacellulari/' + codiceFiscale);
             };
 
-
+         
         });
