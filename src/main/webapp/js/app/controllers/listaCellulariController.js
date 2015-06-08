@@ -36,9 +36,11 @@ angular.module('myBenefit')
 
                 modalInstance.result.then(function (cellulare) {
                     dataServices.modificaCellulare(cellulare, callback, error);
+                    toastr.success('Cellulare modificato', 'Beneficium');
 
                 }, function () {
-                    console.log("modifica cellulare annullata");
+                    toastr.error('Annullata modifica cellulare', 'Beneficium');
+                    console.log("Annullata modifica cellulare ");
                 });
 
             };

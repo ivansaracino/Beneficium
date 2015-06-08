@@ -41,7 +41,8 @@ public class ContrattoTelefonico implements Serializable {
     
     private boolean scaduto;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Cellulare cellulare ;
 
     public String getTipoContratto() {
