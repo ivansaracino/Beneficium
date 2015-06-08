@@ -1,5 +1,5 @@
 angular.module('myBenefit')
-        .controller('listaContrattiCellulareController', function ($modal,$scope, dataServices, $routeParams) {
+        .controller('listaContrattiCellulareController', function ($modal, $scope, dataServices, $routeParams) {
             var callback = function (contratticellulare) {
                 $scope.contratticellulare = contratticellulare;
 
@@ -11,9 +11,9 @@ angular.module('myBenefit')
 
 
             dataServices.ListaContrattiCellulare($routeParams.id, callback);
-            
-           
-           $scope.modificaContrattoCellulare = function (contrattocellulare) {
+
+
+            $scope.modificaContrattoCellulare = function (contrattocellulare) {
 
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/modificacontrattocellulare.html',
@@ -33,11 +33,13 @@ angular.module('myBenefit')
 
                 modalInstance.result.then(function (contrattocellulare) {
                     dataServices.aggiungiContrattoTelefonico(contrattocellulare, callback, error);
-
+                    toastr.success('Contratto telefonico modificato', 'Beneficium');
                 }, function () {
-                    console.log("modifica contratto annullata");
+                    toastr.error('Annullata modifica contratto telefonico', 'Beneficium');
+                    console.log("Annullata modifica contratto ");
                 });
 
             };
         });
 
+ 

@@ -32,9 +32,11 @@ angular.module('myBenefit')
 
                 modalInstance.result.then(function (contrattiauto) {
                     dataServices.modificaContrattoAuto(contrattiauto, callback, error);
+                    toastr.success('Contratto leasing modificato', 'Beneficium');
 
                 }, function () {
-                    console.log("modifica contratto annullata");
+                    toastr.error('Annullata modifica contratto leasing', 'Beneficium');
+                    console.log("Annullata modifica contratto ");
                 });
 
             };

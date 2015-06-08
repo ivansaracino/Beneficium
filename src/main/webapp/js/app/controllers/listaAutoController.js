@@ -1,5 +1,5 @@
 angular.module('myBenefit')
-        .controller('listaAutoController', function ($modal,$scope, dataServices, $routeParams, $location) {
+        .controller('listaAutoController', function ($modal, $scope, dataServices, $routeParams, $location) {
             var callback = function (automobili) {
                 $scope.automobili = automobili;
 
@@ -32,13 +32,13 @@ angular.module('myBenefit')
 
                 modalInstance.result.then(function (automobile) {
                     dataServices.salvaAuto(automobile, callback, error);
+                    toastr.success('Automobile modificata', 'Beneficium');
 
                 }, function () {
-                    console.log("modifica auto annullata");
+                    toastr.error('Annullata modifica automobile', 'Beneficium');
+                    console.log("Annullata modifica auto");
                 });
-
             };
-
 
             $scope.VisualizzaContrattiAuto = function (id) {
                 $location.path('/listaContrattiAuto/' + id);
