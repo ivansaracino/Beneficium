@@ -22,7 +22,7 @@ angular.module('myBenefit')
                         data: function () {
                             return {
                                 contrattocellulare: contrattocellulare,
-                                titolo: 'Modifica contratto cellulare',
+                                titolo: 'Modifica contratto telefonico',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }

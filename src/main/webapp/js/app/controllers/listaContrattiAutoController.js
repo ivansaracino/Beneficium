@@ -21,7 +21,7 @@ angular.module('myBenefit')
                         data: function () {
                             return {
                                 contrattoAuto: contrattoAuto,
-                                titolo: 'Modifica contratto automobile',
+                                titolo: 'Modifica contratto leasing',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
