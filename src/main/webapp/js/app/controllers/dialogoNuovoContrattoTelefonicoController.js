@@ -1,13 +1,7 @@
 angular.module('myBenefit')
         .controller('dialogoNuovoContrattoTelefonicoController', function ($modalInstance, $scope, dataServices, data) {
 
-            var callback = function (contratticellulare) {
-                $scope.contratticellulare = contratticellulare;
-            };
-
-            var error = function (risposta) {
-                alert("errore lato server");
-            };
+         
 
 
             $scope.data = data;
@@ -35,6 +29,9 @@ angular.module('myBenefit')
 
 
             $scope.aggiungiContratto = function () {
+                $scope.nuovoContratto.cellulare.dipendente = {};
+                $scope.nuovoContratto.cellulare.dipendente.codiceFiscale = data.codiceFiscale;
+                
                 $modalInstance.close($scope.nuovoContratto);
 
             };
@@ -52,7 +49,7 @@ angular.module('myBenefit')
             
             
             $scope.modificaContrattoTelefonico = function () {
-
+                alert($scope.data.contrattocellulare.cellulare.dipendente.codiceFiscale);
                 $modalInstance.close($scope.data.contrattocellulare);
 
             };

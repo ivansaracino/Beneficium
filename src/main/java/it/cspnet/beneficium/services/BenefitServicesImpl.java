@@ -45,15 +45,17 @@ public class BenefitServicesImpl implements BenefitServices {
         return cellulariRepository.save(cellulare);
     }
 
-    @Transactional
+   
     public Utente findUtente(Utente u) throws Exception {
         return utenteRepository.findByUsernameAndPassword(u.getUsername(), u.getPassword());
     }
-
+    
+    @Transactional
     public void aggiungiAutomobile(Automobile automobile) {
         repositoryAutomobile.save(automobile);
     }
 
+    @Transactional
     public Dipendente aggiungiDipendente(Dipendente dipendente) {
         return dipendenteRepository.save(dipendente);
     }
@@ -62,6 +64,7 @@ public class BenefitServicesImpl implements BenefitServices {
         return repositoryAutomobile.findByDipendente_codiceFiscale(codiceFiscale);
     }
 
+    
     public Collection<Dipendente> listDipendentiJSON() {
 
         return dipendenteRepository.findAll();
@@ -72,11 +75,13 @@ public class BenefitServicesImpl implements BenefitServices {
 
     }
 
+    @Transactional
     public Automobile salvaautomobile(Automobile a) {
         return repositoryAutomobile.save(a);
     }
 
     @Override
+    @Transactional
     public ContrattoAuto salvaContratto(ContrattoAuto contratto) {
 
         return contrattoAutoRepository.save(contratto);
@@ -125,6 +130,7 @@ public class BenefitServicesImpl implements BenefitServices {
     }
 
     @Override
+    @Transactional
     public ContrattoAuto modificaContrattoAuto(ContrattoAuto contratto) {
         contrattoAutoRepository.findOne(contratto.getIdContratto()).setAutomobile(contratto.getAutomobile());
         contrattoAutoRepository.findOne(contratto.getIdContratto()).setCostoNoleggio(contratto.getCostoNoleggio());
@@ -138,6 +144,7 @@ public class BenefitServicesImpl implements BenefitServices {
     }
 
     @Override
+    @Transactional
     public Cellulare saveCellulare(Cellulare cellulare) {
         return cellulariRepository.save(cellulare);
     }

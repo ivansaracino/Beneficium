@@ -1,19 +1,25 @@
 angular.module('myBenefit')
-        .controller('listaContrattiCellulareController', function ($modal, $scope, dataServices, $routeParams) {
-            var callback = function (contratticellulare) {
-                $scope.contratticellulare = contratticellulare;
+
+        .controller('listaContrattiCellulareController', function ($modal,$scope, dataServices, $routeParams) {
+            var callback = function (risposta) {
+                if (risposta.status)
+                    $scope.contratticellulare = risposta.oggetto;
+                else
+                    toastr.error(risposta.messaggio);
+
 
             };
 
             var error = function (risposta) {
-                alert("errore lato server");
+                toastr.error("Non verrò mai eseguito!");
             };
 
 
-            dataServices.ListaContrattiCellulare($routeParams.id, callback);
+           dataServices.ListaContrattiCellulare($routeParams.id, callback);
+            
+           
+           $scope.modificaContrattoCellulare = function (contrattocellulare) {
 
-
-            $scope.modificaContrattoCellulare = function (contrattocellulare) {
 
                 var modalInstance = $modal.open({
                     templateUrl: 'partials/modificacontrattocellulare.html',
@@ -32,8 +38,9 @@ angular.module('myBenefit')
 
 
                 modalInstance.result.then(function (contrattocellulare) {
+                    alert(contrattocellulare.cellulare.dipendente.codiceFiscale);
                     dataServices.aggiungiContrattoTelefonico(contrattocellulare, callback, error);
-                    toastr.success('Contratto telefonico modificato', 'Beneficium');
+                  
                 }, function () {
                     toastr.error('Annullata modifica contratto telefonico', 'Beneficium');
                     console.log("Annullata modifica contratto ");

@@ -1,15 +1,22 @@
 angular.module('myBenefit')
         .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices, $location) {
-            var callback = function (dipendenti) {
-                $scope.dipendenti = dipendenti;
+            var callbacknuovodipendente = function (risposta) {
+                $scope.dipendenti = risposta.oggetto;
+            };
+            
+            var callbacknuovocontatto = function(risposta) {
+                toastr.success("Inserito " + risposta.oggetto.costoBimestrale);
             };
 
-             var error = function (risposta) {
+            var error = function (risposta) {
+                // TOAST di errore
+                // risposta.oggetto
+                // risposta.messagio
                 alert("errore lato server");
             };
             
 
-            dataServices.listadipendentijson(callback);
+            dataServices.listadipendentijson(callbacknuovodipendente);
             
 
             $scope.AggiungiContrattoTelefonico = function (codiceFiscale) {
@@ -19,6 +26,8 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
+
+                                codiceFiscale : codiceFiscale,
                                 titolo: 'Nuovo contratto telefonico',
                                 buttons: ['Salva', 'Annulla']
                             };
@@ -30,8 +39,8 @@ angular.module('myBenefit')
                 modalInstance.result.then(function (contratto) {
                     
                     // salvataggio del contratto telefonico
-                    dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
-                    toastr.success('Contratto telefonico inserito', 'Beneficium');
+                    dataServices.aggiungiContrattoTelefonico(contratto, callbacknuovocontatto, error);
+                   
                 }, function () {
                     toastr.error('Annullato inserimento contratto telefonico', 'Beneficium');
                 });
@@ -84,9 +93,9 @@ angular.module('myBenefit')
                     size: 'lg'
                 });
                 modalInstance.result.then(function (dipendente) {
-                    dataServices.salva(dipendente, callback, error);
+                    dataServices.salva(dipendente, callbacknuovodipendente, error);
                     $location.path("/listadipendentijson");
-                    toastr.success('Dipendente inserito', 'Beneficium');
+                  
                 }, function () {
                     toastr.error('Annullato inserimento dipendente ', 'Beneficium');
                 });

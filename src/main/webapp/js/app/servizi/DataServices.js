@@ -9,16 +9,16 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                 });
     };
     var listadipendentijson = function (callback) {
-        $http.get('listadipendentijson.do').success(function (dipendenti) {
-            callback(dipendenti);
+        $http.get('listadipendentijson.do').success(function (risposta,status,header,config) {
+            callback(risposta);
         });
     };
     var salva = function (dipendente, callback, error) {
         $http({data: dipendente, method: 'POST', url: 'inseriscidipendentejson.do'})
                 .success(function (risposta, status, headers, config) {
-                    callback(risposta)
+                    callback(risposta);
                 })
-                .error(function (rispostastatus, headers, config) {
+                .error(function (risposta,status, headers, config) {
                     error(rispostastatus);
                 });
     };
@@ -35,11 +35,15 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
     };
 
 
-    var aggiungiContrattoTelefonico = function (nuovoContratto, codiceFiscale) {
-        nuovoContratto.cellulare.dipendente = {};
-        nuovoContratto.cellulare.dipendente.codiceFiscale = codiceFiscale;
+    var aggiungiContrattoTelefonico = function (nuovoContratto, callback,error) {
         console.log(nuovoContratto);
-        $http({data: nuovoContratto, method: 'POST', url: 'inseriscicontrattojson.do'});
+        $http({data: nuovoContratto, method: 'POST', url: 'inseriscicontrattojson.do'})
+                .success(function (risposta, status, headers, config) {
+                    callback(risposta)
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
     };
     var aggiungiContrattoAuto = function (contrattoAuto, codiceFiscale) {
         contrattoAuto.automobile.dipendente = {};
@@ -73,10 +77,12 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
     };
 
 
-    var modificaContrattoTelefonico = function (nuovoContratto, codiceFiscale) {
+    var modificaContrattoTelefonico = function (nuovoContratto, callback, error) {
+        
         var contratto = {};
         contratto.cellulare={};
         contratto.cellulare.dipendente = {};
+        alert(nuovoContratto.cellulare.dipendente.codiceFiscale);
         contratto.cellulare.dipendente.codiceFiscale = nuovoContratto.cellulare.dipendente.codiceFiscale;
        
         contratto.cellulare.id=nuovoContratto.cellulare.id;
@@ -86,7 +92,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.dataAttivazione=nuovoContratto.dataAttivazione;
         contratto.dataScadenza=nuovoContratto.dataScadenza;
         
-         console.log(contratto);
+        console.log(contratto);
         $http({data: contratto, method: 'POST', url: 'inseriscicontrattojson.do'});
     };
 
