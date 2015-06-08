@@ -26,8 +26,9 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
+
                                 codiceFiscale : codiceFiscale,
-                                titolo: 'Nuovo contratto leasing',
+                                titolo: 'Nuovo contratto telefonico',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
@@ -41,7 +42,7 @@ angular.module('myBenefit')
                     dataServices.aggiungiContrattoTelefonico(contratto, callbacknuovocontatto, error);
                    
                 }, function () {
-                    toastr.error('Inserimento contratto annullato', 'Beneficium');
+                    toastr.error('Annullato inserimento contratto telefonico', 'Beneficium');
                 });
             };
 
@@ -55,7 +56,7 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                titolo: 'Nuovo Contratto',
+                                titolo: 'Nuovo contratto leasing',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
@@ -69,7 +70,7 @@ angular.module('myBenefit')
                     dataServices.aggiungiContrattoAuto(contrattoAuto, codiceFiscale);
                     toastr.success('Contratto leasing inserito', 'Beneficium');
                 }, function () {
-                    toastr.error('Inserimento contratto annullato', 'Beneficium');
+                    toastr.error('Annullato inserimento contratto leasing', 'Beneficium');
                 });
             };
 
@@ -96,7 +97,7 @@ angular.module('myBenefit')
                     $location.path("/listadipendentijson");
                   
                 }, function () {
-                    toastr.error('aggiunta dipendente annullata, riprovare', 'Beneficium');
+                    toastr.error('Annullato inserimento dipendente ', 'Beneficium');
                 });
             };
 
@@ -111,7 +112,7 @@ angular.module('myBenefit')
                             data: function() {
                                 return {
                                     dipendente:dipendente,
-                                    titolo: 'Modifica Dipendente',
+                                    titolo: 'Modifica dipendente',
                                     buttons: ['Salva', 'Annulla']
                                 };
                             }
@@ -122,13 +123,14 @@ angular.module('myBenefit')
                       
                         modalInstance.result.then(function (dipendente) {
                             dataServices.salva(dipendente, callback, error);
+                            toastr.success('Dipendente modificato', 'Beneficium');
                     
                 }, function () {
-                    console.log("aggiunta dipendente annullata");
+                    toastr.error('Annullata modifica dipendente', 'Beneficium');
+                    console.log("Annullato modifica dipendente");
                 });
 
                     };
-          
             
            $scope.visualizzaAuto = function(codiceFiscale){
                $location.path('/listaauto/' + codiceFiscale);

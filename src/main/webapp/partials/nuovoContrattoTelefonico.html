@@ -1,11 +1,7 @@
-
 <div class="modal-header">
-    <h2>Nuovo contratto telefonico</h2>
-
+    <h2>{{data.titolo}}</h2>
 </div>
-
 <div class="modal-body">
-
     <form role="form" class="form-horizontal">
         <h4>Dati contratto</h4>
         <div class="form-group">
@@ -14,15 +10,12 @@
                 <input type="text" class="form-control" ng-model="nuovoContratto.profiloContratto" > 
             </div>
         </div>
-
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Tipo contratto</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" ng-model="nuovoContratto.tipoContratto" > 
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Data attivazione</label>
             <div class="col-sm-9">
@@ -33,7 +26,6 @@
                        close-text="Chiudi"/> 
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Data scadenza</label>
             <div class="col-sm-9">
@@ -53,7 +45,6 @@
         </div>
     </form>
 </div>
-
 <div class="modal-body">
     <form role="form" class="form-horizontal">
         <h4>Dati telefono</h4>
@@ -63,14 +54,12 @@
                 <input type="text" class="form-control" ng-model="nuovoContratto.cellulare.numero" />
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Numero sim</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" ng-model="nuovoContratto.cellulare.numeroSim" > 
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Modello</label>
             <div class="col-sm-9">
@@ -79,7 +68,6 @@
         </div>
     </form>
 </div>      
-
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="aggiungiContratto()">Salva</button>
     <button class="btn btn-default" ng-click="cancel()">Annulla</button>
