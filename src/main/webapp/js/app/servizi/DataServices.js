@@ -31,13 +31,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         auto.idAuto = automobile.idAuto;
         auto.targa = automobile.targa;
         auto.modello = automobile.modello;
-        $http({data: auto, method: 'POST', url: 'inserisciauto.do'})
-                .success(function (risposta, status, headers, config) {
-                    callback(risposta)
-                })
-                .error(function (rispostastatus, headers, config) {
-                    error(rispostastatus);
-                });
+        $http({data: auto, method: 'POST', url: 'inserisciauto.do'});
     };
 
 
@@ -57,6 +51,9 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
     var modificaContrattoAuto = function (contrattoAuto, codiceFiscale) {
         var contratto = {};
         contratto.automobile = {};
+        contratto.automobile.dipendente = {};
+        contratto.automobile.dipendente.codiceFiscale = contrattoAuto.codiceFiscale;
+       
         contratto.automobile.idAuto = contrattoAuto.idAuto;
         contratto.idContratto = contrattoAuto.idContratto;
         contratto.dataAttivazione = contrattoAuto.dataAttivazione;
@@ -67,24 +64,12 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.societaLeasing = contrattoAuto.societaLeasing;
         contratto.automobile.targa = contrattoAuto.targa;
         contratto.automobile.modello = contrattoAuto.modello;
-        $http({data: contratto, method: 'POST', url: 'salvacontratto.do'})
-                .success(function (risposta, status, headers, config) {
-                    callback(risposta);
-                })
-                .error(function (rispostastatus, headers, config) {
-                    error(rispostastatus);
-                });
+        $http({data: contratto, method: 'POST', url: 'salvacontratto.do'});
     };
 
     var modificaCellulare = function (cellulare, codiceFiscale) {
 
-        $http({data: cellulare, method: 'POST', url: 'salvacellulare.do'})
-                .success(function (risposta, status, headers, config) {
-                    callback(risposta)
-                })
-                .error(function (rispostastatus, headers, config) {
-                    error(rispostastatus);
-                });
+        $http({data: cellulare, method: 'POST', url: 'salvacellulare.do'});
     };
 
 
@@ -102,13 +87,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.dataScadenza=nuovoContratto.dataScadenza;
         
          console.log(contratto);
-        $http({data: contratto, method: 'POST', url: 'inseriscicontrattojson.do'})
-                .success(function (risposta, status, headers, config) {
-                    callback(risposta);
-                })
-                .error(function (rispostastatus, headers, config) {
-                    error(rispostastatus);
-                });
+        $http({data: contratto, method: 'POST', url: 'inseriscicontrattojson.do'});
     };
 
 
