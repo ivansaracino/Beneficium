@@ -6,6 +6,12 @@
     border-top-right-radius:10px;
 }
 
+.barralogout1 {
+    background-color: #e9e7e7;
+    padding: 15px;
+    border-radius: 10px;
+}
+
 .barraricerca {
     background-color: #e9e7e7;
     padding: 15px;

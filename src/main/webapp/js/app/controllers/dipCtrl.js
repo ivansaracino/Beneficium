@@ -33,7 +33,7 @@ angular.module('myBenefit')
                     dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
                     toastr.success('Contratto telefonico inserito', 'Beneficium');
                 }, function () {
-                    toastr.error('Inserimento contratto annullato, riprovare', 'Beneficium');
+                    toastr.error('Inserimento contratto annullato', 'Beneficium');
                 });
             };
 
@@ -59,9 +59,9 @@ angular.module('myBenefit')
 
                     // salvataggio del contratto auto
                     dataServices.aggiungiContrattoAuto(contrattoAuto, codiceFiscale);
-                    toastr.success('Contratto auto inserito', 'Beneficium');
+                    toastr.success('Contratto leasing inserito', 'Beneficium');
                 }, function () {
-                    toastr.error('Inserimento contratto annullato, riprovare', 'Beneficium');
+                    toastr.error('Inserimento contratto annullato', 'Beneficium');
                 });
             };
 

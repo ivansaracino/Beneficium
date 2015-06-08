@@ -1,35 +1,50 @@
 <div class="row"><h3> </h3></div>
 <div class="row">
-    <div class="col-md-9">
-        <h3>LISTA CONTRATTI AUTO</h3>
-
-
-
-        <table class="bordered">
-
-
-            <thead> 
-            <th>Data Attivazione</th>
-            <th>Data Scadenza</th>
-            <th>Costo Noleggio</th>
-            <th>Costo Servizi</th>
-            <th>Società Leasing</th>
-            
-
-
-
-            </thead>
-            <tr ng-repeat="contrattiauto in contrattiauto">
-                <td>{{contrattiauto.dataAttivazione| date : 'dd-MM-yyyy'}}</td>
-                <td>{{contrattiauto.dataScadenza| date : 'dd-MM-yyyy'}}</td>
-                <td>{{contrattiauto.costoNoleggio}}</td>
-                <td>{{contrattiauto.costoServizi}}</td>
-                <td>{{contrattiauto.societaLeasing}}</td>
-            </tr>
-
-        </table>
+    <div class="col-md-9 intestazione">
+        <h3>CONTRATTO LEASING</h3>               
     </div>
-    
-</div>
+    <div class="col-md-3 barralogout1">
+        <!--input ng-model="query" type="search" placeholder="Cognome" autofocus-->
+        <button ng-controller="logoutController" class="btn btn-default bottone" ng-click="logout()" id="submit">Logout</button>
 
+    </div>
+</div>
+<div class="row"><h3> </h3></div>
+<div class="row">
+    <table class="bordered">
+
+
+        <thead> 
+        <th>Data Attivazione</th>
+        <th>Data Scadenza</th>
+        <th>Costo Noleggio</th>
+        <th>Costo Servizi</th>
+        <th>Società Leasing</th>
+        <th>Azioni</th>
+
+
+
+        </thead>
+        <tr ng-repeat="contrattiauto in contrattiauto">
+            <td>{{contrattiauto.dataAttivazione| date : 'dd-MM-yyyy'}}</td>
+            <td>{{contrattiauto.dataScadenza| date : 'dd-MM-yyyy'}}</td>
+            <td>{{contrattiauto.costoNoleggio}}</td>
+            <td>{{contrattiauto.costoServizi}}</td>
+            <td>{{contrattiauto.societaLeasing}}</td>
+            <td>
+                <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
+                    <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">
+                        Azioni <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ng-click="modificaContratto(contrattiauto)">Modifica contratto</a></li>
+                    </ul>
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+
+</div>
 
