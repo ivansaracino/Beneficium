@@ -1,16 +1,23 @@
 angular.module('myBenefit')
         .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices, $location) {
-            var callback = function (dipendenti) {
-                $scope.dipendenti = dipendenti;
+            var callbacknuovodipendente = function (risposta) {
+                $scope.dipendenti = risposta.oggetto;
+            };
+            
+            var callbacknuovocontatto = function(risposta) {
+                toastr.success("Inserito " + risposta.oggetto.costoBimestrale);
             };
 
             var error = function (risposta) {
+                // TOAST di errore
+                // risposta.oggetto
+                // risposta.messagio
                 alert("errore lato server");
             };
+            
 
-
-            dataServices.listadipendentijson(callback);
-
+            dataServices.listadipendentijson(callbacknuovodipendente);
+            
 
             $scope.AggiungiContrattoTelefonico = function (codiceFiscale) {
                 var modalInstance = $modal.open({
@@ -19,7 +26,9 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                titolo: 'Nuovo contratto leasing',
+
+                                codiceFiscale : codiceFiscale,
+                                titolo: 'Nuovo contratto telefonico',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
@@ -28,12 +37,12 @@ angular.module('myBenefit')
                 });
 
                 modalInstance.result.then(function (contratto) {
-
+                    
                     // salvataggio del contratto telefonico
-                    dataServices.aggiungiContrattoTelefonico(contratto, codiceFiscale);
-                    toastr.success('Contratto telefonico inserito', 'Beneficium');
+                    dataServices.aggiungiContrattoTelefonico(contratto, callbacknuovocontatto, error);
+                   
                 }, function () {
-                    toastr.error('Inserimento contratto annullato', 'Beneficium');
+                    toastr.error('Annullato inserimento contratto telefonico', 'Beneficium');
                 });
             };
 
@@ -47,7 +56,7 @@ angular.module('myBenefit')
                     resolve: {
                         data: function () {
                             return {
-                                titolo: 'Nuovo Contratto',
+                                titolo: 'Nuovo contratto leasing',
                                 buttons: ['Salva', 'Annulla']
                             };
                         }
@@ -56,18 +65,18 @@ angular.module('myBenefit')
                 });
 
                 modalInstance.result.then(function (contrattoAuto) {
-
-                    // salvataggio del contratto auto
+                    
+                     // salvataggio del contratto auto
                     dataServices.aggiungiContrattoAuto(contrattoAuto, codiceFiscale);
                     toastr.success('Contratto leasing inserito', 'Beneficium');
                 }, function () {
-                    toastr.error('Inserimento contratto annullato', 'Beneficium');
+                    toastr.error('Annullato inserimento contratto leasing', 'Beneficium');
                 });
             };
 
-
-
-
+            
+             
+           
 
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
@@ -84,49 +93,52 @@ angular.module('myBenefit')
                     size: 'lg'
                 });
                 modalInstance.result.then(function (dipendente) {
-                    dataServices.salva(dipendente, callback, error);
+                    dataServices.salva(dipendente, callbacknuovodipendente, error);
                     $location.path("/listadipendentijson");
-                    toastr.success('Dipendente inserito', 'Beneficium');
+                  
                 }, function () {
-                    toastr.error('aggiunta dipendente annullata, riprovare', 'Beneficium');
+                    toastr.error('Annullato inserimento dipendente ', 'Beneficium');
                 });
             };
 
-            $scope.modificaDipendente = function (dipendente) {
-
-                var modalInstance = $modal.open({
-                    templateUrl: 'partials/modificadipendente.html',
-                    controller: 'dialogoNuovoDipendenteController',
-                    resolve: {
-                        data: function () {
-                            return {
-                                dipendente: dipendente,
-                                titolo: 'Modifica Dipendente',
-                                buttons: ['Salva', 'Annulla']
-                            };
-                        }
-                    },
-                    size: 'lg'
-                });
-
-
-                modalInstance.result.then(function (dipendente) {
-                    dataServices.salva(dipendente, callback, error);
-                    toastr.success('Dipendente modificato', 'Beneficium');
+              $scope.modificaDipendente = function(dipendente) {
+                 
+                        var modalInstance = $modal.open({
+                       
+                        templateUrl: 'partials/modificadipendente.html',
+                        controller: 'dialogoNuovoDipendenteController',
+                        
+                        resolve: {
+                            data: function() {
+                                return {
+                                    dipendente:dipendente,
+                                    titolo: 'Modifica dipendente',
+                                    buttons: ['Salva', 'Annulla']
+                                };
+                            }
+                        },
+                        size: 'lg'
+                        });
+                        
+                      
+                        modalInstance.result.then(function (dipendente) {
+                            dataServices.salva(dipendente, callback, error);
+                            toastr.success('Dipendente modificato', 'Beneficium');
+                    
                 }, function () {
-                    toastr.error('modifica annullata, riprovare', 'Beneficium');
+                    toastr.error('Annullata modifica dipendente', 'Beneficium');
+                    console.log("Annullato modifica dipendente");
                 });
 
-            };
-
-
-            $scope.visualizzaAuto = function (codiceFiscale) {
-                $location.path('/listaauto/' + codiceFiscale);
-            };
-
-            $scope.VisualizzaCellulari = function (codiceFiscale) {
-                $location.path('/listacellulari/' + codiceFiscale);
-            };
-
-         
+                    };
+            
+           $scope.visualizzaAuto = function(codiceFiscale){
+               $location.path('/listaauto/' + codiceFiscale);
+           };
+           
+           $scope.VisualizzaCellulari = function(codiceFiscale){
+               $location.path('/listacellulari/' + codiceFiscale);
+           };
+           
+           
         });

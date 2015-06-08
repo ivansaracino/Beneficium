@@ -8,6 +8,8 @@ import it.cspnet.beneficium.services.BenefitServices;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,44 +26,50 @@ public class ContrattoTelefonicoController {
     @Autowired
     private BenefitServices servizi;
 
-    @RequestMapping(value = "inseriscicellulare", method = RequestMethod.GET)
-    @ModelAttribute("contratto")
-    public ContrattoTelefonico getModelContrattoTelefonico() {
-        return new ContrattoTelefonico();
-    }
+  
 
-    @ModelAttribute("cellulare")
-    public Cellulare getModelCellulare() {
-        return new Cellulare();
-    }
+  
 
     @RequestMapping(value = "inseriscicontrattojson", method = RequestMethod.POST)
     public @ResponseBody
     JsonResult nuovoContrattoTelefonico(HttpServletRequest req, @RequestBody ContrattoTelefonico contrattoTelefonico, BindingResult result) {
-
-        ContrattoTelefonico cT = servizi.aggiungiContrattoTelefonico(contrattoTelefonico);
         JsonResult j = new JsonResult();
-
-        if (cT != null) {
-
-            j.setOggetto(cT);
+        try {
+            ContrattoTelefonico cT = servizi.aggiungiContrattoTelefonico(contrattoTelefonico);
+            ArrayList<ContrattoTelefonico> contratti = new ArrayList<>();
+            contratti.add(cT);
+            j.setOggetto(contratti);
             j.setMessaggio("inserimento corretto");
             j.setStatus(true);
-        } else {
-            j.setMessaggio("inserimento sbagliato");
+            
+        } catch (Exception ex) {
+            System.out.println("************" + ex);
+            j.setMessaggio("Problemi inserimento contratto");
             j.setStatus(false);
+        } finally {
+            return j;
         }
-
-        return j;
 
     }
 
     @RequestMapping(value = "ListaContrattiCellulare", method = RequestMethod.GET)
 
     public @ResponseBody
-    Collection<ContrattoTelefonico> listaContrattiCellulari(HttpServletRequest req) throws Exception {
-        int id =Integer.parseInt(req.getParameter("id"));
-        return servizi.listaContrattiCellulare(id);
-       
+    JsonResult listaContrattiCellulari(HttpServletRequest req) throws Exception {
+        int id = Integer.parseInt(req.getParameter("id"));
+        JsonResult js = new JsonResult();
+        try {
+            
+            js.setOggetto(servizi.listaContrattiCellulare(id));
+            js.setStatus(true);
+            js.setMessaggio("lista cellulari");
+        } catch (Exception ex) {
+            js.setStatus(false);
+            js.setMessaggio("problemi di accesso a db");
+        } finally {
+            return js;
+        }
+   
+        
     }
 }

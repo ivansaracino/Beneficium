@@ -48,11 +48,12 @@ public class DipendentiController {
  
             
             Dipendente d = servizi.aggiungiDipendente(dip);
+            
             JsonResult j = new JsonResult();
             
             if(d != null){
            
-            j.setOggetto(d);
+            j.setOggetto(servizi.listDipendentiJSON());
             j.setMessaggio("inserimento corretto");
             j.setStatus(true);
             }
@@ -67,10 +68,15 @@ public class DipendentiController {
 
     
         @RequestMapping(value = "listadipendentijson", method = RequestMethod.GET)
-        public @ResponseBody Collection<Dipendente> listaDipendentiJSON(){
+        public @ResponseBody JsonResult listaDipendentiJSON(){
              Collection<Dipendente> dip =servizi.listDipendentiJSON();
+             JsonResult js = new JsonResult();
+             js.setOggetto(dip);
+             js.setStatus(true);
+             js.setMessaggio("ok");
+             
              System.out.println("dip size"+dip.size());
-             return dip;
+             return js;
         }
 
 
