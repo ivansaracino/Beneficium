@@ -35,19 +35,26 @@ public class ContrattoAutomobileController {
     @RequestMapping(value = "salvacontratto", method = RequestMethod.POST)
     public @ResponseBody
     JsonResult salvaContratto(@RequestBody ContrattoAuto contratto) {
-        JsonResult risultato = new JsonResult();
-        ContrattoAuto contratto2 = servizi.salvaContratto(contratto);
-        if (contratto2 != null) {
-            risultato.setOggetto(contratto);
-            risultato.setMessaggio("contratto inserito con successo");
-            risultato.setStatus(true);
-        } else {
-            risultato.setMessaggio("errore nell'inserimento contratto");
-            risultato.setStatus(false);
+        JsonResult j = new JsonResult();
+        try {
+            ContrattoAuto cT = servizi.salvaContratto(contratto);
+            ArrayList<ContrattoAuto> contratti = new ArrayList<>();
+            contratti.add(cT);
+            j.setOggetto(contratti);
+            j.setMessaggio("inserimento corretto");
+            j.setStatus(true);
+            
+        } catch (Exception ex) {
+            System.out.println("************" + ex);
+            j.setMessaggio("Problemi inserimento contratto");
+            j.setStatus(false);
+        } finally {
+            return j;
         }
-
-        return risultato;
     }
+   
+
+    
 
     @RequestMapping(value = "modificacontratto", method = RequestMethod.POST)
     public @ResponseBody

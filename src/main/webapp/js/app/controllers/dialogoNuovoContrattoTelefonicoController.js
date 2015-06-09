@@ -35,11 +35,7 @@ angular.module('myBenefit')
                 $modalInstance.close($scope.nuovoContratto);
 
             };
-            $scope.modificaDatiCellulare = function () {
-
-                $modalInstance.close($scope.data.cellulare);
-
-            };
+            
 
             $scope.modificaDatiCellulare = function () {
 

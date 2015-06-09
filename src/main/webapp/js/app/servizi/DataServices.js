@@ -45,11 +45,17 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                     error(rispostastatus);
                 });
     };
-    var aggiungiContrattoAuto = function (contrattoAuto, codiceFiscale) {
-        contrattoAuto.automobile.dipendente = {};
-        contrattoAuto.automobile.dipendente.codiceFiscale = codiceFiscale;
+    var aggiungiContrattoAuto = function (contrattoAuto, callback,error) {
+//        contrattoAuto.automobile.dipendente = {};
+//        contrattoAuto.automobile.dipendente.codiceFiscale = codiceFiscale;
         console.log(contrattoAuto);
-        $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'});
+        $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'})
+         .success(function (risposta, status, headers, config) {
+                    callback(risposta)
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
     };
 
     var modificaContrattoAuto = function (contrattoAuto, codiceFiscale) {
