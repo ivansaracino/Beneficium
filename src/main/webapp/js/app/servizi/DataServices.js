@@ -63,7 +63,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.automobile = {};
         contratto.automobile.dipendente = {};
         contratto.automobile.dipendente.codiceFiscale = contrattoAuto.codiceFiscale;
-       
+        alert(contrattoAuto.codiceFiscale);
         contratto.automobile.idAuto = contrattoAuto.idAuto;
         contratto.idContratto = contrattoAuto.idContratto;
         contratto.dataAttivazione = contrattoAuto.dataAttivazione;
@@ -74,6 +74,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.societaLeasing = contrattoAuto.societaLeasing;
         contratto.automobile.targa = contrattoAuto.targa;
         contratto.automobile.modello = contrattoAuto.modello;
+        console.log(contratto);
         $http({data: contratto, method: 'POST', url: 'salvacontratto.do'});
     };
 
