@@ -47,7 +47,7 @@ angular.module('myBenefit')
 
             };
             $scope.modificaContrattoAuto = function () {
-
+                alert($scope.data.contrattoAuto.codiceFiscale);
                 $modalInstance.close($scope.data.contrattoAuto);
 
             };
