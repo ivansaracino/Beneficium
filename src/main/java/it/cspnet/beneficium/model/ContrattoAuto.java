@@ -32,7 +32,7 @@ public class ContrattoAuto {
     private String societaLeasing;
     private String fileContratto;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Automobile automobile;
     
    

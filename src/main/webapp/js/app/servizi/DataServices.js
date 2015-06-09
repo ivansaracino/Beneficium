@@ -45,11 +45,17 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
                     error(rispostastatus);
                 });
     };
-    var aggiungiContrattoAuto = function (contrattoAuto, codiceFiscale) {
-        contrattoAuto.automobile.dipendente = {};
-        contrattoAuto.automobile.dipendente.codiceFiscale = codiceFiscale;
+    var aggiungiContrattoAuto = function (contrattoAuto, callback,error) {
+//        contrattoAuto.automobile.dipendente = {};
+//        contrattoAuto.automobile.dipendente.codiceFiscale = codiceFiscale;
         console.log(contrattoAuto);
-        $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'});
+        $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'})
+         .success(function (risposta, status, headers, config) {
+                    callback(risposta)
+                })
+                .error(function (rispostastatus, headers, config) {
+                    error(rispostastatus);
+                });
     };
 
     var modificaContrattoAuto = function (contrattoAuto, codiceFiscale) {
@@ -57,7 +63,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.automobile = {};
         contratto.automobile.dipendente = {};
         contratto.automobile.dipendente.codiceFiscale = contrattoAuto.codiceFiscale;
-       
+        alert(contrattoAuto.codiceFiscale);
         contratto.automobile.idAuto = contrattoAuto.idAuto;
         contratto.idContratto = contrattoAuto.idContratto;
         contratto.dataAttivazione = contrattoAuto.dataAttivazione;
@@ -68,6 +74,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.societaLeasing = contrattoAuto.societaLeasing;
         contratto.automobile.targa = contrattoAuto.targa;
         contratto.automobile.modello = contrattoAuto.modello;
+        console.log(contratto);
         $http({data: contratto, method: 'POST', url: 'salvacontratto.do'});
     };
 

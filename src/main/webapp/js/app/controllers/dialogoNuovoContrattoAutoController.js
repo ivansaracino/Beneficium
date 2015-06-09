@@ -1,13 +1,13 @@
 angular.module('myBenefit')
         .controller('dialogoNuovoContrattoAutoController', function ($modalInstance, $scope, dataServices, data) {
 
-            var callback = function (contrattiauto) {
-                $scope.contrattiauto = contrattiauto;
-            };
-
-            var error = function (risposta) {
-                alert("errore lato server");
-            };
+//            var callback = function (contrattiauto) {
+//                $scope.contrattiauto = contrattiauto;
+//            };
+//
+//            var error = function (risposta) {
+//                alert("errore lato server");
+//            };
             $scope.data = data;
 
             $scope.opened = false;
@@ -33,6 +33,9 @@ angular.module('myBenefit')
 
 
             $scope.aggiungiContratto = function () {
+                $scope.contrattoAuto.automobile.dipendente = {};
+                $scope.contrattoAuto.automobile.dipendente.codiceFiscale = data.codiceFiscale;
+                
                 $modalInstance.close($scope.contrattoAuto);
 
             };
@@ -44,7 +47,7 @@ angular.module('myBenefit')
 
             };
             $scope.modificaContrattoAuto = function () {
-
+                alert($scope.data.contrattoAuto.codiceFiscale);
                 $modalInstance.close($scope.data.contrattoAuto);
 
             };
