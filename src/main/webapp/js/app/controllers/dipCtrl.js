@@ -1,10 +1,16 @@
 angular.module('myBenefit')
         .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices, $location) {
             var callbacknuovodipendente = function (risposta) {
-                $scope.dipendenti = risposta.oggetto;
+               // $scope.dipendenti = risposta.oggetto;
+                toastr.success('Aggiunto nuovo dipendente', 'Beneficium');
             };
 
-            var callbacknuovocontatto = function (risposta) {
+            var callbacklistadipendenti = function (risposta) {
+                $scope.dipendenti = risposta.oggetto;
+                $location.path("/listadipendentijson");
+            };
+
+            var callbacknuovocontratto = function (risposta) {
                 toastr.success("Inserito " + risposta.oggetto.costoBimestrale);
             };
 
@@ -15,12 +21,12 @@ angular.module('myBenefit')
             var error = function (risposta) {
                 // TOAST di errore
                 // risposta.oggetto
-                // risposta.messagio
+                // risposta.messaggio
                 alert("errore lato server");
             };
 
 
-            dataServices.listadipendentijson(callbacknuovodipendente);
+            dataServices.listadipendentijson(callbacklistadipendenti);
 
 
             $scope.AggiungiContrattoTelefonico = function (codiceFiscale) {
@@ -42,7 +48,7 @@ angular.module('myBenefit')
                 modalInstance.result.then(function (contratto) {
 
                     // salvataggio del contratto telefonico
-                    dataServices.aggiungiContrattoTelefonico(contratto, callbacknuovocontatto, error);
+                    dataServices.aggiungiContrattoTelefonico(contratto, callbacknuovocontratto, error);
 
                 }, function () {
                     toastr.error('Annullato inserimento contratto telefonico', 'Beneficium');
@@ -71,16 +77,12 @@ angular.module('myBenefit')
                 modalInstance.result.then(function (contrattoAuto) {
 
                     // salvataggio del contratto auto
-                    dataServices.aggiungiContrattoAuto(contrattoAuto, callbacknuovocontrattoAuto,error);
+                    dataServices.aggiungiContrattoAuto(contrattoAuto, callbacknuovocontrattoAuto, error);
                     toastr.success('Contratto leasing inserito', 'Beneficium');
                 }, function () {
                     toastr.error('Annullato inserimento contratto leasing', 'Beneficium');
                 });
             };
-
-
-
-
 
             $scope.aggiungiDipendente = function () {
                 var modalInstance = $modal.open({
@@ -98,7 +100,7 @@ angular.module('myBenefit')
                 });
                 modalInstance.result.then(function (dipendente) {
                     dataServices.salva(dipendente, callbacknuovodipendente, error);
-                    $location.path("/listadipendentijson");
+                    toastr.success('Aggiunto Nuovo Dipendente', 'Beneficium');
 
                 }, function () {
                     toastr.error('Annullato inserimento dipendente ', 'Beneficium');
