@@ -39,7 +39,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         console.log(nuovoContratto);
         $http({data: nuovoContratto, method: 'POST', url: 'inseriscicontrattojson.do'})
                 .success(function (risposta, status, headers, config) {
-                    callback(risposta)
+                    callback(risposta);
                 })
                 .error(function (rispostastatus, headers, config) {
                     error(rispostastatus);
@@ -51,7 +51,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         console.log(contrattoAuto);
         $http({data: contrattoAuto, method: 'POST', url: 'salvacontratto.do'})
          .success(function (risposta, status, headers, config) {
-                    callback(risposta)
+                    callback(risposta);
                 })
                 .error(function (rispostastatus, headers, config) {
                     error(rispostastatus);
