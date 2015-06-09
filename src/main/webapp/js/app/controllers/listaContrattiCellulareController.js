@@ -9,6 +9,11 @@ angular.module('myBenefit')
 
 
             };
+            
+            var callbackmodificaContrattoCellulare = function (risposta) {
+             toastr.success('Modificato contratto telefonico', 'Beneficium');
+            };
+
 
             var error = function (risposta) {
                 toastr.error("Non verrò mai eseguito!");
@@ -38,8 +43,8 @@ angular.module('myBenefit')
 
 
                 modalInstance.result.then(function (contrattocellulare) {
-                    alert(contrattocellulare.cellulare.dipendente.codiceFiscale);
-                    dataServices.aggiungiContrattoTelefonico(contrattocellulare, callback, error);
+                    
+                    dataServices.aggiungiContrattoTelefonico(contrattocellulare, callbackmodificaContrattoCellulare, error);
                   
                 }, function () {
                     toastr.error('Annullata modifica contratto telefonico', 'Beneficium');

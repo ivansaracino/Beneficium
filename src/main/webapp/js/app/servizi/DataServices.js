@@ -63,7 +63,6 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         contratto.automobile = {};
         contratto.automobile.dipendente = {};
         contratto.automobile.dipendente.codiceFiscale = contrattoAuto.codiceFiscale;
-        alert(contrattoAuto.codiceFiscale);
         contratto.automobile.idAuto = contrattoAuto.idAuto;
         contratto.idContratto = contrattoAuto.idContratto;
         contratto.dataAttivazione = contrattoAuto.dataAttivazione;
@@ -89,9 +88,7 @@ angular.module('myBenefit').factory('dataServices', function ($http) {
         var contratto = {};
         contratto.cellulare={};
         contratto.cellulare.dipendente = {};
-        alert(nuovoContratto.cellulare.dipendente.codiceFiscale);
         contratto.cellulare.dipendente.codiceFiscale = nuovoContratto.cellulare.dipendente.codiceFiscale;
-       
         contratto.cellulare.id=nuovoContratto.cellulare.id;
         contratto.costoBimestrale=nuovoContratto.costoBimestrale;
         contratto.profiloContratto=nuovoContratto.profiloContratto;

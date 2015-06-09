@@ -11,11 +11,11 @@ angular.module('myBenefit')
             };
 
             var callbacknuovocontratto = function (risposta) {
-                toastr.success("Inserito " + risposta.oggetto.costoBimestrale);
+                toastr.success('Contratto telefonico inserito', 'Beneficium');
             };
 
             var callbacknuovocontrattoAuto = function (risposta) {
-                toastr.success("Inserito " + risposta.oggetto.societaLeasing);
+               toastr.success('Contratto leasing inserito', 'Beneficium');
             };
 
             var error = function (risposta) {
@@ -78,7 +78,7 @@ angular.module('myBenefit')
 
                     // salvataggio del contratto auto
                     dataServices.aggiungiContrattoAuto(contrattoAuto, callbacknuovocontrattoAuto, error);
-                    toastr.success('Contratto leasing inserito', 'Beneficium');
+                    
                 }, function () {
                     toastr.error('Annullato inserimento contratto leasing', 'Beneficium');
                 });
@@ -100,7 +100,7 @@ angular.module('myBenefit')
                 });
                 modalInstance.result.then(function (dipendente) {
                     dataServices.salva(dipendente, callbacknuovodipendente, error);
-                    toastr.success('Aggiunto Nuovo Dipendente', 'Beneficium');
+                    
 
                 }, function () {
                     toastr.error('Annullato inserimento dipendente ', 'Beneficium');

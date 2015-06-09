@@ -45,7 +45,7 @@ angular.module('myBenefit')
             
             
             $scope.modificaContrattoTelefonico = function () {
-                alert($scope.data.contrattocellulare.cellulare.dipendente.codiceFiscale);
+                
                 $modalInstance.close($scope.data.contrattocellulare);
 
             };

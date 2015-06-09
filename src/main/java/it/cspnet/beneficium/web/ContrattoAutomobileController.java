@@ -82,6 +82,7 @@ public class ContrattoAutomobileController {
         for (ContrattoAuto c : lista) {
             AutomobileView aW = new AutomobileView();
             aW.setDataAttivazione(c.getDataAttivazione());
+            aW.setCodiceFiscale(c.getAutomobile().getDipendente().getCodiceFiscale());
             aW.setDataScadenza(c.getDataScadenza());
             aW.setCostoNoleggio(c.getCostoNoleggio());
             aW.setCostoServizi(c.getCostoServizi());
