@@ -1,7 +1,7 @@
 angular.module('myBenefit')
         .controller('dipCtrl', function ($modal, $scope, dataServices, dialogServices, $location) {
             var callbacknuovodipendente = function (risposta) {
-               // $scope.dipendenti = risposta.oggetto;
+                $scope.dipendenti = risposta.oggetto;
                 toastr.success('Aggiunto nuovo dipendente', 'Beneficium');
             };
 
