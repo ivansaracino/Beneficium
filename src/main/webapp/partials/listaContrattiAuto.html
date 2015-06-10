@@ -15,11 +15,12 @@
 
 
         <thead> 
-        <th>Data Attivazione</th>
-        <th>Data Scadenza</th>
-        <th>Costo Noleggio</th>
-        <th>Costo Servizi</th>
-        <th>Società Leasing</th>
+        <th>Data attivazione</th>
+        <th>Data scadenza</th>
+        <th>Costo noleggio</th>
+        <th>Costo servizi</th>
+         <th>Kilometri</th>
+        <th>Società leasing</th>
         <th>Azioni</th>
 
 
@@ -30,6 +31,7 @@
             <td>{{contrattiauto.dataScadenza| date : 'dd-MM-yyyy'}}</td>
             <td>{{contrattiauto.costoNoleggio}}</td>
             <td>{{contrattiauto.costoServizi}}</td>
+            <td>{{contrattiauto.kilometriContratto}}</td>
             <td>{{contrattiauto.societaLeasing}}</td>
             <td>
                 <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">

@@ -4,6 +4,11 @@ angular.module('myBenefit')
                 $scope.dipendenti = risposta.oggetto;
                 toastr.success('Aggiunto nuovo dipendente', 'Beneficium');
             };
+            
+            var callbackmodificadipendente = function (risposta) {
+                $scope.dipendenti = risposta.oggetto;
+                toastr.success('Modificato il dipendente', 'Beneficium');
+            };
 
             var callbacklistadipendenti = function (risposta) {
                 $scope.dipendenti = risposta.oggetto;
@@ -126,8 +131,8 @@ angular.module('myBenefit')
 
 
                 modalInstance.result.then(function (dipendente) {
-                    dataServices.salva(dipendente, callback, error);
-                    toastr.success('Dipendente modificato', 'Beneficium');
+                    dataServices.salva(dipendente, callbackmodificadipendente, error);
+                        
 
                 }, function () {
                     toastr.error('Annullata modifica dipendente', 'Beneficium');
