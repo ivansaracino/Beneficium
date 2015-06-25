@@ -1,3 +1,4 @@
+<style>li {cursor: pointer}</style>
 <div class="row"><h3> </h3></div>
 <div class="row">
     <div class="col-md-6 intestazione">
@@ -24,6 +25,7 @@
         <th>Codice fiscale</th>
         <th>Indirizzo</th>
         <th>Stipendio mensile</th>
+        <th>Società</th>
         <th> <button class="btn btn-default" ng-click="aggiungiDipendente()"/>Nuovo</button></th>
         </thead>
         <tr ng-repeat="dipendente in dipendenti| filter:query | orderBy: 'dipendente.cognome' ">
@@ -32,6 +34,7 @@
             <td>{{dipendente.codiceFiscale}}</td>      
             <td>{{dipendente.indirizzo}}</td>
             <td>{{dipendente.stipendioMensile}}</td>
+            <td>{{dipendente.societa}}</td>
             <td>
                 <div class="btn-group" dropdown ng-hide="currentEdit[dipendente.codiceFiscale]">
                     <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button">

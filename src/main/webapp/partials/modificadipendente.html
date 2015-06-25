@@ -55,6 +55,15 @@
                 <p ng-show="dipModForm.stipendio.$invalid && !dipModForm.stipendio.$pristine" class="help-block">Inserire stipendio!</p>
             </div>
         </div>
+        
+         <div class="form-group">
+            <label class="col-sm-3 control-label">Società</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="societa" ng-model="data.dipendente.societa" value="{{data.dipendente.societa}}" required> 
+                <p ng-show="dipModForm.societa.$invalid && !dipModForm.societa.$pristine" class="help-block">Inserire società!</p>
+            </div>
+        </div>
+       
     </form>
 
 </div>

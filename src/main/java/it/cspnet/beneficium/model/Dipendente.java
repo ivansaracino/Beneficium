@@ -34,6 +34,9 @@ public class Dipendente implements Serializable {
 //    @NotEmpty
     private String indirizzo;
     private float stipendioMensile;
+    
+    private String societa;
+    
     @JsonIgnore
     @OneToMany(mappedBy = "dipendente", fetch = FetchType.LAZY)
     public Collection<Automobile> auto = new ArrayList<Automobile>();
@@ -41,6 +44,16 @@ public class Dipendente implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "dipendente", fetch = FetchType.LAZY)
     public Collection<Cellulare> cellulari = new ArrayList<Cellulare>();
+
+    public String getSocieta() {
+        return societa;
+    }
+
+    public void setSocieta(String societa) {
+        this.societa = societa;
+    }
+    
+    
 
     public String getCodiceFiscale() {
         return codiceFiscale;

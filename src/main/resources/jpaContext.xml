@@ -58,7 +58,7 @@
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 
 
-              <!--  <entry key="hibernate.hbm2ddl.auto" value="create" /> -->
+              <!-- n <entry key="hibernate.hbm2ddl.auto" value="create" /> -->
 
 
                 <entry key="hibernate.format_sql" value="true" />

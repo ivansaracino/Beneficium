@@ -55,6 +55,15 @@
                 <p ng-show="userForm.stipendio.$invalid && !userForm.stipendio.$pristine" class="help-block">Inserire stipendio!</p>
             </div>
         </div>
+        
+        <!-- SOCIETA' -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Società</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="societa"  ng-model="dipendente.societa" required>
+                <p ng-show="userForm.societa.$invalid && !userForm.societa.$pristine" class="help-block">Inserire società!</p>
+            </div>
+        </div>
 
     </form>
 
